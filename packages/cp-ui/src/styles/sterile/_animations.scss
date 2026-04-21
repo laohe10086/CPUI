@@ -1,0 +1,12 @@
+// Sterile Animations — Minimal, only essential transitions
+// No glitch, no pulse, no neon effects. Just clean state changes.
+
+@keyframes cp-progress-stripe {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+@keyframes cp-led-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

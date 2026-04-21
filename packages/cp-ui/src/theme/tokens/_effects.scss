@@ -1,0 +1,16 @@
+// Effects Tokens
+$cp-glow-intensities: (
+  'none': 0,
+  'subtle': 0.15,
+  'base': 0.35,
+  'strong': 0.6,
+  'intense': 0.85,
+);
+
+$cp-shadows: (
+  'none': none,
+  'sm': 0 2px 8px rgba(0, 0, 0, 0.4),
+  'md': 0 4px 16px rgba(0, 0, 0, 0.5),
+  'lg': 0 8px 32px rgba(0, 0, 0, 0.6),
+  'glow': 0 0 20px var(--cp-glow-primary, rgba(0, 240, 255, 0.3)),
+);

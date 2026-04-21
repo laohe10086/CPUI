@@ -1,0 +1,19 @@
+{
+  "name": "playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.5.13",
+    "@yuanfangmao/cp-ui": "file:../packages/cp-ui"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "vite": "^6.0.0",
+    "sass": "^1.83.0",
+    "typescript": "^5.7.0"
+  }
+}

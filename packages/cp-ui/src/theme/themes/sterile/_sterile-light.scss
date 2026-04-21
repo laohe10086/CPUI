@@ -1,0 +1,62 @@
+// Theme: Sterile Light — Clean, high contrast, limited accent colors
+// Sterile aesthetic: no glow, no neon, functional emphasis only.
+
+@mixin sterile-light {
+  --cp-color-primary: #b8a000;
+  --cp-color-secondary: #0099aa;
+  --cp-color-danger: #cc0030;
+  --cp-color-success: #009930;
+  --cp-color-warning: #cc7000;
+
+  --cp-bg-void: #f5f5f5;
+  --cp-bg-base: #fafafa;
+  --cp-bg-panel: #ffffff;
+  --cp-bg-elevated: #ffffff;
+  --cp-bg-hover: #f0f0f0;
+
+  --cp-text-primary: #111111;
+  --cp-text-secondary: #444444;
+  --cp-text-muted: #777777;
+  --cp-text-dim: #aaaaaa;
+
+  --cp-border-dim: rgba(0, 0, 0, 0.06);
+  --cp-border-base: rgba(0, 0, 0, 0.12);
+  --cp-border-bright: rgba(0, 153, 170, 0.3);
+  --cp-border-active: #0099aa;
+
+  --cp-glow-primary: transparent;
+  --cp-glow-secondary: transparent;
+  --cp-glow-danger: transparent;
+  --cp-glow-intensity: 0;
+
+  --cp-grid-line: rgba(0, 0, 0, 0.05);
+  --cp-grid-dot: rgba(0, 0, 0, 0.08);
+
+  --cp-font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
+
+  --cp-cut-corner-sm: none;
+  --cp-cut-corner-md: none;
+  --cp-cut-corner-lg: none;
+
+  --cp-radius-sm: 2px;
+  --cp-radius-md: 4px;
+  --cp-radius-lg: 8px;
+
+  --cp-shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --cp-shadow-md: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --cp-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+  --cp-bracket-fg: var(--cp-color-secondary);
+  --cp-bracket-muted: var(--cp-text-muted);
+
+  --cp-hud-bg: rgba(255, 255, 255, 0.95);
+  --cp-hud-border: rgba(0, 0, 0, 0.08);
+
+  --cp-duration-fast: 200ms;
+  --cp-duration-base: 300ms;
+  --cp-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --cp-scanline-opacity: 0;
+  --cp-noise-opacity: 0;
+}

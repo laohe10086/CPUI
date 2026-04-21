@@ -1,0 +1,29 @@
+// Layer 1 — Raw Color Tokens (not used directly)
+$cp-colors: (
+  'yellow': #fce803,
+  'cyan': #00f0ff,
+  'red': #ff003c,
+  'green': #00ff41,
+  'magenta': #ff00ff,
+  'purple': #b400ff,
+  'orange': #ff8c00,
+  'surface': (
+    'void': #020202,
+    'darkest': #050505,
+    'dark': #0a0a0a,
+    'panel': #141419,
+    'elevated': #1a1a1a,
+    'hover': #222228,
+  ),
+  'text': (
+    'primary': #ffffff,
+    'secondary': #cccccc,
+    'muted': #888888,
+    'dim': #555555,
+  ),
+  'border': (
+    'dim': rgba(255, 255, 255, 0.06),
+    'base': rgba(255, 255, 255, 0.12),
+    'bright': rgba(0, 240, 255, 0.3),
+  ),
+);

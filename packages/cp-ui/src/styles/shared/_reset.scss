@@ -1,0 +1,17 @@
+// Reset — minimal normalizer for CpUI
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cp-theme-provider {
+  font-family: var(--cp-font-sans);
+  color: var(--cp-text-primary);
+  background: var(--cp-bg-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

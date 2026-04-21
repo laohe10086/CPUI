@@ -1,0 +1,27 @@
+// Typography Tokens
+$cp-font-sizes: (
+  'xs': 11px,
+  'sm': 13px,
+  'base': 15px,
+  'lg': 18px,
+  'xl': 22px,
+  '2xl': 28px,
+  '3xl': 36px,
+);
+
+$cp-font-weights: (
+  'normal': 400,
+  'medium': 500,
+  'bold': 700,
+);
+
+$cp-line-heights: (
+  'tight': 1.25,
+  'base': 1.5,
+  'relaxed': 1.75,
+);
+
+$cp-font-stacks: (
+  'sans': ("'Inter'", "'Noto Sans SC'", "system-ui", "sans-serif"),
+  'mono': ("'JetBrains Mono'", "'Share Tech Mono'", "'Consolas'", "monospace"),
+);

@@ -1,0 +1,62 @@
+// Theme: Neon Noir — Cool tones
+// Cyan / magenta / purple. Cold and sophisticated.
+
+@mixin neon-noir {
+  --cp-color-primary: #00f0ff;
+  --cp-color-secondary: #ff00ff;
+  --cp-color-danger: #ff003c;
+  --cp-color-success: #00ff41;
+  --cp-color-warning: #ff8c00;
+
+  --cp-bg-void: #030308;
+  --cp-bg-base: #080812;
+  --cp-bg-panel: #0e0e1e;
+  --cp-bg-elevated: #18182e;
+  --cp-bg-hover: #22223e;
+
+  --cp-text-primary: #eeeeff;
+  --cp-text-secondary: #bbbbcc;
+  --cp-text-muted: #888899;
+  --cp-text-dim: #555566;
+
+  --cp-border-dim: rgba(255, 255, 255, 0.05);
+  --cp-border-base: rgba(255, 255, 255, 0.1);
+  --cp-border-bright: rgba(255, 0, 255, 0.3);
+  --cp-border-active: #ff00ff;
+
+  --cp-glow-primary: rgba(0, 240, 255, 0.3);
+  --cp-glow-secondary: rgba(255, 0, 255, 0.3);
+  --cp-glow-danger: rgba(255, 0, 60, 0.3);
+  --cp-glow-intensity: 0.3;
+
+  --cp-grid-line: rgba(255, 255, 255, 0.04);
+  --cp-grid-dot: rgba(0, 240, 255, 0.08);
+
+  --cp-font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
+
+  --cp-cut-corner-sm: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+  --cp-cut-corner-md: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  --cp-cut-corner-lg: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+
+  --cp-radius-sm: 2px;
+  --cp-radius-md: 4px;
+  --cp-radius-lg: 8px;
+
+  --cp-shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --cp-shadow-md: 0 4px 18px rgba(0, 0, 0, 0.6);
+  --cp-shadow-lg: 0 8px 36px rgba(0, 0, 0, 0.7);
+
+  --cp-bracket-fg: var(--cp-color-primary);
+  --cp-bracket-muted: var(--cp-text-muted);
+
+  --cp-hud-bg: rgba(8, 8, 18, 0.92);
+  --cp-hud-border: rgba(0, 240, 255, 0.2);
+
+  --cp-duration-fast: 200ms;
+  --cp-duration-base: 300ms;
+  --cp-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --cp-scanline-opacity: 0.04;
+  --cp-noise-opacity: 0.02;
+}

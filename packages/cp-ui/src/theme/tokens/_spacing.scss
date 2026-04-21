@@ -1,0 +1,29 @@
+// Spacing Tokens
+$cp-spacing: (
+  '0': 0,
+  '1': 4px,
+  '2': 8px,
+  '3': 12px,
+  '4': 16px,
+  '5': 20px,
+  '6': 24px,
+  '8': 32px,
+  '10': 40px,
+  '12': 48px,
+  '16': 64px,
+);
+
+$cp-radius: (
+  'none': 0,
+  'sm': 2px,
+  'md': 4px,
+  'lg': 8px,
+  'xl': 12px,
+  'full': 9999px,
+);
+
+$cp-cut-corners: (
+  'sm': polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%),
+  'md': polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%),
+  'lg': polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%),
+);

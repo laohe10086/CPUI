@@ -1,0 +1,63 @@
+// Theme: Sterile Dark — Pure dark, no glow
+// Clean industrial monitoring console. No neon, no glow, pure function.
+// Inspired by sterile aesthetic: minimal effects, cold gray palette, maximum readability.
+
+@mixin sterile-dark {
+  --cp-color-primary: #c8c8c8;
+  --cp-color-secondary: #8ab4c4;
+  --cp-color-danger: #cc4444;
+  --cp-color-success: #44aa66;
+  --cp-color-warning: #cc9944;
+
+  --cp-bg-void: #0a0a0c;
+  --cp-bg-base: #111114;
+  --cp-bg-panel: #18181c;
+  --cp-bg-elevated: #222228;
+  --cp-bg-hover: #2a2a32;
+
+  --cp-text-primary: #e0e0e0;
+  --cp-text-secondary: #a0a0a8;
+  --cp-text-muted: #707078;
+  --cp-text-dim: #505058;
+
+  --cp-border-dim: rgba(255, 255, 255, 0.04);
+  --cp-border-base: rgba(255, 255, 255, 0.08);
+  --cp-border-bright: rgba(138, 180, 196, 0.2);
+  --cp-border-active: #8ab4c4;
+
+  --cp-glow-primary: transparent;
+  --cp-glow-secondary: transparent;
+  --cp-glow-danger: transparent;
+  --cp-glow-intensity: 0;
+
+  --cp-grid-line: rgba(255, 255, 255, 0.02);
+  --cp-grid-dot: rgba(255, 255, 255, 0.04);
+
+  --cp-font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
+
+  --cp-cut-corner-sm: none;
+  --cp-cut-corner-md: none;
+  --cp-cut-corner-lg: none;
+
+  --cp-radius-sm: 2px;
+  --cp-radius-md: 4px;
+  --cp-radius-lg: 6px;
+
+  --cp-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --cp-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --cp-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  --cp-bracket-fg: var(--cp-text-secondary);
+  --cp-bracket-muted: var(--cp-text-muted);
+
+  --cp-hud-bg: rgba(17, 17, 20, 0.95);
+  --cp-hud-border: rgba(255, 255, 255, 0.06);
+
+  --cp-duration-fast: 150ms;
+  --cp-duration-base: 200ms;
+  --cp-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --cp-scanline-opacity: 0;
+  --cp-noise-opacity: 0;
+}
