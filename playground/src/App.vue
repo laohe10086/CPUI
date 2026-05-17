@@ -57,41 +57,174 @@
           <!-- ==================== 主题展示 ==================== -->
 
           <template v-if="activeItem === 'theme-showcase'">
-            <DocsTitle title="五主题对比" desc="同一组件在 5 种主题下的视觉差异。每个区块独立包裹 CpThemeProvider。" />
+            <DocsTitle title="五主题对比" desc="同一组件在 5 种主题下的视觉差异。每个区块独立包裹 CpThemeProvider，使用对应风格的组件。" />
             <div style="display:flex;flex-direction:column;gap:20px">
-              <div v-for="t in themeShowcaseList" :key="t.value">
-                <CpThemeProvider :theme="t.value">
-                  <div class="theme-card">
-                    <div class="theme-card__header">
-                      <span class="theme-card__name">{{ t.label }}</span>
-                      <code class="theme-card__value">{{ t.value }}</code>
+
+              <!-- 赛博朋克 -->
+              <CpThemeProvider theme="cyberpunk">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">赛博朋克</span>
+                    <code class="theme-card__value">cyberpunk</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <CyberButton variant="primary">Primary</CyberButton>
+                      <CyberButton variant="secondary">Secondary</CyberButton>
+                      <CyberButton variant="danger">Danger</CyberButton>
                     </div>
-                    <div class="theme-card__body">
-                      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-                        <CyberButton variant="primary">Primary</CyberButton>
-                        <CyberButton variant="secondary">Secondary</CyberButton>
-                        <CyberButton variant="danger">Danger</CyberButton>
-                      </div>
-                      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
-                        <CyberTag>Tag</CyberTag>
-                        <CyberBadge :value="42" />
-                        <CyberBracketLabel text="LABEL" />
-                        <CpStatusLed status="online" :pulse="true" />
-                        <CpDigitalClock :show-seconds="false" :glitch="false" />
-                      </div>
-                      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-                        <CyberCard style="width:180px">
-                          <div style="padding:12px;font-size:12px">Card 内容</div>
-                        </CyberCard>
-                        <CyberInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
-                      </div>
-                      <div style="margin-top:12px">
-                        <CyberProgressBar :percentage="72" />
-                      </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <CyberTag>Tag</CyberTag>
+                      <CyberBadge :value="42" />
+                      <CyberBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <CyberCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </CyberCard>
+                      <CyberInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <CyberProgressBar :percentage="72" />
                     </div>
                   </div>
-                </CpThemeProvider>
-              </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 无菌赛博 -->
+              <CpThemeProvider theme="sterile-cyber">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">无菌赛博</span>
+                    <code class="theme-card__value">sterile-cyber</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <SterileCyberButton variant="primary">Primary</SterileCyberButton>
+                      <SterileCyberButton variant="secondary">Secondary</SterileCyberButton>
+                      <SterileCyberButton variant="danger">Danger</SterileCyberButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <SterileCyberTag>Tag</SterileCyberTag>
+                      <SterileCyberBadge :value="42" />
+                      <SterileCyberBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <SterileCyberCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </SterileCyberCard>
+                      <SterileCyberInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <SterileCyberProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 霓虹黑 -->
+              <CpThemeProvider theme="neon-noir">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">霓虹黑</span>
+                    <code class="theme-card__value">neon-noir</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <CyberButton variant="primary">Primary</CyberButton>
+                      <CyberButton variant="secondary">Secondary</CyberButton>
+                      <CyberButton variant="danger">Danger</CyberButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <CyberTag>Tag</CyberTag>
+                      <CyberBadge :value="42" />
+                      <CyberBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <CyberCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </CyberCard>
+                      <CyberInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <CyberProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 无菌暗色 -->
+              <CpThemeProvider theme="sterile-dark">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">无菌暗色</span>
+                    <code class="theme-card__value">sterile-dark</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <SterileButton variant="primary">Primary</SterileButton>
+                      <SterileButton variant="secondary">Secondary</SterileButton>
+                      <SterileButton variant="danger">Danger</SterileButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <SterileTag>Tag</SterileTag>
+                      <SterileBadge :value="42" />
+                      <SterileBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <SterileCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </SterileCard>
+                      <SterileInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <SterileProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 无菌亮色 -->
+              <CpThemeProvider theme="sterile-light">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">无菌亮色</span>
+                    <code class="theme-card__value">sterile-light</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <SterileButton variant="primary">Primary</SterileButton>
+                      <SterileButton variant="secondary">Secondary</SterileButton>
+                      <SterileButton variant="danger">Danger</SterileButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <SterileTag>Tag</SterileTag>
+                      <SterileBadge :value="42" />
+                      <SterileBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <SterileCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </SterileCard>
+                      <SterileInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <SterileProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
             </div>
           </template>
 
@@ -100,7 +233,7 @@
           <!-- Button -->
           <template v-if="activeItem === 'button'">
             <DocsTitle title="Button 按钮" desc="常用的操作按钮，提供 Cyber / SterileCyber / Sterile 三种风格。" />
-            <DemoBlock title="Cyber 赛博朋克" description="不规则梯形 + 多层发光 + 悬停位移">
+            <DemoBlock title="Cyber 赛博朋克" description="shape=regular 上下线框 + 多层发光 + 悬停位移">
               <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                 <CyberButton variant="primary">PRIMARY</CyberButton>
                 <CyberButton variant="secondary">SECONDARY</CyberButton>
@@ -116,21 +249,21 @@
               </div>
               <template #code><DemoCode :code="codes.buttonCyber" /></template>
             </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框 + 多层发光 + 悬停位移">
+            <DemoBlock title="Cyber 赛博朋克（不规则）" description="不规则梯形 + 多层发光 + 悬停位移">
               <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-                <CyberButton variant="primary" shape="regular">PRIMARY</CyberButton>
-                <CyberButton variant="secondary" shape="regular">SECONDARY</CyberButton>
-                <CyberButton variant="danger" shape="regular">DANGER</CyberButton>
-                <CyberButton variant="ghost" shape="regular">GHOST</CyberButton>
+                <CyberButton variant="primary" shape="irregular">PRIMARY</CyberButton>
+                <CyberButton variant="secondary" shape="irregular">SECONDARY</CyberButton>
+                <CyberButton variant="danger" shape="irregular">DANGER</CyberButton>
+                <CyberButton variant="ghost" shape="irregular">GHOST</CyberButton>
               </div>
               <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
-                <CyberButton variant="primary" shape="regular" size="sm">SM</CyberButton>
-                <CyberButton variant="primary" shape="regular" size="md">MD</CyberButton>
-                <CyberButton variant="primary" shape="regular" size="lg">LG</CyberButton>
-                <CyberButton variant="primary" shape="regular" :loading="true">LOAD</CyberButton>
-                <CyberButton variant="primary" shape="regular" disabled>DISABLED</CyberButton>
+                <CyberButton variant="primary" shape="irregular" size="sm">SM</CyberButton>
+                <CyberButton variant="primary" shape="irregular" size="md">MD</CyberButton>
+                <CyberButton variant="primary" shape="irregular" size="lg">LG</CyberButton>
+                <CyberButton variant="primary" shape="irregular" :loading="true">LOAD</CyberButton>
+                <CyberButton variant="primary" shape="irregular" disabled>DISABLED</CyberButton>
               </div>
-              <template #code><DemoCode :code="codes.buttonRegular" /></template>
+              <template #code><DemoCode :code="codes.buttonIrregular" /></template>
             </DemoBlock>
             <DemoBlock title="SterileCyber 无菌赛博" description="直角 + 克制单层发光">
               <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
@@ -197,18 +330,7 @@
                 <CyberTag variant="danger">DANGER</CyberTag>
                 <CyberTag variant="success" closable>SUCCESS</CyberTag>
               </div>
-              <div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;align-items:center"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span><CyberTag variant="primary" shape="regular">PRIMARY</CyberTag><CyberTag variant="secondary" shape="regular">SECONDARY</CyberTag><CyberTag variant="danger" shape="regular">DANGER</CyberTag></div>
               <template #code><DemoCode :code="codes.tagCyber" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <div style="display:flex;gap:6px;flex-wrap:wrap">
-                <CyberTag variant="default" shape="regular">DEFAULT</CyberTag>
-                <CyberTag variant="primary" shape="regular">PRIMARY</CyberTag>
-                <CyberTag variant="secondary" shape="regular">SECONDARY</CyberTag>
-                <CyberTag variant="danger" shape="regular">DANGER</CyberTag>
-                <CyberTag variant="success" shape="regular" closable>SUCCESS</CyberTag>
-              </div>
-              <template #code><DemoCode :code="codes.tagRegular" /></template>
             </DemoBlock>
             <DemoBlock title="SterileCyber">
               <div style="display:flex;gap:6px;flex-wrap:wrap">
@@ -243,16 +365,7 @@
                 <SterileBadge variant="primary">ONLINE</SterileBadge>
                 <SterileBadge variant="danger">ERROR</SterileBadge>
               </div>
-              <div style="display:flex;gap:8px;margin-top:12px;align-items:center"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span><CyberBadge variant="primary" shape="regular">ONLINE</CyberBadge><CyberBadge variant="danger" shape="regular">ERROR</CyberBadge><CyberBadge variant="success" shape="regular">OK</CyberBadge></div>
               <template #code><DemoCode :code="codes.badge" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-                <CyberBadge variant="primary" shape="regular">ONLINE</CyberBadge>
-                <CyberBadge variant="danger" shape="regular">ERROR</CyberBadge>
-                <CyberBadge variant="success" shape="regular">OK</CyberBadge>
-              </div>
-              <template #code><DemoCode :code="codes.badgeRegular" /></template>
             </DemoBlock>
           </template>
 
@@ -301,16 +414,7 @@
                 <CyberInput v-model="inputVal" placeholder="可清除" :clearable="true" />
                 <CyberInput v-model="inputVal" placeholder="禁止输入" :disabled="true" />
               </div>
-              <div style="display:flex;gap:8px;margin-top:12px;align-items:center"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span><CyberInput v-model="inputVal" placeholder="> 霓虹输入..." shape="regular" style="max-width:240px" /></div>
               <template #code><DemoCode :code="codes.inputCyber" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
-                <CyberInput v-model="inputVal" placeholder="> 霓虹输入..." shape="regular" />
-                <CyberInput v-model="inputVal" placeholder="可清除" :clearable="true" shape="regular" />
-                <CyberInput v-model="inputVal" placeholder="禁止输入" :disabled="true" shape="regular" />
-              </div>
-              <template #code><DemoCode :code="codes.inputRegular" /></template>
             </DemoBlock>
             <DemoBlock title="SterileCyber" description="直角 + 单层发光">
               <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
@@ -345,17 +449,10 @@
                   <p style="color:var(--cp-text-secondary);font-size:13px">直角 + 无发光</p>
                 </SterileCard>
               </div>
-              <div style="margin-top:12px"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span></div>
               <CyberCard title="CYBER" shape="regular" :hoverable="true" style="max-width:200px">
                 <p style="color:var(--cp-text-secondary);font-size:13px">规则矩形 + 发光</p>
               </CyberCard>
               <template #code><DemoCode :code="codes.card" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <CyberCard title="CYBER" shape="regular" :hoverable="true" style="max-width:200px">
-                <p style="color:var(--cp-text-secondary);font-size:13px">规则矩形 + 发光</p>
-              </CyberCard>
-              <template #code><DemoCode :code="codes.cardRegular" /></template>
             </DemoBlock>
           </template>
 
@@ -389,32 +486,24 @@
                   </div>
                 </div>
               </div>
-              <div style="margin-top:12px"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span></div>
-              <div style="display:flex;gap:12px;align-items:flex-end">
-                <CyberAvatar size="sm" shape="regular" id="SM" />
-                <CyberAvatar size="md" shape="regular" :scanline="true" id="MD" />
-                <CyberAvatar size="lg" shape="regular" :scanline="true" status="online" :status-pulse="true" />
-              </div>
               <template #code><DemoCode :code="codes.avatar" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <div style="display:flex;gap:12px;align-items:flex-end">
-                <CyberAvatar size="sm" shape="regular" id="SM" />
-                <CyberAvatar size="md" shape="regular" :scanline="true" id="MD" />
-                <CyberAvatar size="lg" shape="regular" :scanline="true" status="online" :status-pulse="true" />
-              </div>
-              <template #code><DemoCode :code="codes.avatarRegular" /></template>
             </DemoBlock>
           </template>
 
           <!-- StatsGrid -->
           <template v-if="activeItem === 'stats-grid'">
-            <DocsTitle title="StatsGrid 数据面板" desc="2 列网格 + Oswald 黄色数值 + 趋势箭头 + 高亮脉冲。" />
-            <DemoBlock title="Cyber（原版风格）" description="与原网站侧边栏统计面板一致">
-              <div style="max-width:380px;background:#0a0e14;padding:1.5rem;border:1px solid #333">
+            <DocsTitle title="StatsGrid 数据面板" desc="角装饰 + 趋势箭头 + 数值脉冲 + 扫描线。" />
+            <DemoBlock title="Cyber" description="角括号装饰 + 趋势箭头（绿/红）+ 高亮脉冲">
+              <div style="max-width:420px">
                 <CyberStatsGrid :stats="statsData" />
               </div>
               <template #code><DemoCode :code="codes.stats" /></template>
+            </DemoBlock>
+            <DemoBlock title="Cyber + 扫描线" description="叠加 CRT 扫描线纹理">
+              <div style="max-width:420px">
+                <CyberStatsGrid :stats="statsData" :scanline="true" />
+              </div>
+              <template #code><DemoCode :code="codes.statsScanline" /></template>
             </DemoBlock>
             <DemoBlock title="三风格对比">
               <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
@@ -510,17 +599,10 @@
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
                 </SterilePanel>
               </div>
-              <div style="margin-top:12px"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span></div>
               <CyberPanel title="SYSTEM" label="monitor" shape="regular">
                 <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
               </CyberPanel>
               <template #code><DemoCode :code="codes.panel" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <CyberPanel title="SYSTEM" label="monitor" shape="regular">
-                <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
-              </CyberPanel>
-              <template #code><DemoCode :code="codes.panelRegular" /></template>
             </DemoBlock>
           </template>
 
@@ -528,27 +610,41 @@
 
           <!-- Pagination -->
           <template v-if="activeItem === 'pagination'">
-            <DocsTitle title="Pagination 分页" desc="数据翻页。Cyber 按钮为梯形。" />
-            <DemoBlock title="三风格对比">
+            <DocsTitle title="Pagination 分页" desc="数据翻页。Cyber 提供规则 / 不规则两种形状。" />
+            <DemoBlock title="Cyber 赛博朋克" description="梯形斜切 + 发光">
+              <CyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" />
+              <template #code><DemoCode :code="codes.paginationCyber" /></template>
+            </DemoBlock>
+            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框 + 发光">
+              <CyberPagination shape="regular" :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" />
+              <template #code><DemoCode :code="codes.paginationRegular" /></template>
+            </DemoBlock>
+            <DemoBlock title="SterileCyber / Sterile">
               <div style="display:flex;flex-direction:column;gap:20px">
-                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
-                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SC</div><SterileCyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterilePagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
               </div>
-              <template #code><DemoCode :code="codes.pagination" /></template>
+              <template #code><DemoCode :code="codes.paginationSC" /></template>
             </DemoBlock>
           </template>
 
           <!-- CategoryTabs -->
           <template v-if="activeItem === 'category-tabs'">
-            <DocsTitle title="CategoryTabs 分类标签" desc="分类选择器。Cyber 每个标签为平行四边形。" />
-            <DemoBlock title="三风格对比">
+            <DocsTitle title="CategoryTabs 分类标签" desc="分类选择器。Cyber 提供规则 / 不规则两种形状。" />
+            <DemoBlock title="Cyber 赛博朋克" description="平行四边形斜切 + 发光">
+              <CyberCategoryTabs :tabs="catTabs" v-model="activeCat" />
+              <template #code><DemoCode :code="codes.catTabsCyber" /></template>
+            </DemoBlock>
+            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框 + 发光">
+              <CyberCategoryTabs shape="regular" :tabs="catTabs" v-model="activeCat" />
+              <template #code><DemoCode :code="codes.catTabsRegular" /></template>
+            </DemoBlock>
+            <DemoBlock title="SterileCyber / Sterile">
               <div style="display:flex;flex-direction:column;gap:20px">
-                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
-                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SC</div><SterileCyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
               </div>
-              <template #code><DemoCode :code="codes.catTabs" /></template>
+              <template #code><DemoCode :code="codes.catTabsSC" /></template>
             </DemoBlock>
           </template>
 
@@ -580,14 +676,7 @@
                 <p style="color:var(--cp-text-secondary)">直角 + 无发光。</p>
                 <div style="margin-top:16px"><SterileButton variant="primary" size="sm" @click="showSterileModal = false">CONFIRM</SterileButton></div>
               </SterileModal>
-              <div style="display:flex;gap:8px;margin-top:12px;align-items:center"><span style="font-size:10px;color:var(--cp-text-muted);margin-right:4px">regular:</span><CyberButton variant="primary" shape="regular" @click="showCyberModal = true">REGULAR</CyberButton></div>
               <template #code><DemoCode :code="codes.modal" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框">
-              <div style="display:flex;gap:12px">
-                <CyberButton variant="primary" shape="regular" @click="showCyberModal = true">Cyber Regular Modal</CyberButton>
-              </div>
-              <template #code><DemoCode :code="codes.modalRegular" /></template>
             </DemoBlock>
           </template>
 
@@ -827,9 +916,9 @@
               <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">背景已应用到整个页面，点击切换变体查看效果</p>
               <template #code><DemoCode :code="codes.background" /></template>
             </DemoBlock>
-            <DemoBlock title="CpGridLayer" description="网格纹理：dot / line / cross">
+            <DemoBlock title="CpGridLayer" description="网格纹理：dot / line">
               <div style="display:flex;gap:12px">
-                <div v-for="p in ['dot','line','cross']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">{{ p }}</div>
+                <div v-for="p in ['dot','line']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">{{ p }}</div>
                 <div @click="showGrid=false" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">关闭</div>
               </div>
               <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">网格已叠加到页面，点击切换图案</p>
@@ -1137,7 +1226,7 @@ const themeShowcaseList = [
 ]
 const bgVariant = ref<'mesh' | 'glow' | 'minimal' | 'neon'>('neon')
 const showGrid = ref(true)
-const gridPattern = ref<'dot' | 'line' | 'cross'>('line')
+const gridPattern = ref<'dot' | 'line'>('line')
 const showToc = ref(false)
 const tocActive = ref(0)
 const tocChapters = ['系统初始化', '连接协议', '数据同步', '安全审计', '日志归档']
@@ -1403,6 +1492,9 @@ const codes = {
 <CyberButton variant="secondary">SECONDARY</CyberButton>
 <CyberButton variant="danger">DANGER</CyberButton>
 <CyberButton variant="ghost">GHOST</CyberButton>
+<CyberButton variant="primary" size="sm">SM</CyberButton>
+<CyberButton variant="primary" size="md">MD</CyberButton>
+<CyberButton variant="primary" size="lg">LG</CyberButton>
 <CyberButton variant="primary" :loading="true">LOAD</CyberButton>
 <CyberButton variant="primary" disabled>DISABLED</CyberButton>`,
   buttonSC: `<SterileCyberButton variant="primary">PRIMARY</SterileCyberButton>
@@ -1413,10 +1505,15 @@ const codes = {
 <SterileButton variant="secondary">SECONDARY</SterileButton>
 <SterileButton variant="danger">DANGER</SterileButton>
 <SterileButton variant="ghost">GHOST</SterileButton>`,
-  buttonRegular: `<CyberButton variant="primary" shape="regular">PRIMARY</CyberButton>
-<CyberButton variant="secondary" shape="regular">SECONDARY</CyberButton>
-<CyberButton variant="danger" shape="regular">DANGER</CyberButton>
-<CyberButton variant="ghost" shape="regular">GHOST</CyberButton>`,
+  buttonIrregular: `<CyberButton variant="primary" shape="irregular" size="md">PRIMARY</CyberButton>
+<CyberButton variant="secondary" shape="irregular">SECONDARY</CyberButton>
+<CyberButton variant="danger" shape="irregular">DANGER</CyberButton>
+<CyberButton variant="ghost" shape="irregular">GHOST</CyberButton>
+<CyberButton variant="primary" shape="irregular" size="sm">SM</CyberButton>
+<CyberButton variant="primary" shape="irregular" size="md">MD</CyberButton>
+<CyberButton variant="primary" shape="irregular" size="lg">LG</CyberButton>
+<CyberButton variant="primary" shape="irregular" :loading="true">LOAD</CyberButton>
+<CyberButton variant="primary" shape="irregular" disabled>DISABLED</CyberButton>`,
   tagCyber: `<CyberTag variant="primary">PRIMARY</CyberTag>
 <CyberTag variant="secondary">SECONDARY</CyberTag>
 <CyberTag variant="danger">DANGER</CyberTag>
@@ -1480,7 +1577,8 @@ const codes = {
 <CyberAvatar size="lg" shape="regular" :scanline="true" status="online" :status-pulse="true" />`,
   stats: `<CyberStatsGrid :stats="statsData" />
 <SterileCyberStatsGrid :stats="statsData" />
-<SterileStatsGrid :stats="statsData" />
+<SterileStatsGrid :stats="statsData" />`,
+  statsScanline: `<CyberStatsGrid :stats="statsData" :scanline="true" />
 
 <!-- statsData -->
 const statsData = [
@@ -1518,12 +1616,43 @@ const statsData = [
   panelRegular: `<CyberPanel title="SYSTEM" label="monitor" shape="regular">
   <slot />
 </CyberPanel>`,
-  pagination: `<CyberPagination
+  paginationCyber: `<CyberPagination
   :current-page="page"
   :total-pages="12"
   @update:current-page="page = $event"
 />`,
-  catTabs: `<CyberCategoryTabs :tabs="tabs" v-model="active" />
+  paginationRegular: `<CyberPagination
+  shape="regular"
+  :current-page="page"
+  :total-pages="12"
+  @update:current-page="page = $event"
+/>`,
+  paginationSC: `<SterileCyberPagination
+  :current-page="page"
+  :total-pages="12"
+  @update:current-page="page = $event"
+/>
+
+<SterilePagination
+  :current-page="page"
+  :total-pages="12"
+  @update:current-page="page = $event"
+/>`,
+  catTabsCyber: `<CyberCategoryTabs :tabs="tabs" v-model="active" />
+
+const tabs = [
+  { label: '全部', value: 'all', count: 42 },
+  { label: 'Vue', value: 'vue', count: 18 },
+]`,
+  catTabsRegular: `<CyberCategoryTabs shape="regular" :tabs="tabs" v-model="active" />
+
+const tabs = [
+  { label: '全部', value: 'all', count: 42 },
+  { label: 'Vue', value: 'vue', count: 18 },
+]`,
+  catTabsSC: `<SterileCyberCategoryTabs :tabs="tabs" v-model="active" />
+
+<SterileCategoryTabs :tabs="tabs" v-model="active" />
 
 const tabs = [
   { label: '全部', value: 'all', count: 42 },
@@ -1601,7 +1730,7 @@ const tabs = [
 <CpBackground variant="horizon" />`,
   gridLayer: `<CpGridLayer pattern="dot" :opacity="0.6" />
 <CpGridLayer pattern="line" :opacity="0.6" />
-<CpGridLayer pattern="cross" :opacity="0.6" />`,
+<CpGridLayer pattern="line" :opacity="0.6" />`,
   hudStrip: `<CpHudStrip position="top" />
 <CpHudStrip position="bottom" dense />`,
   floatingToolbar: `<CpFloatingToolbar position="right">

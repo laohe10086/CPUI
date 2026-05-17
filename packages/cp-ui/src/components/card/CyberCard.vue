@@ -48,18 +48,14 @@ withDefaults(defineProps<CardProps>(), {
     clip-path: var(--cp-cut-corner-md);
   }
   &--irregular {
-    /* Multi-notch asymmetric polygon: TL small notch, TR large diagonal, BR small notch, BL stepped zigzag */
+    /* Asymmetric polygon: TL diagonal cut + BR diagonal cut */
     clip-path: polygon(
-      8px 0,
-      calc(100% - 24px) 0,
-      100% 24px,
-      100% calc(100% - 10px),
-      calc(100% - 10px) 100%,
-      calc(60% + 10px) 100%,
-      calc(60%) calc(100% - 6px),
-      calc(60% - 10px) 100%,
-      0 100%,
-      0 8px
+      0 12px,
+      12px 0,
+      100% 0,
+      100% calc(100% - 12px),
+      calc(100% - 12px) 100%,
+      0 100%
     );
   }
   &--regular {

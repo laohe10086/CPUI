@@ -86,8 +86,7 @@ const sizeStyle = computed(() => ({
   }
 
   &--bordered {
-    padding: 4px 10px;
-    border: 2px solid #000;
+    /* 仅保留 props 接口，不添加额外样式 */
   }
 }
 

@@ -29,7 +29,7 @@ import type { ButtonProps } from '../../types/components'
 withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
   size: 'md',
-  shape: 'irregular',
+  shape: 'regular',
   disabled: false,
   loading: false,
   block: false,
@@ -130,9 +130,9 @@ defineEmits<{ click: [e: MouseEvent] }>()
     color: var(--cp-text-secondary);
     border-color: var(--cp-border-base);
     &:hover:not(:disabled) {
-      color: var(--cp-color-secondary);
-      border-color: var(--cp-color-secondary);
-      box-shadow: 0 0 15px var(--cp-glow-secondary);
+      color: var(--cp-text-primary);
+      border-color: var(--cp-text-muted);
+      box-shadow: none;
       transform: translateY(-1px);
     }
   }

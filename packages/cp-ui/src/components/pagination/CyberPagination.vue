@@ -1,5 +1,11 @@
 <template>
-  <div class="cyber-pagination">
+  <div
+    class="cyber-pagination"
+    :class="{
+      'cyber-pagination--regular': shape === 'regular',
+      'cyber-pagination--irregular': shape === 'irregular',
+    }"
+  >
     <button
       class="cyber-pagination__btn"
       :disabled="currentPage <= 1"
@@ -23,7 +29,9 @@
 <script setup lang="ts">
 import type { PaginationProps } from '../../types/components'
 
-defineProps<PaginationProps>()
+withDefaults(defineProps<PaginationProps>(), {
+  shape: 'irregular',
+})
 
 defineEmits<{ 'update:currentPage': [page: number] }>()
 </script>
@@ -58,6 +66,12 @@ defineEmits<{ 'update:currentPage': [page: number] }>()
       opacity: 0.3;
       cursor: not-allowed;
     }
+  }
+
+  &--regular &__btn {
+    clip-path: none;
+    border-left: 0;
+    border-right: 0;
   }
 
   &__info {

@@ -93,10 +93,10 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
   &--irregular {
     clip-path: polygon(
       0 0,
-      calc(100% - 20px) 0,
-      100% 20px,
+      100% 0,
       100% 100%,
-      0 100%
+      20px 100%,
+      0 calc(100% - 20px)
     );
   }
   &--regular {

@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<{
   autoStart?: boolean
 }>(), {
   title: 'INITIALIZING NEURAL LINK...',
-  systemInfo: 'BIOS DATE: 2077.08.20 // VER 550W',
+  systemInfo: 'BIOS DATE: 2099.??.?? // JACK',
   duration: 2200,
   sessionOnce: true,
   sessionKey: 'cp-boot-animation-played',
@@ -78,7 +78,7 @@ defineExpose({ start })
   justify-content: center;
   align-items: center;
   color: var(--cp-yellow, #fce803);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Oswald', 'Impact', sans-serif;
 }
 
 .boot-animation__title {

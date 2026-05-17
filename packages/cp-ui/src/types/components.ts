@@ -99,6 +99,7 @@ export interface ModalProps {
 export interface PaginationProps {
   currentPage: number
   totalPages: number
+  shape?: 'regular' | 'irregular'
 }
 
 export interface AvatarProps {
@@ -124,6 +125,7 @@ export interface ProgressBarProps {
 export interface CategoryTabsProps {
   tabs: CategoryTab[]
   modelValue: string
+  shape?: 'regular' | 'irregular'
 }
 
 export interface StatsGridProps {

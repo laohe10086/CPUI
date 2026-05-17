@@ -7,7 +7,7 @@
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
-  pattern?: 'dot' | 'line' | 'cross'
+  pattern?: 'dot' | 'line'
   opacity?: number
 }>(), {
   pattern: 'dot',
@@ -36,15 +36,6 @@ const gridStyle = computed(() => ({
       linear-gradient(90deg, var(--cp-grid-line) 1px, transparent 1px);
     background-size: 40px 40px;
   }
-  &--cross {
-    background-image:
-      linear-gradient(var(--cp-grid-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--cp-grid-line) 1px, transparent 1px),
-      radial-gradient(circle, var(--cp-grid-dot) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: center;
-  }
-
   // Scanline overlay — horizontal stripes
 }
 </style>

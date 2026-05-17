@@ -24,26 +24,39 @@ defineEmits<{ 'update:modelValue': [value: string] }>()
 <style lang="scss" scoped>
 .sterile-category-tabs {
   display: flex;
-  gap: 2px;
+  gap: 28px;
   font-family: var(--cp-font-sans);
 
   &__tab {
-    border-radius: 0;
+    position: relative;
     background: transparent;
-    border: 1px solid transparent;
+    border: none;
     color: var(--cp-text-muted);
-    padding: 6px 14px;
+    padding: 4px 0;
     cursor: pointer;
     transition: all var(--cp-duration-fast) var(--cp-easing);
+    font-size: 0.9em;
 
-    &--active {
-      background: var(--cp-bg-hover);
-      border-color: var(--cp-border-bright);
+    &:hover:not(.sterile-category-tabs__tab--active) {
       color: var(--cp-text-primary);
     }
 
-    &:hover:not(.sterile-category-tabs__tab--active) {
-      background: var(--cp-bg-hover);
+    &--active {
+      color: var(--cp-text-primary);
+      font-weight: 600;
+
+      // 短横线指示器（只占文字宽度的 1/3）
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30%;
+        height: 2px;
+        background: var(--cp-text-primary);
+        border-radius: 1px;
+      }
     }
   }
 
@@ -54,6 +67,7 @@ defineEmits<{ 'update:modelValue': [value: string] }>()
   &__count {
     color: var(--cp-text-dim);
     font-size: 0.85em;
+    margin-left: 4px;
   }
 }
 </style>
