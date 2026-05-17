@@ -11,6 +11,8 @@
           <span class="docs__topbar-page">{{ currentCategory.label }}</span>
         </div>
         <div class="docs__topbar-right">
+          <a class="docs__link" href="https://github.com/laohe10086/CPUI" target="_blank" rel="noopener">GitHub</a>
+          <a class="docs__link" href="https://www.npmjs.com/package/@yuanfangmao/cp-ui" target="_blank" rel="noopener">npm</a>
           <select v-model="bgVariant" class="docs__ctrl">
             <option value="neon">霓虹</option>
             <option value="mesh">网格</option>
@@ -54,6 +56,55 @@
         <main class="docs__content">
           <!-- ==================== 基础 Basic ==================== -->
 
+          <!-- ==================== 快速开始 ==================== -->
+          <template v-if="activeItem === 'quickstart'">
+            <DocsTitle title="快速开始" desc="@yuanfangmao/cp-ui 是一个 Vue 3 赛博朋克风格组件库，内置 5 种主题，支持全局引入与按需引入。" />
+
+            <DemoBlock title="1. 安装" description="使用 npm 或 pnpm 安装">
+              <div class="quickstart-install">
+                <code class="quickstart-cmd">npm install @yuanfangmao/cp-ui</code>
+                <button class="quickstart-cmd-copy" @click="copyInstall">{{ copyInstallText }}</button>
+              </div>
+            </DemoBlock>
+
+            <DemoBlock title="2. 全局引入（推荐）" description="在 main.ts 中一次性引入所有组件和样式">
+              <DemoCode :code="globalImportCode" />
+            </DemoBlock>
+
+            <DemoBlock title="3. 按需引入" description="只引入需要的组件，配合 Tree Shaking">
+              <DemoCode :code="treeShakingCode" />
+            </DemoBlock>
+
+            <DemoBlock title="4. 使用示例" description="在模板中使用组件，并包裹 CpThemeProvider 切换主题">
+              <div class="quickstart-preview">
+                <CpThemeProvider theme="cyberpunk">
+                  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px;">
+                    <CyberButton variant="primary">Primary</CyberButton>
+                    <CyberButton variant="secondary">Secondary</CyberButton>
+                    <CyberTag>标签</CyberTag>
+                    <CyberBadge text="42" />
+                  </div>
+                </CpThemeProvider>
+              </div>
+              <DemoCode :code="usageCode" />
+            </DemoBlock>
+
+            <DemoBlock title="5. 主题切换" description="CpThemeProvider 支持 5 种主题：cyberpunk / sterile-cyber / neon-noir / sterile-dark / sterile-light">
+              <DemoCode :code="themeCode" />
+            </DemoBlock>
+
+            <DemoBlock title="6. 相关链接" description="源码与包管理页面">
+              <div class="quickstart-links">
+                <a class="quickstart-link" href="https://github.com/laohe10086/CPUI" target="_blank" rel="noopener">
+                  <CyberButton variant="secondary">🐙 GitHub 仓库</CyberButton>
+                </a>
+                <a class="quickstart-link" href="https://www.npmjs.com/package/@yuanfangmao/cp-ui" target="_blank" rel="noopener">
+                  <CyberButton variant="primary">📦 npm 包页</CyberButton>
+                </a>
+              </div>
+            </DemoBlock>
+          </template>
+
           <!-- ==================== 主题展示 ==================== -->
 
           <template v-if="activeItem === 'theme-showcase'">
@@ -75,7 +126,7 @@
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
                       <CyberTag>Tag</CyberTag>
-                      <CyberBadge :value="42" />
+                      <CyberBadge text="42" />
                       <CyberBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
@@ -108,7 +159,7 @@
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
                       <SterileCyberTag>Tag</SterileCyberTag>
-                      <SterileCyberBadge :value="42" />
+                      <SterileCyberBadge text="42" />
                       <SterileCyberBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
@@ -141,7 +192,7 @@
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
                       <CyberTag>Tag</CyberTag>
-                      <CyberBadge :value="42" />
+                      <CyberBadge text="42" />
                       <CyberBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
@@ -174,7 +225,7 @@
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
                       <SterileTag>Tag</SterileTag>
-                      <SterileBadge :value="42" />
+                      <SterileBadge text="42" />
                       <SterileBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
@@ -207,7 +258,7 @@
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
                       <SterileTag>Tag</SterileTag>
-                      <SterileBadge :value="42" />
+                      <SterileBadge text="42" />
                       <SterileBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
@@ -1236,7 +1287,7 @@ const topNavThemes = [
   { value: 'sterile-cyber', label: '无菌赛博' },
   { value: 'sterile-light', label: '无菌亮色' },
 ]
-const activeItem = ref('button')
+const activeItem = ref('quickstart')
 const inputVal = ref('')
 const showCyberModal = ref(false)
 const showSCModal = ref(false)
@@ -1369,6 +1420,12 @@ const articleMessages = [
 
 const categories = [
   {
+    key: 'quickstart', label: '快速开始 Quickstart',
+    items: [
+      { key: 'quickstart', label: '安装与使用' },
+    ],
+  },
+  {
     key: 'theme', label: '主题展示 Theme',
     items: [
       { key: 'theme-showcase', label: '五主题对比' },
@@ -1455,6 +1512,46 @@ const statsData = [
   { value: '3,540', label: '数据分片', trend: 'up' as const, trendValue: '+5%' },
   { value: '142ms', label: '延迟时间', trend: 'down' as const, trendValue: '-3%', dynamic: true },
 ]
+const installCmd = 'npm install @yuanfangmao/cp-ui'
+const copyInstallText = ref('复制')
+function copyInstall() {
+  navigator.clipboard.writeText(installCmd).then(() => {
+    copyInstallText.value = '✓ 已复制'
+    setTimeout(() => { copyInstallText.value = '复制' }, 1500)
+  })
+}
+const globalImportCode = `import { createApp } from 'vue'
+import CpUI from '@yuanfangmao/cp-ui'
+import '@yuanfangmao/cp-ui/dist/style.css'
+
+const app = createApp(App)
+app.use(CpUI)
+app.mount('#app')`
+const treeShakingCode = `import { CyberButton, CyberTag, CpThemeProvider } from '@yuanfangmao/cp-ui'
+import '@yuanfangmao/cp-ui/dist/style.css'
+
+// 在组件中使用
+<template>
+  <CpThemeProvider theme="cyberpunk">
+    <CyberButton variant="primary">点击我</CyberButton>
+    <CyberTag>标签</CyberTag>
+  </CpThemeProvider>
+</template>`
+const usageCode = `<template>
+  <CpThemeProvider theme="cyberpunk">
+    <CyberButton variant="primary">Primary</CyberButton>
+    <CyberButton variant="secondary">Secondary</CyberButton>
+    <CyberTag>标签</CyberTag>
+    <CyberBadge text="42" />
+  </CpThemeProvider>
+</template>`
+const themeCode = `<!-- 切换主题只需改 theme 属性 -->
+<CpThemeProvider theme="cyberpunk">    <!-- 赛博朋克 -->
+<CpThemeProvider theme="sterile-cyber"> <!-- 无菌赛博 -->
+<CpThemeProvider theme="neon-noir">     <!-- 霓虹黑 -->
+<CpThemeProvider theme="sterile-dark">  <!-- 无菌暗色 -->
+<CpThemeProvider theme="sterile-light"> <!-- 无菌亮色 -->`
+
 const terminalEntries = [
   { message: 'System initialized', type: 'system' as const, timestamp: '14:30:00', source: 'INIT' },
   { message: 'Migration 042 applied', type: 'success' as const, timestamp: '14:30:18', source: 'DB' },
@@ -1898,6 +1995,23 @@ export default { name: 'App', components: { DocsTitle } }
     &-sep { color: var(--cp-text-dim); font-size: 12px; }
     &-page { font-family: var(--cp-font-mono); font-size: 13px; color: var(--cp-text-secondary); }
   }
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    font-family: var(--cp-font-mono);
+    font-size: 11px;
+    color: var(--cp-text-muted);
+    text-decoration: none;
+    border: 1px solid var(--cp-border-base);
+    background: var(--cp-bg-base);
+    transition: all 0.15s;
+    &:hover {
+      color: var(--cp-color-secondary);
+      border-color: var(--cp-color-secondary);
+      text-decoration: none;
+    }
+  }
 
   &__ctrl {
     background: var(--cp-bg-base);
@@ -2261,6 +2375,51 @@ export default { name: 'App', components: { DocsTitle } }
     padding: 16px;
     background: var(--cp-bg-base, #0a0e14);
   }
+}
+
+/* ===== Quickstart ===== */
+.quickstart-install {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.quickstart-cmd {
+  font-family: var(--cp-font-mono);
+  font-size: 13px;
+  color: var(--cp-text-primary);
+  background: var(--cp-bg-elevated);
+  padding: 8px 14px;
+  border: 1px solid var(--cp-border-base);
+  border-radius: var(--cp-radius-sm);
+}
+.quickstart-cmd-copy {
+  font-family: var(--cp-font-mono);
+  font-size: 11px;
+  color: var(--cp-text-muted);
+  background: var(--cp-bg-base);
+  border: 1px solid var(--cp-border-base);
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.quickstart-cmd-copy:hover {
+  color: var(--cp-color-secondary);
+  border-color: var(--cp-color-secondary);
+}
+.quickstart-preview {
+  padding: 8px;
+  background: var(--cp-bg-void);
+  border: 1px dashed var(--cp-border-dim);
+  margin-bottom: 12px;
+}
+.quickstart-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.quickstart-link {
+  text-decoration: none;
 }
 
 </style>
