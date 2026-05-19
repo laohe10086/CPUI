@@ -1143,6 +1143,50 @@
             </DemoBlock>
           </template>
 
+          <!-- ==================== 创意工坊 ==================== -->
+
+          <template v-if="activeItem === 'creative-workshop'">
+            <DocsTitle title="创意工坊" desc="社区贡献的创意组件展示区。如果你有基于 CpUI 的原创组件，欢迎提交 PR 添加到这里。" />
+
+            <DemoBlock title="贡献规范" description="如何添加你的创意组件">
+              <div style="display:flex;flex-direction:column;gap:16px;color:var(--cp-text-secondary);font-size:13px;line-height:1.8;">
+                <p>欢迎基于本组件库进行二次创作。如果你开发了新的创意组件，请按以下格式展示：</p>
+                <ol style="margin:0;padding-left:20px;">
+                  <li>将你的创意组件放入本区域，不干扰原有组件的正常展示</li>
+                  <li>在组件下方<strong>单独一行</strong>说明<strong>基于哪个原有组件</strong>扩展，以及这是什么创意</li>
+                  <li>在说明下方写上你的 <strong>GitHub 个人主页链接</strong> 和 <strong>名字/昵称</strong></li>
+                </ol>
+                <p style="margin:8px 0 0;font-family:var(--cp-font-mono);font-size:11px;color:var(--cp-text-muted);">// 示例格式：</p>
+                <div style="margin-top:12px;border:1px solid var(--cp-border-dim);background:var(--cp-bg-panel);">
+                  <div style="padding:12px 16px;font-family:var(--cp-font-mono);font-size:14px;font-weight:600;color:var(--cp-text-primary);">故障文字</div>
+                  <div style="padding:16px;border-top:1px solid var(--cp-border-dim);border-bottom:1px solid var(--cp-border-dim);">
+                    <CyberGlitchText text="GLITCH" tag="h2" style="font-size: 36px" />
+                  </div>
+                  <div style="padding:12px 16px;background:rgba(0,0,0,0.3);font-family:var(--cp-font-mono);font-size:12px;color:var(--cp-text-secondary);line-height:1.7;">
+                    <code>&lt;CyberGlitchText text="GLITCH" tag="h2" style="font-size: 36px" /&gt;</code>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:4px;padding:10px 16px;border-top:1px solid var(--cp-border-dim);font-family:var(--cp-font-mono);font-size:11px;color:var(--cp-text-dim);">
+                    <span>✨ 基于 CyberGlitchText 的故障文字闪烁效果</span>
+                    <div style="width:50%;height:1px;background:var(--cp-border-base);margin:2px auto;"></div>
+                    <span>github：<a href="https://github.com/laohe10086/CPUI" target="_blank" style="color:var(--cp-color-secondary);text-decoration:none;">https://github.com/laohe10086/CPUI</a> by：老何10086</span>
+                  </div>
+                </div>
+              </div>
+            </DemoBlock>
+
+            <DemoBlock title="暂无内容" description="等待第一位贡献者">
+              <div style="display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;padding:40px 0;color:var(--cp-text-dim);">
+                <CpLogo text="EMPTY" size="md" />
+                <p style="font-family:var(--cp-font-mono);font-size:13px;">暂无创意组件，期待你的贡献</p>
+                <a href="https://github.com/laohe10086/CPUI" target="_blank" rel="noopener" style="color:var(--cp-color-secondary);font-family:var(--cp-font-mono);font-size:11px;text-decoration:none;border-bottom:1px solid var(--cp-color-secondary);">
+                  前往 GitHub 提交你的创意 →
+                </a>
+              </div>
+            </DemoBlock>
+          </template>
+
+          <!-- ==================== 布局演示 ==================== -->
+
           <template v-if="activeItem === 'index-panel'">
             <DocsTitle title="IndexPanel 索引面板" desc="组合组件演示：搜索 + 过滤 + 卡片网格 + 分页。" />
             <DemoBlock title="完整示例" description="搜索 + 过滤 + 卡片网格 + 分页">
@@ -1490,6 +1534,12 @@ const categories = [
     items: [
       { key: 'index-panel', label: 'IndexPanel 索引面板' },
       { key: 'topnav', label: 'TopNav 顶栏' },
+    ],
+  },
+  {
+    key: 'creative', label: '创意工坊 Creative',
+    items: [
+      { key: 'creative-workshop', label: '创意组件区' },
     ],
   },
 ]
