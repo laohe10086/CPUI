@@ -1,6 +1,6 @@
 {
   "name": "@yuanfangmao/cp-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "./dist/cp-ui.cjs",
   "module": "./dist/cp-ui.mjs",
@@ -13,8 +13,11 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
+  "license": "SEE LICENSE IN LICENSE",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "vite build",
