@@ -32,10 +32,12 @@ provide(THEME_KEY, { currentTheme, setTheme })
 @use './themes/cyberpunk/cyberpunk' as cyber;
 @use './themes/cyberpunk/sterile-cyber' as sterile;
 @use './themes/cyberpunk/neon-noir' as noir;
+@use './themes/cyberpunk/blueprint' as blueprint;
 
 // === Sterile style group ===
 @use './themes/sterile/sterile-dark' as sdark;
 @use './themes/sterile/sterile-light' as slight;
+@use './themes/sterile/brutal' as brutal;
 
 // === Shared styles ===
 @use '../styles/shared/reset';
@@ -112,10 +114,12 @@ body[data-theme] {
   &[data-theme="sterile-cyber"] { @include sterile.sterile-cyber; }
   &[data-theme="cyberpunk"] { @include cyber.cyberpunk; }
   &[data-theme="neon-noir"] { @include noir.neon-noir; }
+  &[data-theme="blueprint"] { @include blueprint.blueprint; }
 
   // Sterile themes
   &[data-theme="sterile-dark"] { @include sdark.sterile-dark; }
   &[data-theme="sterile-light"] { @include slight.sterile-light; }
+  &[data-theme="brutal"] { @include brutal.brutal; }
 
   // Legacy alias: "light" maps to sterile-light
   &[data-theme="light"] { @include slight.sterile-light; }

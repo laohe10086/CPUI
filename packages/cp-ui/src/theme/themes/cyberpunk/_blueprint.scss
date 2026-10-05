@@ -1,0 +1,63 @@
+// Theme: Blueprint — 工程图纸 × 赛博朋克
+// 纯黑底 + 电光蓝紫单色强调 + 虚线蓝图网格 + 直角锚点 + 克制光效
+// 参考 commandcode.ai 的 terminal brutalism，保留赛博霓虹基因
+
+@mixin blueprint {
+  --cp-color-primary: #6366f1;
+  --cp-color-secondary: #00f0ff;
+  --cp-color-danger: #ff003c;
+  --cp-color-success: #00ff41;
+  --cp-color-warning: #ff8c00;
+
+  --cp-bg-void: #000000;
+  --cp-bg-base: #030305;
+  --cp-bg-panel: #08080d;
+  --cp-bg-elevated: #0e0e16;
+  --cp-bg-hover: #15151f;
+
+  --cp-text-primary: #f2f2f5;
+  --cp-text-secondary: #b8b8c4;
+  --cp-text-muted: #7a7a88;
+  --cp-text-dim: #4a4a55;
+
+  --cp-border-dim: rgba(255, 255, 255, 0.06);
+  --cp-border-base: rgba(255, 255, 255, 0.12);
+  --cp-border-bright: rgba(99, 102, 241, 0.35);
+  --cp-border-active: #6366f1;
+
+  --cp-glow-primary: rgba(99, 102, 241, 0.22);
+  --cp-glow-secondary: rgba(0, 240, 255, 0.18);
+  --cp-glow-danger: rgba(255, 0, 60, 0.22);
+  --cp-glow-intensity: 0.15;
+
+  --cp-grid-line: rgba(255, 255, 255, 0.07);
+  --cp-grid-dot: rgba(99, 102, 241, 0.4);
+
+  --cp-font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
+
+  --cp-cut-corner-sm: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+  --cp-cut-corner-md: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  --cp-cut-corner-lg: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+
+  --cp-radius-sm: 0;
+  --cp-radius-md: 0;
+  --cp-radius-lg: 0;
+
+  --cp-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --cp-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55);
+  --cp-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.65);
+
+  --cp-bracket-fg: var(--cp-color-primary);
+  --cp-bracket-muted: var(--cp-text-muted);
+
+  --cp-hud-bg: rgba(3, 3, 5, 0.92);
+  --cp-hud-border: rgba(99, 102, 241, 0.25);
+
+  --cp-duration-fast: 200ms;
+  --cp-duration-base: 300ms;
+  --cp-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --cp-scanline-opacity: 0;
+  --cp-noise-opacity: 0.015;
+}

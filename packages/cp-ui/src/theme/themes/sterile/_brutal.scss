@@ -1,0 +1,63 @@
+// Theme: Brutal — 终端粗野主义 (Terminal Brutalism)
+// 纯黑 + 白灰文字 + 单一靛蓝强调。零发光、零圆角、零切角、零纹理。
+// 等宽字体即正文。参考 commandcode.ai：工程图纸式克制，内容即装饰。
+
+@mixin brutal {
+  --cp-color-primary: #6366f1;
+  --cp-color-secondary: #e5e5e5;
+  --cp-color-danger: #ef4444;
+  --cp-color-success: #4ade80;
+  --cp-color-warning: #f59e0b;
+
+  --cp-bg-void: #000000;
+  --cp-bg-base: #000000;
+  --cp-bg-panel: #0a0a0a;
+  --cp-bg-elevated: #111111;
+  --cp-bg-hover: #1a1a1a;
+
+  --cp-text-primary: #ffffff;
+  --cp-text-secondary: #a3a3a3;
+  --cp-text-muted: #737373;
+  --cp-text-dim: #525252;
+
+  --cp-border-dim: rgba(255, 255, 255, 0.08);
+  --cp-border-base: rgba(255, 255, 255, 0.14);
+  --cp-border-bright: rgba(99, 102, 241, 0.4);
+  --cp-border-active: #6366f1;
+
+  --cp-glow-primary: transparent;
+  --cp-glow-secondary: transparent;
+  --cp-glow-danger: transparent;
+  --cp-glow-intensity: 0;
+
+  --cp-grid-line: rgba(255, 255, 255, 0.08);
+  --cp-grid-dot: rgba(255, 255, 255, 0.3);
+
+  --cp-font-sans: 'JetBrains Mono', 'Share Tech Mono', 'Noto Sans SC', Consolas, monospace;
+  --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
+
+  --cp-cut-corner-sm: none;
+  --cp-cut-corner-md: none;
+  --cp-cut-corner-lg: none;
+
+  --cp-radius-sm: 0;
+  --cp-radius-md: 0;
+  --cp-radius-lg: 0;
+
+  --cp-shadow-sm: none;
+  --cp-shadow-md: none;
+  --cp-shadow-lg: none;
+
+  --cp-bracket-fg: var(--cp-text-primary);
+  --cp-bracket-muted: var(--cp-text-muted);
+
+  --cp-hud-bg: rgba(0, 0, 0, 0.95);
+  --cp-hud-border: rgba(255, 255, 255, 0.12);
+
+  --cp-duration-fast: 100ms;
+  --cp-duration-base: 150ms;
+  --cp-easing: linear;
+
+  --cp-scanline-opacity: 0;
+  --cp-noise-opacity: 0;
+}

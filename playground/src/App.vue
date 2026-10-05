@@ -27,6 +27,8 @@
             <option value="sterile-cyber">无菌赛博</option>
             <option value="cyberpunk">赛博朋克</option>
             <option value="neon-noir">霓虹黑</option>
+            <option value="blueprint">蓝图</option>
+            <option value="brutal">终端粗野</option>
             <option value="sterile-dark">无菌暗色</option>
             <option value="sterile-light">无菌亮色</option>
           </select>
@@ -58,7 +60,7 @@
 
           <!-- ==================== 快速开始 ==================== -->
           <template v-if="activeItem === 'quickstart'">
-            <DocsTitle title="快速开始" desc="@yuanfangmao/cp-ui 是一个 Vue 3 赛博朋克风格组件库，内置 5 种主题，支持全局引入与按需引入。" />
+            <DocsTitle title="快速开始" desc="@yuanfangmao/cp-ui 是一个 Vue 3 赛博朋克风格组件库，内置 7 种主题，支持全局引入与按需引入。" />
 
             <DemoBlock title="1. 安装" description="使用 npm 或 pnpm 安装">
               <div class="quickstart-install">
@@ -89,7 +91,7 @@
               <DemoCode :code="usageCode" />
             </DemoBlock>
 
-            <DemoBlock title="5. 主题切换" description="CpThemeProvider 支持 5 种主题：cyberpunk / sterile-cyber / neon-noir / sterile-dark / sterile-light">
+            <DemoBlock title="5. 主题切换" description="CpThemeProvider 支持 7 种主题：cyberpunk / sterile-cyber / neon-noir / blueprint / brutal / sterile-dark / sterile-light">
               <DemoCode :code="themeCode" />
             </DemoBlock>
 
@@ -108,7 +110,7 @@
           <!-- ==================== 主题展示 ==================== -->
 
           <template v-if="activeItem === 'theme-showcase'">
-            <DocsTitle title="五主题对比" desc="同一组件在 5 种主题下的视觉差异。每个区块独立包裹 CpThemeProvider，使用对应风格的组件。" />
+            <DocsTitle title="七主题对比" desc="同一组件在 7 种主题下的视觉差异。每个区块独立包裹 CpThemeProvider，使用对应风格的组件。" />
             <div style="display:flex;flex-direction:column;gap:20px">
 
               <!-- 赛博朋克 -->
@@ -205,6 +207,72 @@
                     </div>
                     <div style="margin-top:12px">
                       <CyberProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 蓝图 -->
+              <CpThemeProvider theme="blueprint">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">蓝图</span>
+                    <code class="theme-card__value">blueprint</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <CyberButton variant="primary">Primary</CyberButton>
+                      <CyberButton variant="secondary">Secondary</CyberButton>
+                      <CyberButton variant="danger">Danger</CyberButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <CyberTag>Tag</CyberTag>
+                      <CyberBadge text="42" />
+                      <CyberBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <CyberCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </CyberCard>
+                      <CyberInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <CyberProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 终端粗野 -->
+              <CpThemeProvider theme="brutal">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">终端粗野</span>
+                    <code class="theme-card__value">brutal</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <SterileButton variant="primary">Primary</SterileButton>
+                      <SterileButton variant="secondary">Secondary</SterileButton>
+                      <SterileButton variant="danger">Danger</SterileButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <SterileTag>Tag</SterileTag>
+                      <SterileBadge text="42" />
+                      <SterileBracketLabel text="LABEL" />
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <SterileCard style="width:180px">
+                        <div style="padding:12px;font-size:12px">Card 内容</div>
+                      </SterileCard>
+                      <SterileInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <SterileProgressBar :percentage="72" />
                     </div>
                   </div>
                 </div>
@@ -967,9 +1035,9 @@
               <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">背景已应用到整个页面，点击切换变体查看效果</p>
               <template #code><DemoCode :code="codes.background" /></template>
             </DemoBlock>
-            <DemoBlock title="CpGridLayer" description="网格纹理：dot / line">
+            <DemoBlock title="CpGridLayer" description="网格纹理：dot / line / blueprint（虚线 + 交点锚点方块）">
               <div style="display:flex;gap:12px">
-                <div v-for="p in ['dot','line']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">{{ p }}</div>
+                <div v-for="p in ['dot','line','blueprint']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">{{ p }}</div>
                 <div @click="showGrid=false" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">关闭</div>
               </div>
               <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">网格已叠加到页面，点击切换图案</p>
@@ -1316,12 +1384,14 @@ const themeShowcaseList = [
   { value: 'cyberpunk', label: '赛博朋克' },
   { value: 'sterile-cyber', label: '无菌赛博' },
   { value: 'neon-noir', label: '霓虹黑' },
+  { value: 'blueprint', label: '蓝图' },
+  { value: 'brutal', label: '终端粗野' },
   { value: 'sterile-dark', label: '无菌暗色' },
   { value: 'sterile-light', label: '无菌亮色' },
 ]
 const bgVariant = ref<'mesh' | 'glow' | 'minimal' | 'neon'>('neon')
 const showGrid = ref(true)
-const gridPattern = ref<'dot' | 'line'>('line')
+const gridPattern = ref<'dot' | 'line' | 'blueprint'>('line')
 const showToc = ref(false)
 const tocActive = ref(0)
 const tocChapters = ['系统初始化', '连接协议', '数据同步', '安全审计', '日志归档']
@@ -1472,7 +1542,7 @@ const categories = [
   {
     key: 'theme', label: '主题展示 Theme',
     items: [
-      { key: 'theme-showcase', label: '五主题对比' },
+      { key: 'theme-showcase', label: '七主题对比' },
     ],
   },
   {
@@ -1599,6 +1669,8 @@ const themeCode = `<!-- 切换主题只需改 theme 属性 -->
 <CpThemeProvider theme="cyberpunk">    <!-- 赛博朋克 -->
 <CpThemeProvider theme="sterile-cyber"> <!-- 无菌赛博 -->
 <CpThemeProvider theme="neon-noir">     <!-- 霓虹黑 -->
+<CpThemeProvider theme="blueprint">     <!-- 蓝图 -->
+<CpThemeProvider theme="brutal">       <!-- 终端粗野 -->
 <CpThemeProvider theme="sterile-dark">  <!-- 无菌暗色 -->
 <CpThemeProvider theme="sterile-light"> <!-- 无菌亮色 -->`
 
@@ -1877,7 +1949,7 @@ const tabs = [
 <CpBackground variant="horizon" />`,
   gridLayer: `<CpGridLayer pattern="dot" :opacity="0.6" />
 <CpGridLayer pattern="line" :opacity="0.6" />
-<CpGridLayer pattern="line" :opacity="0.6" />`,
+<CpGridLayer pattern="blueprint" :opacity="0.6" />`,
   hudStrip: `<CpHudStrip position="top" />
 <CpHudStrip position="bottom" dense />`,
   floatingToolbar: `<CpFloatingToolbar position="right">
