@@ -1,3 +1,6 @@
 export { default as CyberProgressBar } from './CyberProgressBar.vue'
 export { default as SterileCyberProgressBar } from './SterileCyberProgressBar.vue'
 export { default as SterileProgressBar } from './SterileProgressBar.vue'
+export { default as BrutalProgressBar } from './BrutalProgressBar.vue'
+export { default as BlueprintProgressBar } from './BlueprintProgressBar.vue'
+export { default as NoirProgressBar } from './NoirProgressBar.vue'

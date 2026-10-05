@@ -1,3 +1,6 @@
 export { default as CyberHeading } from './CyberHeading.vue'
 export { default as SterileCyberHeading } from './SterileCyberHeading.vue'
 export { default as SterileHeading } from './SterileHeading.vue'
+export { default as BrutalHeading } from './BrutalHeading.vue'
+export { default as BlueprintHeading } from './BlueprintHeading.vue'
+export { default as NoirHeading } from './NoirHeading.vue'

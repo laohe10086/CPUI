@@ -1,3 +1,6 @@
 export { default as CyberBracketLabel } from './CyberBracketLabel.vue'
 export { default as SterileCyberBracketLabel } from './SterileCyberBracketLabel.vue'
 export { default as SterileBracketLabel } from './SterileBracketLabel.vue'
+export { default as BrutalBracketLabel } from './BrutalBracketLabel.vue'
+export { default as BlueprintBracketLabel } from './BlueprintBracketLabel.vue'
+export { default as NoirBracketLabel } from './NoirBracketLabel.vue'

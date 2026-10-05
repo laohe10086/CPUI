@@ -221,25 +221,25 @@
                   </div>
                   <div class="theme-card__body">
                     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-                      <CyberButton variant="primary">Primary</CyberButton>
-                      <CyberButton variant="secondary">Secondary</CyberButton>
-                      <CyberButton variant="danger">Danger</CyberButton>
+                      <BlueprintButton variant="primary">Primary</BlueprintButton>
+                      <BlueprintButton variant="secondary">Secondary</BlueprintButton>
+                      <BlueprintButton variant="danger">Danger</BlueprintButton>
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
-                      <CyberTag>Tag</CyberTag>
-                      <CyberBadge text="42" />
-                      <CyberBracketLabel text="LABEL" />
+                      <BlueprintTag>Tag</BlueprintTag>
+                      <BlueprintBadge text="42" />
+                      <BlueprintBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
                     </div>
                     <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-                      <CyberCard style="width:180px">
-                        <div style="padding:12px;font-size:12px">Card 内容</div>
-                      </CyberCard>
-                      <CyberInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                      <BlueprintCard title="MODULE" style="width:200px">
+                        <div style="font-size:12px">Card 内容</div>
+                      </BlueprintCard>
+                      <BlueprintInput v-model="themeInputVal" placeholder="尺寸标注..." style="flex:1;min-width:160px" />
                     </div>
                     <div style="margin-top:12px">
-                      <CyberProgressBar :percentage="72" />
+                      <BlueprintProgressBar :value="72" :animated="true" />
                     </div>
                   </div>
                 </div>
@@ -254,25 +254,25 @@
                   </div>
                   <div class="theme-card__body">
                     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-                      <SterileButton variant="primary">Primary</SterileButton>
-                      <SterileButton variant="secondary">Secondary</SterileButton>
-                      <SterileButton variant="danger">Danger</SterileButton>
+                      <BrutalButton variant="primary">Primary</BrutalButton>
+                      <BrutalButton variant="secondary">Secondary</BrutalButton>
+                      <BrutalButton variant="danger">Danger</BrutalButton>
                     </div>
                     <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
-                      <SterileTag>Tag</SterileTag>
-                      <SterileBadge text="42" />
-                      <SterileBracketLabel text="LABEL" />
+                      <BrutalTag>Tag</BrutalTag>
+                      <BrutalBadge text="42" />
+                      <BrutalBracketLabel text="LABEL" />
                       <CpStatusLed status="online" :pulse="true" />
                       <CpDigitalClock :show-seconds="false" :glitch="false" />
                     </div>
                     <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-                      <SterileCard style="width:180px">
-                        <div style="padding:12px;font-size:12px">Card 内容</div>
-                      </SterileCard>
-                      <SterileInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                      <BrutalCard title="module" style="width:180px">
+                        <div style="font-size:12px">Card 内容</div>
+                      </BrutalCard>
+                      <BrutalInput v-model="themeInputVal" placeholder="输入命令..." style="flex:1;min-width:160px" />
                     </div>
                     <div style="margin-top:12px">
-                      <SterileProgressBar :percentage="72" />
+                      <BrutalProgressBar :value="72" />
                     </div>
                   </div>
                 </div>
@@ -920,6 +920,162 @@
             </DemoBlock>
           </template>
 
+          <!-- ==================== 蓝图专属 Blueprint Only ==================== -->
+
+          <template v-if="activeItem === 'blueprint-components'">
+            <DocsTitle title="蓝图组件" desc="蓝图主题专属组件族：直角 mono + 图纸语言——图例格 Tag、尺寸标注 BracketLabel、标尺 ProgressBar、FIG. 编号卡片。" />
+            <CpThemeProvider theme="blueprint">
+              <DemoBlock title="Button 按钮" description="靛蓝实心 / 青色描边 / 红色描边，hover 叠加 45° 斜线填充">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <BlueprintButton variant="primary">Primary</BlueprintButton>
+                  <BlueprintButton variant="secondary">Secondary</BlueprintButton>
+                  <BlueprintButton variant="danger">Danger</BlueprintButton>
+                  <BlueprintButton variant="ghost">Ghost</BlueprintButton>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                  <BlueprintButton size="sm">SM</BlueprintButton>
+                  <BlueprintButton size="md">MD</BlueprintButton>
+                  <BlueprintButton size="lg">LG</BlueprintButton>
+                </div>
+                <template #code><DemoCode :code="codes.blueprintButton" /></template>
+              </DemoBlock>
+              <DemoBlock title="Heading 标题" description="尺寸标注线风格标题">
+                <BlueprintHeading>MODULE HEADING</BlueprintHeading>
+                <template #code><DemoCode :code="codes.blueprintHeading" /></template>
+              </DemoBlock>
+              <DemoBlock title="Tag / Badge / BracketLabel" description="图例格标签 + 直角编号格 + 尺寸标注">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <BlueprintTag>Tag</BlueprintTag>
+                  <BlueprintTag variant="primary">Primary</BlueprintTag>
+                  <BlueprintTag variant="danger">Danger</BlueprintTag>
+                  <BlueprintBadge text="42" />
+                  <BlueprintBadge variant="primary" text="07" />
+                  <BlueprintBracketLabel text="LABEL" />
+                  <BlueprintBracketLabel variant="accent" text="ACCENT" />
+                </div>
+                <template #code><DemoCode :code="codes.blueprintMeta" /></template>
+              </DemoBlock>
+              <DemoBlock title="Card / Input" description="四角十字 + 虚线内框 + FIG. 编号卡片，角部刻度输入框">
+                <div style="display:flex;gap:12px;flex-wrap:wrap">
+                  <BlueprintCard title="MODULE" style="width:200px">
+                    <div style="font-size:12px">Card 内容</div>
+                  </BlueprintCard>
+                  <BlueprintInput v-model="themeInputVal" placeholder="尺寸标注..." style="flex:1;min-width:160px" />
+                </div>
+                <template #code><DemoCode :code="codes.blueprintCard" /></template>
+              </DemoBlock>
+              <DemoBlock title="ProgressBar 进度条" description="标尺刻度固定在上，靛蓝→青填充推进，末端亮边脉动">
+                <BlueprintProgressBar :value="72" :animated="true" />
+                <div style="margin-top:12px"><BlueprintProgressBar variant="danger" :value="30" /></div>
+                <template #code><DemoCode :code="codes.blueprintProgress" /></template>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 终端粗野专属 Brutal Only ==================== -->
+
+          <template v-if="activeItem === 'brutal-components'">
+            <DocsTitle title="粗野组件" desc="终端粗野专属组件族：纯黑 + 等宽即正文 + 零圆角零阴影，hover 反白，> 命令提示符，分段方块进度。" />
+            <CpThemeProvider theme="brutal">
+              <DemoBlock title="Button 按钮" description="直角方块 + 等宽大写，secondary / danger hover 直接反白填充">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <BrutalButton variant="primary">Primary</BrutalButton>
+                  <BrutalButton variant="secondary">Secondary</BrutalButton>
+                  <BrutalButton variant="danger">Danger</BrutalButton>
+                  <BrutalButton variant="ghost">Ghost</BrutalButton>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                  <BrutalButton size="sm">SM</BrutalButton>
+                  <BrutalButton size="md">MD</BrutalButton>
+                  <BrutalButton size="lg">LG</BrutalButton>
+                </div>
+                <template #code><DemoCode :code="codes.brutalButton" /></template>
+              </DemoBlock>
+              <DemoBlock title="Heading 标题" description="等宽大写 + 2px 粗结构线">
+                <BrutalHeading>SYSTEM READY</BrutalHeading>
+                <template #code><DemoCode :code="codes.brutalHeading" /></template>
+              </DemoBlock>
+              <DemoBlock title="Tag / Badge / BracketLabel" description="直角硬边小格 + 终端方括号标注">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <BrutalTag>Tag</BrutalTag>
+                  <BrutalTag variant="primary">Primary</BrutalTag>
+                  <BrutalTag variant="danger">Danger</BrutalTag>
+                  <BrutalBadge text="42" />
+                  <BrutalBadge variant="primary" text="07" />
+                  <BrutalBracketLabel text="LABEL" />
+                  <BrutalBracketLabel variant="accent" text="ACCENT" />
+                </div>
+                <template #code><DemoCode :code="codes.brutalMeta" /></template>
+              </DemoBlock>
+              <DemoBlock title="Card / Input" description="标题行 2px 粗结构线卡片，内置 > 提示符输入框">
+                <div style="display:flex;gap:12px;flex-wrap:wrap">
+                  <BrutalCard title="module" style="width:200px">
+                    <div style="font-size:12px">Card 内容</div>
+                  </BrutalCard>
+                  <BrutalInput v-model="themeInputVal" placeholder="输入命令..." style="flex:1;min-width:160px" />
+                </div>
+                <template #code><DemoCode :code="codes.brutalCard" /></template>
+              </DemoBlock>
+              <DemoBlock title="ProgressBar 进度条" description="直角轨道 + 分段方块填充，steps() 跳动推进">
+                <BrutalProgressBar :value="72" :animated="true" />
+                <div style="margin-top:12px"><BrutalProgressBar variant="danger" :value="30" /></div>
+                <template #code><DemoCode :code="codes.brutalProgress" /></template>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 霓虹黑专属 Noir Only ==================== -->
+
+          <template v-if="activeItem === 'noir-components'">
+            <DocsTitle title="霓虹组件" desc="霓虹黑专属组件族：衬线大标题 + 宽字距 + 克制霓虹辉光，黑色电影气质。" />
+            <CpThemeProvider theme="neon-noir">
+              <DemoBlock title="Button 按钮" description="宽字距大写 + 柔光晕，primary 青 / danger 红">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <NoirButton variant="primary">Primary</NoirButton>
+                  <NoirButton variant="secondary">Secondary</NoirButton>
+                  <NoirButton variant="danger">Danger</NoirButton>
+                  <NoirButton variant="ghost">Ghost</NoirButton>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                  <NoirButton size="sm">SM</NoirButton>
+                  <NoirButton size="md">MD</NoirButton>
+                  <NoirButton size="lg">LG</NoirButton>
+                </div>
+                <template #code><DemoCode :code="codes.noirButton" /></template>
+              </DemoBlock>
+              <DemoBlock title="Heading 标题" description="Cormorant Garamond 衬线标题">
+                <NoirHeading>霓虹标题</NoirHeading>
+                <template #code><DemoCode :code="codes.noirHeading" /></template>
+              </DemoBlock>
+              <DemoBlock title="Tag / Badge / BracketLabel" description="霓虹黑风格的标签、徽章与括号标注">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <NoirTag>Tag</NoirTag>
+                  <NoirTag variant="primary">Primary</NoirTag>
+                  <NoirTag variant="danger">Danger</NoirTag>
+                  <NoirBadge text="42" />
+                  <NoirBadge variant="primary" text="07" />
+                  <NoirBracketLabel text="LABEL" />
+                  <NoirBracketLabel variant="accent" text="ACCENT" />
+                </div>
+                <template #code><DemoCode :code="codes.noirMeta" /></template>
+              </DemoBlock>
+              <DemoBlock title="Card / Input" description="衬线标题卡片 + 霓虹黑输入框">
+                <div style="display:flex;gap:12px;flex-wrap:wrap">
+                  <NoirCard title="场景" style="width:200px">
+                    <div style="font-size:12px">Card 内容</div>
+                  </NoirCard>
+                  <NoirInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                </div>
+                <template #code><DemoCode :code="codes.noirCard" /></template>
+              </DemoBlock>
+              <DemoBlock title="ProgressBar 进度条" description="霓虹黑进度条">
+                <NoirProgressBar :value="72" :animated="true" />
+                <div style="margin-top:12px"><NoirProgressBar variant="danger" :value="30" /></div>
+                <template #code><DemoCode :code="codes.noirProgress" /></template>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
           <!-- ==================== 共享 Shared ==================== -->
 
           <template v-if="activeItem === 'logo'">
@@ -1030,15 +1186,15 @@
             <DocsTitle title="Background / GridLayer 背景层" desc="多风格背景 + 网格纹理叠加。" />
             <DemoBlock title="CpBackground" description="5 种变体：neon / mesh / glow / minimal / horizon">
               <div style="display:flex;gap:12px;flex-wrap:wrap">
-                <div v-for="v in ['neon','mesh','glow','minimal','horizon']" :key="v" @click="bgVariant = v" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid',borderColor:bgVariant===v?'var(--cp-color-secondary)':'#333',color:bgVariant===v?'var(--cp-color-secondary)':'#888',fontSize:'0.75rem'}">{{ v }}</div>
+                <div v-for="v in ['neon','mesh','glow','minimal','horizon']" :key="v" @click="bgVariant = v" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid',borderColor:bgVariant===v?'var(--cp-color-secondary)':'var(--cp-border-base)',color:bgVariant===v?'var(--cp-color-secondary)':'var(--cp-text-muted)',fontSize:'0.75rem'}">{{ v }}</div>
               </div>
               <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">背景已应用到整个页面，点击切换变体查看效果</p>
               <template #code><DemoCode :code="codes.background" /></template>
             </DemoBlock>
             <DemoBlock title="CpGridLayer" description="网格纹理：dot / line / blueprint（虚线 + 交点锚点方块）">
               <div style="display:flex;gap:12px">
-                <div v-for="p in ['dot','line','blueprint']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">{{ p }}</div>
-                <div @click="showGrid=false" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid #333',fontSize:'0.75rem',color:'#888'}">关闭</div>
+                <div v-for="p in ['dot','line','blueprint']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid var(--cp-border-base)',fontSize:'0.75rem',color:'var(--cp-text-muted)'}">{{ p }}</div>
+                <div @click="showGrid=false" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid var(--cp-border-base)',fontSize:'0.75rem',color:'var(--cp-text-muted)'}">关闭</div>
               </div>
               <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">网格已叠加到页面，点击切换图案</p>
               <template #code><DemoCode :code="codes.gridLayer" /></template>
@@ -1048,7 +1204,7 @@
           <template v-if="activeItem === 'hud-strip'">
             <DocsTitle title="HudStrip 状态条" desc="顶部/底部 HUD 装饰条。" />
             <DemoBlock title="CpHudStrip" description="position: top / bottom, dense 紧凑模式">
-              <div style="position:relative;height:80px;border:1px solid #333;overflow:hidden">
+              <div style="position:relative;height:80px;border:1px solid var(--cp-border-base);overflow:hidden">
                 <CpHudStrip position="top" />
                 <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-muted);font-size:12px">CONTENT AREA</div>
                 <CpHudStrip position="bottom" dense />
@@ -1060,7 +1216,7 @@
           <template v-if="activeItem === 'floating-toolbar'">
             <DocsTitle title="FloatingToolbar 浮动工具栏" desc="固定在视口侧边的浮动工具按钮组。" />
             <DemoBlock title="CpFloatingToolbar" description="右侧浮动工具栏，点击按钮查看效果">
-              <div style="position:relative;height:200px;border:1px solid #333">
+              <div style="position:relative;height:200px;border:1px solid var(--cp-border-base)">
                 <div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-muted);font-size:12px">内容区域（工具栏固定在右侧）</div>
                 <CpFloatingToolbar position="right">
                   <CpToolButton label="编辑" @click="() => {}">E</CpToolButton>
@@ -1365,6 +1521,12 @@ import {
   SterileAvatar, SterileProgressBar, SterileCategoryTabs, SterileStatsGrid,
   SterileTerminal, SterileChatBubble,
   SterileHeading,
+  BrutalButton, BrutalCard, BrutalInput, BrutalTag, BrutalBadge,
+  BrutalBracketLabel, BrutalProgressBar, BrutalHeading,
+  BlueprintButton, BlueprintCard, BlueprintInput, BlueprintTag, BlueprintBadge,
+  BlueprintBracketLabel, BlueprintProgressBar, BlueprintHeading,
+  NoirButton, NoirCard, NoirInput, NoirTag, NoirBadge,
+  NoirBracketLabel, NoirProgressBar, NoirHeading,
   CyberGlitchText, CyberDecipherText, CyberScanLine,
   CyberCornerBrackets, CyberLabelBar, CyberMonitorEye,
   CyberBootAnimation,
@@ -1574,6 +1736,24 @@ const categories = [
       { key: 'cyber-decor', label: '装饰组件' },
       { key: 'disconnect', label: 'Disconnect 断开连接' },
       { key: 'boot-animation', label: 'BootAnimation 开机动画' },
+    ],
+  },
+  {
+    key: 'blueprint-zone', label: '蓝图专属 Blueprint',
+    items: [
+      { key: 'blueprint-components', label: '蓝图组件' },
+    ],
+  },
+  {
+    key: 'brutal-zone', label: '终端粗野专属 Brutal',
+    items: [
+      { key: 'brutal-components', label: '粗野组件' },
+    ],
+  },
+  {
+    key: 'noir-zone', label: '霓虹黑专属 Noir',
+    items: [
+      { key: 'noir-components', label: '霓虹组件' },
     ],
   },
   {
@@ -1938,6 +2118,45 @@ const tabs = [
   :auto-start="false"
   @complete="onBootComplete"
 />`,
+  blueprintButton: `<CpThemeProvider theme="blueprint">
+  <BlueprintButton variant="primary">Primary</BlueprintButton>
+  <BlueprintButton variant="secondary">Secondary</BlueprintButton>
+  <BlueprintButton variant="danger">Danger</BlueprintButton>
+</CpThemeProvider>`,
+  blueprintHeading: `<BlueprintHeading>MODULE HEADING</BlueprintHeading>`,
+  blueprintMeta: `<BlueprintTag>Tag</BlueprintTag>
+<BlueprintBadge text="42" />
+<BlueprintBracketLabel text="LABEL" />`,
+  blueprintCard: `<BlueprintCard title="MODULE">Card 内容</BlueprintCard>
+<BlueprintInput v-model="val" placeholder="尺寸标注..." />`,
+  blueprintProgress: `<BlueprintProgressBar :value="72" :animated="true" />
+<BlueprintProgressBar variant="danger" :value="30" />`,
+  brutalButton: `<CpThemeProvider theme="brutal">
+  <BrutalButton variant="primary">Primary</BrutalButton>
+  <BrutalButton variant="secondary">Secondary</BrutalButton>
+  <BrutalButton variant="danger">Danger</BrutalButton>
+</CpThemeProvider>`,
+  brutalHeading: `<BrutalHeading>SYSTEM READY</BrutalHeading>`,
+  brutalMeta: `<BrutalTag>Tag</BrutalTag>
+<BrutalBadge text="42" />
+<BrutalBracketLabel text="LABEL" />`,
+  brutalCard: `<BrutalCard title="module">Card 内容</BrutalCard>
+<BrutalInput v-model="val" placeholder="输入命令..." />`,
+  brutalProgress: `<BrutalProgressBar :value="72" :animated="true" />
+<BrutalProgressBar variant="danger" :value="30" />`,
+  noirButton: `<CpThemeProvider theme="neon-noir">
+  <NoirButton variant="primary">Primary</NoirButton>
+  <NoirButton variant="secondary">Secondary</NoirButton>
+  <NoirButton variant="danger">Danger</NoirButton>
+</CpThemeProvider>`,
+  noirHeading: `<NoirHeading>霓虹标题</NoirHeading>`,
+  noirMeta: `<NoirTag>Tag</NoirTag>
+<NoirBadge text="42" />
+<NoirBracketLabel text="LABEL" />`,
+  noirCard: `<NoirCard title="场景">Card 内容</NoirCard>
+<NoirInput v-model="val" placeholder="输入框..." />`,
+  noirProgress: `<NoirProgressBar :value="72" :animated="true" />
+<NoirProgressBar variant="danger" :value="30" />`,
   shared: `<CpStatusLed status="online" :pulse="true" />
 <CpStatusLed status="warning" :pulse="true" />
 <CpDigitalClock :show-seconds="true" :glitch="true" />

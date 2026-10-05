@@ -1,3 +1,6 @@
 export { default as CyberBadge } from './CyberBadge.vue'
 export { default as SterileCyberBadge } from './SterileCyberBadge.vue'
 export { default as SterileBadge } from './SterileBadge.vue'
+export { default as BrutalBadge } from './BrutalBadge.vue'
+export { default as BlueprintBadge } from './BlueprintBadge.vue'
+export { default as NoirBadge } from './NoirBadge.vue'

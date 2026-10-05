@@ -79,6 +79,36 @@ export { SterileTerminal } from './components/terminal'
 export { SterileChatBubble } from './components/chat-bubble'
 export { SterileHeading } from './components/heading'
 
+// ===== Brutal Components (8) =====
+export { BrutalButton } from './components/button'
+export { BrutalCard } from './components/card'
+export { BrutalInput } from './components/input'
+export { BrutalTag } from './components/tag'
+export { BrutalBadge } from './components/badge'
+export { BrutalBracketLabel } from './components/bracket-label'
+export { BrutalProgressBar } from './components/progress-bar'
+export { BrutalHeading } from './components/heading'
+
+// ===== Blueprint Components (8) =====
+export { BlueprintButton } from './components/button'
+export { BlueprintCard } from './components/card'
+export { BlueprintInput } from './components/input'
+export { BlueprintTag } from './components/tag'
+export { BlueprintBadge } from './components/badge'
+export { BlueprintBracketLabel } from './components/bracket-label'
+export { BlueprintProgressBar } from './components/progress-bar'
+export { BlueprintHeading } from './components/heading'
+
+// ===== Noir Components (8) =====
+export { NoirButton } from './components/button'
+export { NoirCard } from './components/card'
+export { NoirInput } from './components/input'
+export { NoirTag } from './components/tag'
+export { NoirBadge } from './components/badge'
+export { NoirBracketLabel } from './components/bracket-label'
+export { NoirProgressBar } from './components/progress-bar'
+export { NoirHeading } from './components/heading'
+
 // ===== Cyber-Only Components (10) =====
 export { CyberGlitchText } from './components/glitch-text'
 export { CyberDecipherText } from './components/decipher-text'
@@ -118,22 +148,22 @@ export { CpTocPanel } from './components/toc-panel'
 // ===== Vue Plugin — global registration =====
 import type { App } from 'vue'
 import { CpThemeProvider } from './theme'
-import { CyberButton, SterileCyberButton, SterileButton } from './components/button'
-import { CyberCard, SterileCyberCard, SterileCard } from './components/card'
-import { CyberInput, SterileCyberInput, SterileInput } from './components/input'
-import { CyberTag, SterileCyberTag, SterileTag } from './components/tag'
-import { CyberBadge, SterileCyberBadge, SterileBadge } from './components/badge'
-import { CyberBracketLabel, SterileCyberBracketLabel, SterileBracketLabel } from './components/bracket-label'
+import { CyberButton, SterileCyberButton, SterileButton, BrutalButton, BlueprintButton, NoirButton } from './components/button'
+import { CyberCard, SterileCyberCard, SterileCard, BrutalCard, BlueprintCard, NoirCard } from './components/card'
+import { CyberInput, SterileCyberInput, SterileInput, BrutalInput, BlueprintInput, NoirInput } from './components/input'
+import { CyberTag, SterileCyberTag, SterileTag, BrutalTag, BlueprintTag, NoirTag } from './components/tag'
+import { CyberBadge, SterileCyberBadge, SterileBadge, BrutalBadge, BlueprintBadge, NoirBadge } from './components/badge'
+import { CyberBracketLabel, SterileCyberBracketLabel, SterileBracketLabel, BrutalBracketLabel, BlueprintBracketLabel, NoirBracketLabel } from './components/bracket-label'
 import { CyberPanel, SterileCyberPanel, SterilePanel } from './components/panel'
 import { CyberModal, SterileCyberModal, SterileModal } from './components/modal'
 import { CyberPagination, SterileCyberPagination, SterilePagination } from './components/pagination'
 import { CyberAvatar, SterileCyberAvatar, SterileAvatar } from './components/avatar'
-import { CyberProgressBar, SterileCyberProgressBar, SterileProgressBar } from './components/progress-bar'
+import { CyberProgressBar, SterileCyberProgressBar, SterileProgressBar, BrutalProgressBar, BlueprintProgressBar, NoirProgressBar } from './components/progress-bar'
 import { CyberCategoryTabs, SterileCyberCategoryTabs, SterileCategoryTabs } from './components/category-tabs'
 import { CyberStatsGrid, SterileCyberStatsGrid, SterileStatsGrid } from './components/stats-grid'
 import { CyberTerminal, SterileCyberTerminal, SterileTerminal } from './components/terminal'
 import { CyberChatBubble, SterileCyberChatBubble, SterileChatBubble } from './components/chat-bubble'
-import { CyberHeading, SterileCyberHeading, SterileHeading } from './components/heading'
+import { CyberHeading, SterileCyberHeading, SterileHeading, BrutalHeading, BlueprintHeading, NoirHeading } from './components/heading'
 import { CyberGlitchText } from './components/glitch-text'
 import { CyberDecipherText } from './components/decipher-text'
 import { CyberScanLine } from './components/scan-line'
@@ -164,22 +194,22 @@ import { CyberNotFound } from './components/not-found'
 
 const allComponents = {
   CpThemeProvider,
-  CyberButton, SterileCyberButton, SterileButton,
-  CyberCard, SterileCyberCard, SterileCard,
-  CyberInput, SterileCyberInput, SterileInput,
-  CyberTag, SterileCyberTag, SterileTag,
-  CyberBadge, SterileCyberBadge, SterileBadge,
-  CyberBracketLabel, SterileCyberBracketLabel, SterileBracketLabel,
+  CyberButton, SterileCyberButton, SterileButton, BrutalButton, BlueprintButton, NoirButton,
+  CyberCard, SterileCyberCard, SterileCard, BrutalCard, BlueprintCard, NoirCard,
+  CyberInput, SterileCyberInput, SterileInput, BrutalInput, BlueprintInput, NoirInput,
+  CyberTag, SterileCyberTag, SterileTag, BrutalTag, BlueprintTag, NoirTag,
+  CyberBadge, SterileCyberBadge, SterileBadge, BrutalBadge, BlueprintBadge, NoirBadge,
+  CyberBracketLabel, SterileCyberBracketLabel, SterileBracketLabel, BrutalBracketLabel, BlueprintBracketLabel, NoirBracketLabel,
   CyberPanel, SterileCyberPanel, SterilePanel,
   CyberModal, SterileCyberModal, SterileModal,
   CyberPagination, SterileCyberPagination, SterilePagination,
   CyberAvatar, SterileCyberAvatar, SterileAvatar,
-  CyberProgressBar, SterileCyberProgressBar, SterileProgressBar,
+  CyberProgressBar, SterileCyberProgressBar, SterileProgressBar, BrutalProgressBar, BlueprintProgressBar, NoirProgressBar,
   CyberCategoryTabs, SterileCyberCategoryTabs, SterileCategoryTabs,
   CyberStatsGrid, SterileCyberStatsGrid, SterileStatsGrid,
   CyberTerminal, SterileCyberTerminal, SterileTerminal,
   CyberChatBubble, SterileCyberChatBubble, SterileChatBubble,
-  CyberHeading, SterileCyberHeading, SterileHeading,
+  CyberHeading, SterileCyberHeading, SterileHeading, BrutalHeading, BlueprintHeading, NoirHeading,
   CyberGlitchText,
   CyberDecipherText,
   CyberScanLine,

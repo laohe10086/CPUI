@@ -1,3 +1,6 @@
 export { default as CyberButton } from './CyberButton.vue'
 export { default as SterileCyberButton } from './SterileCyberButton.vue'
 export { default as SterileButton } from './SterileButton.vue'
+export { default as BrutalButton } from './BrutalButton.vue'
+export { default as BlueprintButton } from './BlueprintButton.vue'
+export { default as NoirButton } from './NoirButton.vue'

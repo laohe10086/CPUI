@@ -1,3 +1,6 @@
 export { default as CyberTag } from './CyberTag.vue'
 export { default as SterileCyberTag } from './SterileCyberTag.vue'
 export { default as SterileTag } from './SterileTag.vue'
+export { default as BrutalTag } from './BrutalTag.vue'
+export { default as BlueprintTag } from './BlueprintTag.vue'
+export { default as NoirTag } from './NoirTag.vue'

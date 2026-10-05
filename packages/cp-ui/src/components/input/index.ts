@@ -1,3 +1,6 @@
 export { default as CyberInput } from './CyberInput.vue'
 export { default as SterileCyberInput } from './SterileCyberInput.vue'
 export { default as SterileInput } from './SterileInput.vue'
+export { default as BrutalInput } from './BrutalInput.vue'
+export { default as BlueprintInput } from './BlueprintInput.vue'
+export { default as NoirInput } from './NoirInput.vue'
