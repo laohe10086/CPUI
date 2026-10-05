@@ -15,6 +15,7 @@ export default defineConfig({
       name: 'CpUI',
       formats: ['es', 'cjs'],
       fileName: (format) => `cp-ui.${format === 'es' ? 'mjs' : 'cjs'}`,
+      cssFileName: 'style',
     },
     rollupOptions: {
       external: ['vue'],
