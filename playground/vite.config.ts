@@ -6,7 +6,13 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
+      '@yuanfangmao/cp-ui': resolve(__dirname, '../packages/cp-ui/src'),
       '@cp-ui': resolve(__dirname, '../packages/cp-ui/src'),
+    },
+  },
+  server: {
+    watch: {
+      ignored: ['**/packages/cp-ui/dist/**'],
     },
   },
 })
