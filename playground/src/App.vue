@@ -1379,7 +1379,100 @@
             </CpThemeProvider>
           </template>
 
-          <!-- ==================== 现代专属 Modern Only ==================== -->
+          <!-- ==================== 现代专属区域 Modern Zone ==================== -->
+
+          <template v-if="activeItem === 'modern-components'">
+            <DocsTitle title="现代组件" desc="Modern 现代科技专属组件族：commandcode.ai 风格——纯黑背景、Linear 电紫、极简圆角、高对比度、Inter 字体。" />
+            <CpThemeProvider theme="modern">
+              <DemoBlock title="设计语言" description="Modern 现代主题的核心视觉签名">
+                <div style="padding:16px;background:var(--cp-surface-1);border:1px solid var(--cp-border);font-size:13px;line-height:1.8;border-radius:8px">
+                  <div style="margin-bottom:12px;font-size:16px;font-weight:600;color:var(--cp-text-primary);letter-spacing:-0.02em">MODERN DESIGN LANGUAGE</div>
+                  <div style="color:var(--cp-text-secondary)">
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 现代科技：</strong>纯黑背景 (#000)、极简圆角、微妙阴影、流畅动画</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 配色体系：</strong>Linear 电紫 (#5e6ad2) / 青色强调 (#00d9ff) / 高对比度文字</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 排版规则：</strong>Inter 字体、紧凑负字距、几何感、清晰层级</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 交互反馈：</strong>柔和过渡、pill 形按钮、focus ring、流畅动效</div>
+                    <div><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>SaaS 产品、开发工具、AI 应用、科技品牌官网</div>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Tooltip 提示框" description="微妙阴影 + 柔和圆角的悬浮提示">
+                <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:center;padding:60px 20px">
+                  <ModernTooltip content="这是一个提示">
+                    <ModernButton>悬停查看</ModernButton>
+                  </ModernTooltip>
+                  <ModernTooltip content="顶部提示" placement="top">
+                    <ModernButton variant="secondary">Top</ModernButton>
+                  </ModernTooltip>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Chip 标签片" description="圆润可删除标签">
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <ModernChip>Vue.js</ModernChip>
+                  <ModernChip variant="primary">TypeScript</ModernChip>
+                  <ModernChip closable @close="() => {}">可关闭</ModernChip>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Switch 开关" description="流畅动画的优雅开关">
+                <div style="display:flex;flex-direction:column;gap:16px">
+                  <div style="display:flex;gap:12px;align-items:center">
+                    <ModernSwitch :model-value="true" />
+                    <span style="color:var(--cp-text-secondary)">已开启</span>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Select 选择器" description="流畅展开的下拉选择">
+                <ModernSelect :model-value="'option1'" :options="[{value:'option1',label:'选项 1'},{value:'option2',label:'选项 2'}]" style="width:200px" />
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 赛博现代专属区域 CyberModern Zone ==================== -->
+
+          <template v-if="activeItem === 'cyber-modern-components'">
+            <DocsTitle title="赛博现代组件" desc="CyberModern 赛博现代专属组件族：赛博朋克 × 现代科技融合——霓虹青 + 电紫、扫描线、全息投影、RGB 故障。" />
+            <CpThemeProvider theme="cyber-modern">
+              <DemoBlock title="设计语言" description="CyberModern 融合主题的核心视觉签名">
+                <div style="padding:16px;background:var(--cp-surface-1);border:1px solid var(--cp-border);font-size:13px;line-height:1.8;border-radius:8px">
+                  <div style="margin-bottom:12px;font-size:16px;font-weight:600;color:var(--cp-text-primary)">CYBER-MODERN LANGUAGE</div>
+                  <div style="color:var(--cp-text-secondary)">
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 融合美学：</strong>赛博朋克霓虹 + 现代科技简约</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 配色体系：</strong>霓虹青 (#00f0ff) / 电紫 (#b026ff)</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 特效签名：</strong>CRT 扫描线、全息投影、RGB 故障、辉光脉冲</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>游戏 UI、科幻品牌、元宇宙、赛博作品展示</div>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Glitch 故障效果" description="RGB 分离 + 数字乱码">
+                <div style="display:flex;gap:16px;flex-wrap:wrap">
+                  <CyberModernGlitch text="GLITCH EFFECT" />
+                  <CyberModernGlitch text="赛博故障" intensity="high" />
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Hologram 全息卡片" description="扫描线 + 半透明全息投影">
+                <CyberModernHologram style="width:300px;padding:24px">
+                  <div style="font-size:18px;font-weight:600;margin-bottom:8px;color:var(--cp-primary)">HOLOGRAM</div>
+                  <div style="font-size:13px;color:var(--cp-text-secondary)">全息投影界面</div>
+                </CyberModernHologram>
+              </DemoBlock>
+              <DemoBlock title="ScanLine 扫描线容器" description="CRT 显示器扫描线">
+                <CyberModernScanLine style="padding:32px;border:1px solid var(--cp-border)">
+                  <div style="font-family:var(--cp-font-family-mono);color:var(--cp-primary);font-size:14px">
+                    > SCANNING...<br>
+                    > LOADING...
+                  </div>
+                </CyberModernScanLine>
+              </DemoBlock>
+              <DemoBlock title="Pulse 脉冲按钮" description="辉光波纹扩散">
+                <div style="display:flex;gap:12px;flex-wrap:wrap">
+                  <CyberModernPulse>启动系统</CyberModernPulse>
+                  <CyberModernPulse variant="danger">警报</CyberModernPulse>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 现代专属单个组件 Modern Only ==================== -->
 
           <template v-if="activeItem === 'modern-tooltip'">
             <DocsTitle title="ModernTooltip 提示框" desc="现代科技风格的悬浮提示框，微妙阴影 + 柔和圆角。" />
@@ -2284,19 +2377,13 @@ const categories = [
   {
     key: 'modern-zone', label: '现代专属 MODERN',
     items: [
-      { key: 'modern-tooltip', label: 'ModernTooltip 提示框' },
-      { key: 'modern-chip', label: 'ModernChip 标签片' },
-      { key: 'modern-switch', label: 'ModernSwitch 开关' },
-      { key: 'modern-select', label: 'ModernSelect 选择器' },
+      { key: 'modern-components', label: '现代组件' },
     ],
   },
   {
     key: 'cyber-modern-zone', label: '赛博现代专属 CYBER-MODERN',
     items: [
-      { key: 'cyber-modern-glitch', label: 'CyberModernGlitch 故障效果' },
-      { key: 'cyber-modern-hologram', label: 'CyberModernHologram 全息卡片' },
-      { key: 'cyber-modern-scanline', label: 'CyberModernScanLine 扫描线' },
-      { key: 'cyber-modern-pulse', label: 'CyberModernPulse 脉冲按钮' },
+      { key: 'cyber-modern-components', label: '赛博现代组件' },
     ],
   },
   {
