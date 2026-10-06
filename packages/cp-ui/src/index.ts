@@ -250,9 +250,9 @@ import { CyberMonitorEye } from './components/monitor-eye'
 import { CyberBootAnimation } from './components/boot-animation'
 import { CyberDisconnect } from './components/disconnect'
 import { CpLogo, CpLogoTvOff, CpLogoNeon, CpLogoFlicker, CpLogoScanline, CpLogoDecipher } from './components/logo'
-import { CpBackground } from './components/background'
+import { CpBackground, CyberBackground, BlueprintBackground, BrutalBackground, NoirBackground, SterileBackground, ModernBackground, CyberModernBackground } from './components/background'
 import { CpGridLayer } from './components/grid-layer'
-import { CpStatusLed } from './components/status-led'
+import { CpStatusLed, BlueprintStatusLed, BrutalStatusLed, NoirStatusLed, SterileStatusLed, ModernStatusLed, CyberModernStatusLed, CyberStatusLed } from './components/status-led'
 import { CpDigitalClock } from './components/digital-clock'
 import { CpTypingIndicator } from './components/typing-indicator'
 import { CpHudStrip } from './components/hud-strip'
@@ -306,8 +306,22 @@ const allComponents = {
   CpLogoScanline,
   CpLogoDecipher,
   CpBackground,
+  CyberBackground,
+  BlueprintBackground,
+  BrutalBackground,
+  NoirBackground,
+  SterileBackground,
+  ModernBackground,
+  CyberModernBackground,
   CpGridLayer,
   CpStatusLed,
+  BlueprintStatusLed,
+  BrutalStatusLed,
+  NoirStatusLed,
+  SterileStatusLed,
+  ModernStatusLed,
+  CyberModernStatusLed,
+  CyberStatusLed,
   CpDigitalClock,
   CpTypingIndicator,
   CpHudStrip,

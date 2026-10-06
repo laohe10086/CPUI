@@ -1762,15 +1762,82 @@
             </DemoBlock>
           </template>
 
-          <template v-if="activeItem === 'shared-utils'">
-            <DocsTitle title="共享组件" desc="不区分风格的通用基础组件：状态指示、时钟、背景、网格、HUD 条、工具栏等。" />
-            <DemoBlock title="StatusLed 状态指示灯" description="三种状态：online / warning / error，支持脉动动画">
-              <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
-                <div style="display:flex;align-items:center;gap:6px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:12px">ONLINE</span></div>
-                <div style="display:flex;align-items:center;gap:6px"><CpStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:12px">WARNING</span></div>
-                <div style="display:flex;align-items:center;gap:6px"><CpStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:12px">ERROR</span></div>
-              </div>
+          <template v-if="activeItem === 'status-led'">
+            <DocsTitle title="StatusLed 状态指示器" desc="各风格的状态指示灯组件。" />
+            <DemoBlock title="Cyber 赛博风格" description="圆形霓虹发光">
+              <CpThemeProvider theme="cyberpunk">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><CyberStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><CyberStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><CyberStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><CyberStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
             </DemoBlock>
+            <DemoBlock title="Blueprint 蓝图风格" description="方形工程图标">
+              <CpThemeProvider theme="blueprint">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><BlueprintStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><BlueprintStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><BlueprintStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><BlueprintStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
+            </DemoBlock>
+            <DemoBlock title="Brutal 粗野风格" description="ASCII 方块符号">
+              <CpThemeProvider theme="brutal">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><BrutalStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><BrutalStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><BrutalStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><BrutalStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
+            </DemoBlock>
+            <DemoBlock title="Noir 霓虹黑风格" description="六边形霓虹">
+              <CpThemeProvider theme="neon-noir">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><NoirStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><NoirStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><NoirStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><NoirStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
+            </DemoBlock>
+            <DemoBlock title="Sterile 无菌风格" description="圆形简约设计">
+              <CpThemeProvider theme="sterile-dark">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><SterileStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><SterileStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><SterileStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><SterileStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
+            </DemoBlock>
+            <DemoBlock title="Modern 现代风格" description="极简圆点">
+              <CpThemeProvider theme="modern">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><ModernStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><ModernStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><ModernStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><ModernStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
+            </DemoBlock>
+            <DemoBlock title="CyberModern 赛博现代风格" description="圆形 + 扫描线">
+              <CpThemeProvider theme="cyber-modern">
+                <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:16px">
+                  <div style="display:flex;align-items:center;gap:8px"><CyberModernStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ONLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><CyberModernStatusLed status="offline" /><span style="color:var(--cp-text-secondary);font-size:13px">OFFLINE</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><CyberModernStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">WARNING</span></div>
+                  <div style="display:flex;align-items:center;gap:8px"><CyberModernStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:13px">ERROR</span></div>
+                </div>
+              </CpThemeProvider>
+            </DemoBlock>
+          </template>
+
+          <template v-if="activeItem === 'clock-typing'">
+            <DocsTitle title="Clock / Typing 时钟与输入指示" desc="数字时钟和输入提示组件。" />
             <DemoBlock title="DigitalClock 数字时钟" description="可选显示秒数、glitch 故障效果">
               <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
                 <CpDigitalClock :show-seconds="true" :glitch="true" />
@@ -1785,58 +1852,59 @@
                   <CpTypingIndicator />
                 </div>
               </div>
-              <template #code><DemoCode :code="codes.shared" /></template>
-            </DemoBlock>
-            <DemoBlock title="综合演示" description="共享组件组合使用场景">
-              <div style="border:1px solid var(--cp-border-base);min-height:240px;position:relative;overflow:hidden">
-                <CpHudStrip position="top" />
-                <div style="padding:24px">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-                    <div style="display:flex;align-items:center;gap:12px">
-                      <CpLogo text="CPUI" size="sm" />
-                      <div style="display:flex;gap:12px">
-                        <div style="display:flex;align-items:center;gap:4px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:11px">SYSTEM</span></div>
-                        <div style="display:flex;align-items:center;gap:4px"><CpStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:11px">CACHE</span></div>
-                      </div>
-                    </div>
-                    <CpDigitalClock :show-seconds="true" :glitch="true" />
-                  </div>
-                  <div style="padding:16px;background:var(--cp-bg-elevated);border:1px solid var(--cp-border-base);border-radius:var(--cp-radius-md)">
-                    <div style="font-family:var(--cp-font-mono);font-size:13px;color:var(--cp-text-secondary);line-height:1.8">
-                      <div style="margin-bottom:8px;color:var(--cp-color-primary)">> System initializing...</div>
-                      <div style="margin-bottom:8px">Loading modules [████████░░] 80%</div>
-                      <div style="display:flex;align-items:center;gap:8px">
-                        <span>AI agent responding</span>
-                        <CpTypingIndicator />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <CpHudStrip position="bottom" dense />
-                <CpFloatingToolbar position="right">
-                  <CpToolButton label="Settings">⚙</CpToolButton>
-                  <CpToolButton label="Help">?</CpToolButton>
-                </CpFloatingToolbar>
-              </div>
             </DemoBlock>
           </template>
 
           <template v-if="activeItem === 'background'">
-            <DocsTitle title="Background / GridLayer 背景层" desc="多风格背景 + 网格纹理叠加。" />
-            <DemoBlock title="CpBackground" description="5 种变体：neon / mesh / glow / minimal / horizon">
-              <div style="display:flex;gap:12px;flex-wrap:wrap">
-                <div v-for="v in ['neon','mesh','glow','minimal','horizon']" :key="v" @click="bgVariant = v" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid',borderColor:bgVariant===v?'var(--cp-color-secondary)':'var(--cp-border-base)',color:bgVariant===v?'var(--cp-color-secondary)':'var(--cp-text-muted)',fontSize:'0.75rem'}">{{ v }}</div>
+            <DocsTitle title="Background 背景层" desc="各风格的背景组件。" />
+            <DemoBlock title="Cyber 赛博背景" description="霓虹网格 + 粒子动画">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <CyberBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">CYBER BACKGROUND</div>
               </div>
-              <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">背景已应用到整个页面，点击切换变体查看效果</p>
-              <template #code><DemoCode :code="codes.background" /></template>
             </DemoBlock>
-            <DemoBlock title="CpGridLayer" description="网格纹理：dot / line / blueprint（虚线 + 交点锚点方块）">
-              <div style="display:flex;gap:12px">
+            <DemoBlock title="Blueprint 蓝图背景" description="工程图纸网格">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <BlueprintBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">BLUEPRINT BACKGROUND</div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Brutal 粗野背景" description="ASCII 字符纹理">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <BrutalBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">BRUTAL BACKGROUND</div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Noir 霓虹黑背景" description="雨滴 + 城市光晕">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <NoirBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">NOIR BACKGROUND</div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Sterile 无菌背景" description="渐变网格">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <SterileBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">STERILE BACKGROUND</div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Modern 现代背景" description="极简渐变">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <ModernBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">MODERN BACKGROUND</div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="CyberModern 赛博现代背景" description="扫描线 + 全息">
+              <div style="position:relative;height:200px;overflow:hidden;border:1px solid var(--cp-border)">
+                <CyberModernBackground />
+                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100%;color:var(--cp-text-primary);font-size:14px">CYBER-MODERN BACKGROUND</div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="GridLayer 网格层" description="通用网格纹理叠加">
+              <div style="display:flex;gap:12px;margin-bottom:12px">
                 <div v-for="p in ['dot','line','blueprint']" :key="p" @click="showGrid=true;gridPattern=p" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid var(--cp-border-base)',fontSize:'0.75rem',color:'var(--cp-text-muted)'}">{{ p }}</div>
                 <div @click="showGrid=false" :style="{padding:'6px 12px',cursor:'pointer',border:'1px solid var(--cp-border-base)',fontSize:'0.75rem',color:'var(--cp-text-muted)'}">关闭</div>
               </div>
-              <p style="color:var(--cp-text-muted);font-size:12px;margin-top:8px">网格已叠加到页面，点击切换图案</p>
-              <template #code><DemoCode :code="codes.gridLayer" /></template>
+              <p style="color:var(--cp-text-muted);font-size:12px">网格已叠加到整个页面，点击切换图案</p>
             </DemoBlock>
           </template>
 
@@ -2186,7 +2254,10 @@ import {
   CyberFilterBar, CyberAboutModal, CyberArticleReader, SterileCyberArticleReader, SterileArticleReader,
   CyberNotFound,
   CyberSidebar,
-  CpLogo, CpLogoTvOff, CpLogoNeon, CpLogoFlicker, CpLogoScanline, CpLogoDecipher, CpBackground, CpGridLayer, CpStatusLed,
+  CpLogo, CpLogoTvOff, CpLogoNeon, CpLogoFlicker, CpLogoScanline, CpLogoDecipher, 
+  CpBackground, CyberBackground, BlueprintBackground, BrutalBackground, NoirBackground, SterileBackground, ModernBackground, CyberModernBackground,
+  CpGridLayer, 
+  CpStatusLed, CyberStatusLed, BlueprintStatusLed, BrutalStatusLed, NoirStatusLed, SterileStatusLed, ModernStatusLed, CyberModernStatusLed,
   CpDigitalClock, CpTypingIndicator, CpHudStrip,
   CpFloatingToolbar, CpToolButton, CpTocPanel,
 } from '@cp-ui/index'
@@ -2431,8 +2502,9 @@ const categories = [
     key: 'shared', label: '共享组件 SHARED',
     items: [
       { key: 'logo', label: 'Logo 品牌标识' },
-      { key: 'shared-utils', label: 'StatusLed / Clock / Typing' },
-      { key: 'background', label: 'Background / GridLayer' },
+      { key: 'status-led', label: 'StatusLed 状态指示器' },
+      { key: 'background', label: 'Background 背景' },
+      { key: 'clock-typing', label: 'Clock / Typing 时钟输入' },
       { key: 'hud-strip', label: 'HudStrip 状态条' },
       { key: 'floating-toolbar', label: 'FloatingToolbar 浮动工具栏' },
       { key: 'toc-panel', label: 'TocPanel 目录面板' },

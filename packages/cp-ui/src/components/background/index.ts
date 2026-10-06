@@ -1,1 +1,8 @@
 export { default as CpBackground } from './CpBackground.vue'
+export { default as CyberBackground } from './CyberBackground.vue'
+export { default as BlueprintBackground } from './BlueprintBackground.vue'
+export { default as BrutalBackground } from './BrutalBackground.vue'
+export { default as NoirBackground } from './NoirBackground.vue'
+export { default as SterileBackground } from './SterileBackground.vue'
+export { default as ModernBackground } from './ModernBackground.vue'
+export { default as CyberModernBackground } from './CyberModernBackground.vue'
