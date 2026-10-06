@@ -2383,7 +2383,7 @@ const categories = [
   {
     key: 'cyber-modern-zone', label: '赛博现代专属 CYBER-MODERN',
     items: [
-      { key: 'cyber-modern-components', label: '赛博现代组件' },
+      { key: 'cyber-modern-components', label: '融合组件' },
     ],
   },
   {
