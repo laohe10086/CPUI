@@ -1433,40 +1433,81 @@
             <DocsTitle title="赛博现代组件" desc="CyberModern 赛博现代专属组件族：赛博朋克 × 现代科技融合——霓虹青 + 电紫、扫描线、全息投影、RGB 故障。" />
             <CpThemeProvider theme="cyber-modern">
               <DemoBlock title="设计语言" description="CyberModern 融合主题的核心视觉签名">
-                <div style="padding:16px;background:var(--cp-surface-1);border:1px solid var(--cp-border);font-size:13px;line-height:1.8;border-radius:8px">
-                  <div style="margin-bottom:12px;font-size:16px;font-weight:600;color:var(--cp-text-primary)">CYBER-MODERN LANGUAGE</div>
-                  <div style="color:var(--cp-text-secondary)">
-                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 融合美学：</strong>赛博朋克霓虹 + 现代科技简约</div>
-                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 配色体系：</strong>霓虹青 (#00f0ff) / 电紫 (#b026ff)</div>
-                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 特效签名：</strong>CRT 扫描线、全息投影、RGB 故障、辉光脉冲</div>
-                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>游戏 UI、科幻品牌、元宇宙、赛博作品展示</div>
+                <div style="position:relative;padding:32px;background:linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 100%);border:2px solid;border-image:linear-gradient(135deg, #00f0ff, #b026ff) 1;font-size:14px;line-height:2;overflow:hidden">
+                  <!-- 扫描线背景 -->
+                  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0,240,255,0.03) 2px, rgba(0,240,255,0.03) 3px);pointer-events:none;z-index:1"></div>
+                  
+                  <!-- 辉光边框动画 -->
+                  <div style="position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:linear-gradient(135deg, #00f0ff, #b026ff);opacity:0.3;filter:blur(8px);pointer-events:none;z-index:0"></div>
+                  
+                  <div style="position:relative;z-index:2">
+                    <div style="margin-bottom:20px;font-size:20px;font-weight:700;color:transparent;background:linear-gradient(135deg, #00f0ff, #b026ff);-webkit-background-clip:text;background-clip:text;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--cp-font-family-mono)">
+                      CYBER-MODERN LANGUAGE
+                    </div>
+                    <div style="color:var(--cp-text-secondary);font-size:13px">
+                      <div style="margin-bottom:12px;padding-left:12px;border-left:3px solid #00f0ff">
+                        <strong style="color:#00f0ff;font-family:var(--cp-font-family-mono)">融合美学：</strong>
+                        <span style="color:var(--cp-text-primary)">赛博朋克霓虹 + 现代科技简约</span>
+                      </div>
+                      <div style="margin-bottom:12px;padding-left:12px;border-left:3px solid #b026ff">
+                        <strong style="color:#b026ff;font-family:var(--cp-font-family-mono)">配色体系：</strong>
+                        <span style="color:var(--cp-text-primary)">霓虹青 <code style="background:#00f0ff22;color:#00f0ff;padding:2px 6px;border-radius:3px;font-size:11px">#00f0ff</code> / 电紫 <code style="background:#b026ff22;color:#b026ff;padding:2px 6px;border-radius:3px;font-size:11px">#b026ff</code></span>
+                      </div>
+                      <div style="margin-bottom:12px;padding-left:12px;border-left:3px solid #00f0ff">
+                        <strong style="color:#00f0ff;font-family:var(--cp-font-family-mono)">特效签名：</strong>
+                        <span style="color:var(--cp-text-primary)">CRT 扫描线、全息投影、RGB 故障、辉光脉冲</span>
+                      </div>
+                      <div style="padding-left:12px;border-left:3px solid #b026ff">
+                        <strong style="color:#b026ff;font-family:var(--cp-font-family-mono)">适用场景：</strong>
+                        <span style="color:var(--cp-text-primary)">游戏 UI、科幻品牌、元宇宙、赛博作品展示</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </DemoBlock>
               <DemoBlock title="Glitch 故障效果" description="RGB 分离 + 数字乱码">
-                <div style="display:flex;gap:16px;flex-wrap:wrap">
-                  <CyberModernGlitch text="GLITCH EFFECT" />
-                  <CyberModernGlitch text="赛博故障" intensity="high" />
+                <div style="padding:40px 20px;background:radial-gradient(circle at center, #0a0a1a 0%, #000000 100%);border:1px solid #00f0ff44;display:flex;gap:32px;flex-wrap:wrap;justify-content:center;align-items:center">
+                  <div style="text-align:center">
+                    <CyberModernGlitch text="GLITCH EFFECT" />
+                    <div style="margin-top:12px;font-size:11px;color:var(--cp-text-tertiary);font-family:var(--cp-font-family-mono)">Normal Intensity</div>
+                  </div>
+                  <div style="text-align:center">
+                    <CyberModernGlitch text="赛博故障" intensity="high" />
+                    <div style="margin-top:12px;font-size:11px;color:var(--cp-text-tertiary);font-family:var(--cp-font-family-mono)">High Intensity</div>
+                  </div>
                 </div>
               </DemoBlock>
               <DemoBlock title="Hologram 全息卡片" description="扫描线 + 半透明全息投影">
-                <CyberModernHologram style="width:300px;padding:24px">
-                  <div style="font-size:18px;font-weight:600;margin-bottom:8px;color:var(--cp-primary)">HOLOGRAM</div>
-                  <div style="font-size:13px;color:var(--cp-text-secondary)">全息投影界面</div>
-                </CyberModernHologram>
+                <div style="padding:40px;background:#000000;display:flex;justify-content:center">
+                  <CyberModernHologram style="width:360px;padding:32px">
+                    <div style="font-size:24px;font-weight:700;margin-bottom:12px;color:#00f0ff;font-family:var(--cp-font-family-mono);letter-spacing:0.1em">HOLOGRAM</div>
+                    <div style="font-size:14px;color:var(--cp-text-secondary);line-height:1.6">全息投影界面<br>Holographic Display Interface</div>
+                    <div style="margin-top:16px;padding-top:16px;border-top:1px solid #00f0ff33;font-size:11px;color:var(--cp-text-tertiary);font-family:var(--cp-font-family-mono)">STATUS: ACTIVE | SIGNAL: 98%</div>
+                  </CyberModernHologram>
+                </div>
               </DemoBlock>
               <DemoBlock title="ScanLine 扫描线容器" description="CRT 显示器扫描线">
-                <CyberModernScanLine style="padding:32px;border:1px solid var(--cp-border)">
-                  <div style="font-family:var(--cp-font-family-mono);color:var(--cp-primary);font-size:14px">
-                    > SCANNING...<br>
-                    > LOADING...
-                  </div>
-                </CyberModernScanLine>
+                <div style="padding:20px;background:#000000">
+                  <CyberModernScanLine style="padding:40px;border:2px solid #00f0ff;background:#0a0a0a">
+                    <div style="font-family:var(--cp-font-family-mono);color:#00f0ff;font-size:15px;line-height:1.8;letter-spacing:0.05em">
+                      <div style="margin-bottom:8px">> SYSTEM INITIALIZING...</div>
+                      <div style="margin-bottom:8px">> LOADING CYBER CORE...</div>
+                      <div style="margin-bottom:8px">> SCANNING DATA STREAMS...</div>
+                      <div style="color:#b026ff">> READY</div>
+                    </div>
+                  </CyberModernScanLine>
+                </div>
               </DemoBlock>
               <DemoBlock title="Pulse 脉冲按钮" description="辉光波纹扩散">
-                <div style="display:flex;gap:12px;flex-wrap:wrap">
-                  <CyberModernPulse>启动系统</CyberModernPulse>
-                  <CyberModernPulse variant="danger">警报</CyberModernPulse>
+                <div style="padding:40px;background:radial-gradient(circle at center, #0a0a1a 0%, #000000 100%);display:flex;gap:24px;flex-wrap:wrap;justify-content:center">
+                  <div style="text-align:center">
+                    <CyberModernPulse>启动系统</CyberModernPulse>
+                    <div style="margin-top:12px;font-size:11px;color:var(--cp-text-tertiary);font-family:var(--cp-font-family-mono)">Primary Action</div>
+                  </div>
+                  <div style="text-align:center">
+                    <CyberModernPulse variant="danger">警报</CyberModernPulse>
+                    <div style="margin-top:12px;font-size:11px;color:var(--cp-text-tertiary);font-family:var(--cp-font-family-mono)">Danger Action</div>
+                  </div>
                 </div>
               </DemoBlock>
             </CpThemeProvider>
