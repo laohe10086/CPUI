@@ -2,8 +2,8 @@
 // Industrial console + controlled neon. Clean lines, muted glow, high information density.
 
 @mixin sterile-cyber {
-  --cp-color-primary: #fce803;
-  --cp-color-secondary: #00f0ff;
+  --cp-color-primary: #e0d020;
+  --cp-color-secondary: #00c8d8;
   --cp-color-danger: #ff003c;
   --cp-color-success: #00ff41;
   --cp-color-warning: #ff8c00;
@@ -21,13 +21,13 @@
 
   --cp-border-dim: rgba(255, 255, 255, 0.06);
   --cp-border-base: rgba(255, 255, 255, 0.12);
-  --cp-border-bright: rgba(0, 240, 255, 0.25);
-  --cp-border-active: #00f0ff;
+  --cp-border-bright: rgba(0, 200, 216, 0.25);
+  --cp-border-active: #00c8d8;
 
-  --cp-glow-primary: rgba(252, 232, 3, 0.25);
-  --cp-glow-secondary: rgba(0, 240, 255, 0.25);
-  --cp-glow-danger: rgba(255, 0, 60, 0.25);
-  --cp-glow-intensity: 0.25;
+  --cp-glow-primary: rgba(224, 208, 32, 0.12);
+  --cp-glow-secondary: rgba(0, 200, 216, 0.12);
+  --cp-glow-danger: rgba(255, 0, 60, 0.12);
+  --cp-glow-intensity: 0.12;
 
   --cp-grid-line: rgba(255, 255, 255, 0.04);
   --cp-grid-dot: rgba(255, 255, 255, 0.08);
@@ -35,9 +35,9 @@
   --cp-font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
   --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
 
-  --cp-cut-corner-sm: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
-  --cp-cut-corner-md: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-  --cp-cut-corner-lg: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  --cp-cut-corner-sm: polygon(0 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%);
+  --cp-cut-corner-md: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
+  --cp-cut-corner-lg: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
 
   --cp-radius-sm: 2px;
   --cp-radius-md: 4px;
@@ -51,12 +51,12 @@
   --cp-bracket-muted: var(--cp-text-muted);
 
   --cp-hud-bg: rgba(5, 5, 5, 0.9);
-  --cp-hud-border: rgba(0, 240, 255, 0.15);
+  --cp-hud-border: rgba(0, 200, 216, 0.15);
 
   --cp-duration-fast: 200ms;
   --cp-duration-base: 300ms;
   --cp-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --cp-scanline-opacity: 0.03;
+  --cp-scanline-opacity: 0;
   --cp-noise-opacity: 0.02;
 }

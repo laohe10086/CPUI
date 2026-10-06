@@ -1,8 +1,8 @@
 <template>
-  <span class="blueprint-bracket" :class="[`blueprint-bracket--${variant}`]">
-    <span class="blueprint-bracket__dim blueprint-bracket__dim--l" />
-    <span class="blueprint-bracket__text">{{ text }}</span>
-    <span class="blueprint-bracket__dim blueprint-bracket__dim--r" />
+  <span class="blueprint-label">
+    <span class="blueprint-label__arrow blueprint-label__arrow--left">◄──</span>
+    <span class="blueprint-label__text"><slot /></span>
+    <span class="blueprint-label__arrow blueprint-label__arrow--right">──►</span>
   </span>
 </template>
 
@@ -15,57 +15,28 @@ withDefaults(defineProps<BracketLabelProps>(), {
 </script>
 
 <style lang="scss" scoped>
-// 工程尺寸标注：细线 + 外向箭头，文字居中
-.blueprint-bracket {
+.blueprint-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: var(--cp-font-mono);
   font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--cp-text-secondary);
 
-  &__dim {
-    position: relative;
-    width: 20px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -2.5px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-    }
-
-    &--l::before {
-      left: 0;
-      border-width: 3px 5px 3px 0;
-      border-color: transparent currentColor transparent transparent;
-    }
-
-    &--r::before {
-      right: 0;
-      border-width: 3px 0 3px 5px;
-      border-color: transparent transparent transparent currentColor;
+  &__arrow {
+    font-size: 10px;
+    color: var(--cp-text-dim);
+    line-height: 1;
+    
+    &--left, &--right {
+      opacity: 0.6;
     }
   }
 
-  &--default {
-    color: var(--cp-text-secondary);
-  }
-  &--accent {
-    color: var(--cp-color-primary);
-  }
-  &--muted {
-    color: var(--cp-text-muted);
-  }
-  &--danger {
-    color: var(--cp-color-danger);
+  &__text {
+    text-transform: uppercase;
   }
 }
 </style>

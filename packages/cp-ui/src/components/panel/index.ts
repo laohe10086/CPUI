@@ -1,3 +1,6 @@
 export { default as CyberPanel } from './CyberPanel.vue'
 export { default as SterileCyberPanel } from './SterileCyberPanel.vue'
 export { default as SterilePanel } from './SterilePanel.vue'
+export { default as BlueprintPanel } from './BlueprintPanel.vue'
+export { default as BrutalPanel } from './BrutalPanel.vue'
+export { default as NoirPanel } from './NoirPanel.vue'

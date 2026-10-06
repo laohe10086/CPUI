@@ -1,8 +1,8 @@
 <template>
-  <span class="brutal-bracket" :class="[`brutal-bracket--${variant}`]">
-    <span class="brutal-bracket__mark">[</span>
-    <span class="brutal-bracket__text">{{ text }}</span>
-    <span class="brutal-bracket__mark">]</span>
+  <span class="brutal-label">
+    <span class="brutal-label__bracket">[</span>
+    <span class="brutal-label__text"><slot /></span>
+    <span class="brutal-label__bracket">]</span>
   </span>
 </template>
 
@@ -15,32 +15,24 @@ withDefaults(defineProps<BracketLabelProps>(), {
 </script>
 
 <style lang="scss" scoped>
-// 终端括号标注：[ TEXT ]，方括号弱一级
-.brutal-bracket {
+.brutal-label {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   font-family: var(--cp-font-mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cp-text-primary);
 
-  &__mark {
+  &__bracket {
+    font-size: 15px;
+    font-weight: 900;
     color: var(--cp-text-dim);
   }
 
-  &--default {
-    color: var(--cp-text-secondary);
-  }
-  &--accent {
-    color: var(--cp-color-primary);
-  }
-  &--muted {
-    color: var(--cp-text-muted);
-  }
-  &--danger {
-    color: var(--cp-color-danger);
+  &__text {
+    text-transform: uppercase;
   }
 }
 </style>

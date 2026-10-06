@@ -25,10 +25,10 @@
   --cp-border-bright: rgba(99, 102, 241, 0.35);
   --cp-border-active: #6366f1;
 
-  --cp-glow-primary: rgba(99, 102, 241, 0.22);
-  --cp-glow-secondary: rgba(0, 240, 255, 0.18);
-  --cp-glow-danger: rgba(255, 0, 60, 0.22);
-  --cp-glow-intensity: 0.15;
+  --cp-glow-primary: transparent;
+  --cp-glow-secondary: transparent;
+  --cp-glow-danger: transparent;
+  --cp-glow-intensity: 0;
 
   --cp-grid-line: rgba(255, 255, 255, 0.07);
   --cp-grid-dot: rgba(99, 102, 241, 0.4);
@@ -36,9 +36,9 @@
   --cp-font-sans: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
   --cp-font-mono: 'JetBrains Mono', 'Share Tech Mono', Consolas, monospace;
 
-  --cp-cut-corner-sm: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
-  --cp-cut-corner-md: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-  --cp-cut-corner-lg: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  --cp-cut-corner-sm: none;
+  --cp-cut-corner-md: none;
+  --cp-cut-corner-lg: none;
 
   --cp-radius-sm: 0;
   --cp-radius-md: 0;

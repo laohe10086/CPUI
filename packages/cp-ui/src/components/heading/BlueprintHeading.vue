@@ -1,68 +1,87 @@
 <template>
-  <div
-    class="blueprint-heading"
-    :class="[
-      { 'blueprint-heading--underline': underline },
-    ]"
-    :style="{
-      '--blueprint-heading-line-color': lineColor || undefined,
-      '--blueprint-heading-text-color': textColor || undefined,
-    }"
-  >
-    <span class="blueprint-heading__text"><slot /></span>
-    <div v-if="underline" class="blueprint-heading__line" />
+  <div class="blueprint-heading">
+    <component :is="level" class="blueprint-heading__text">
+      <slot />
+    </component>
+    <div class="blueprint-heading__dimension">
+      <span class="blueprint-heading__line"></span>
+      <span class="blueprint-heading__label">{{ dimensionLabel }}</span>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { HeadingProps } from '../../types/components'
 
-withDefaults(defineProps<HeadingProps>(), {
-  underline: true,
-  lineColor: '',
-  textColor: '',
-  glitched: false,
-  neon: false,
-  rgbSplit: false,
-  linePulse: false,
-  lineGlow: false,
+const props = withDefaults(defineProps<HeadingProps>(), {
+  level: 'h2',
+})
+
+const dimensionLabel = computed(() => {
+  const sizes: Record<string, string> = {
+    h1: '32pt',
+    h2: '24pt',
+    h3: '18pt',
+    h4: '16pt',
+    h5: '14pt',
+    h6: '12pt',
+  }
+  return sizes[props.level] || '24pt'
 })
 </script>
 
 <style lang="scss" scoped>
 .blueprint-heading {
-  --blueprint-heading-line-color: var(--cp-border-bright);
-  --blueprint-heading-text-color: var(--cp-text-primary);
-
+  position: relative;
   display: inline-block;
-  margin: 0;
-  padding-bottom: 8px;
-  font-family: var(--cp-font-mono);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  line-height: 1.3;
-  color: var(--blueprint-heading-text-color);
+  margin: 0 0 16px 0;
 
-  // 尺寸标注线：1px 横线 + 两端 8px 竖 tick
+  &__text {
+    font-family: var(--cp-font-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cp-text-primary);
+    margin: 0;
+    padding-right: 60px;
+  }
+
+  &__dimension {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
   &__line {
+    width: 40px;
+    height: 1px;
+    background: var(--cp-border-base);
     position: relative;
-    width: 100%;
-    height: 8px;
-    margin-top: 8px;
-    border-bottom: 1px solid var(--blueprint-heading-line-color);
-
+    
     &::before,
     &::after {
       content: '';
       position: absolute;
-      bottom: -4px;
       width: 1px;
-      height: 8px;
-      background: var(--blueprint-heading-line-color);
+      height: 5px;
+      background: var(--cp-border-base);
+      top: 50%;
+      transform: translateY(-50%);
     }
+    
     &::before { left: 0; }
     &::after { right: 0; }
+  }
+
+  &__label {
+    font-family: var(--cp-font-mono);
+    font-size: 9px;
+    color: var(--cp-text-dim);
   }
 }
 </style>

@@ -1,4 +1,7 @@
 export { default as CyberStatsGrid } from './CyberStatsGrid.vue'
 export { default as SterileCyberStatsGrid } from './SterileCyberStatsGrid.vue'
 export { default as SterileStatsGrid } from './SterileStatsGrid.vue'
+export { default as BlueprintStatsGrid } from './BlueprintStatsGrid.vue'
+export { default as BrutalStatsGrid } from './BrutalStatsGrid.vue'
+export { default as NoirStatsGrid } from './NoirStatsGrid.vue'
 export type { StatItem } from '../../types/components'

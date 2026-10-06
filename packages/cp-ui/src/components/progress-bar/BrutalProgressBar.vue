@@ -1,10 +1,7 @@
 <template>
-  <div class="brutal-progress" :style="{ height: height + 'px' }">
-    <div
-      class="brutal-progress__bar"
-      :class="[`brutal-progress__bar--${variant}`, { 'brutal-progress__bar--animated': animated }]"
-      :style="{ width: clampedValue + '%' }"
-    />
+  <div class="brutal-progress">
+    <div class="brutal-progress__bar">{{ progressBar }}</div>
+    <div class="brutal-progress__value">{{ clampedValue }}%</div>
   </div>
 </template>
 
@@ -14,65 +11,39 @@ import type { ProgressBarProps } from '../../types/components'
 
 const props = withDefaults(defineProps<ProgressBarProps>(), {
   variant: 'default',
-  height: 10,
+  height: 20,
   animated: false,
 })
 
 const clampedValue = computed(() => Math.max(0, Math.min(100, props.value)))
+
+const progressBar = computed(() => {
+  const filled = Math.floor(clampedValue.value / 10)
+  const empty = 10 - filled
+  return '█'.repeat(filled) + '░'.repeat(empty)
+})
 </script>
 
 <style lang="scss" scoped>
-// 终端粗野：直角轨道 + 分段方块填充，steps() 跳动推进
 .brutal-progress {
-  width: 100%;
-  background: transparent;
-  border: 1px solid var(--cp-border-base);
-  border-radius: 0;
-  overflow: hidden;
-
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--cp-font-mono);
+  
   &__bar {
-    height: 100%;
-    transition: width var(--cp-duration-base) var(--cp-easing);
-    background-repeat: repeat;
-    background-size: 10px 100%;
-
-    &--default,
-    &--primary {
-      background-image: repeating-linear-gradient(
-        90deg,
-        var(--cp-color-primary) 0 8px,
-        transparent 8px 10px
-      );
-    }
-
-    &--secondary {
-      background-image: repeating-linear-gradient(
-        90deg,
-        var(--cp-color-secondary) 0 8px,
-        transparent 8px 10px
-      );
-    }
-
-    &--danger {
-      background-image: repeating-linear-gradient(
-        90deg,
-        var(--cp-color-danger) 0 8px,
-        transparent 8px 10px
-      );
-    }
-
-    &--animated {
-      animation: brutal-progress-march 500ms steps(2) infinite;
-    }
+    font-size: 16px;
+    line-height: 1;
+    color: var(--cp-color-primary);
+    letter-spacing: 1px;
+    white-space: nowrap;
   }
-}
-
-@keyframes brutal-progress-march {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 10px 0;
+  
+  &__value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--cp-text-secondary);
+    min-width: 40px;
   }
 }
 </style>

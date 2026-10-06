@@ -1,126 +1,114 @@
 <template>
-  <div
-    class="blueprint-input"
-    :class="{
-      'blueprint-input--focused': focused,
-      'blueprint-input--disabled': disabled,
-    }"
-  >
-    <span v-if="$slots.prefix" class="blueprint-input__prefix"><slot name="prefix" /></span>
+  <div class="blueprint-input-wrapper">
+    <div class="blueprint-input__scale blueprint-input__scale--tl"></div>
+    <div class="blueprint-input__scale blueprint-input__scale--tr"></div>
+    <div class="blueprint-input__scale blueprint-input__scale--bl"></div>
+    <div class="blueprint-input__scale blueprint-input__scale--br"></div>
     <input
-      ref="inputRef"
-      class="blueprint-input__field"
-      :value="modelValue"
+      class="blueprint-input"
+      :class="{ 'blueprint-input--error': error }"
+      :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
-      :type="type"
+      :value="modelValue"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-      @focus="focused = true"
-      @blur="focused = false"
     />
-    <span v-if="clearable && modelValue" class="blueprint-input__clear" @click="$emit('update:modelValue', '')">[x]</span>
-    <span v-if="$slots.suffix" class="blueprint-input__suffix"><slot name="suffix" /></span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { InputProps } from '../../types/components'
 
 withDefaults(defineProps<InputProps>(), {
-  modelValue: '',
+  type: 'text',
   placeholder: '',
   disabled: false,
-  clearable: false,
-  type: 'text',
-  shape: 'regular',
+  error: false,
+  modelValue: '',
 })
 
 defineEmits<{
   'update:modelValue': [value: string]
 }>()
-
-const focused = ref(false)
-const inputRef = ref<HTMLInputElement>()
-
-defineExpose({ inputRef })
 </script>
 
 <style lang="scss" scoped>
-.blueprint-input {
+.blueprint-input-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: 1px solid var(--cp-border-base);
-  border-radius: 0;
-  padding: 0 12px;
-  height: 38px;
-  transition: border-color var(--cp-duration-fast) var(--cp-easing);
+  display: inline-block;
+  width: 100%;
+}
+
+.blueprint-input__scale {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  
+  &--tl {
+    top: 0;
+    left: 0;
+    border-top: 1px solid var(--cp-border-base);
+    border-left: 1px solid var(--cp-border-base);
+  }
+  
+  &--tr {
+    top: 0;
+    right: 0;
+    border-top: 1px solid var(--cp-border-base);
+    border-right: 1px solid var(--cp-border-base);
+  }
+  
+  &--bl {
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid var(--cp-border-base);
+    border-left: 1px solid var(--cp-border-base);
+  }
+  
+  &--br {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid var(--cp-border-base);
+    border-right: 1px solid var(--cp-border-base);
+  }
+}
+
+.blueprint-input {
+  width: 100%;
+  padding: 10px 14px;
   font-family: var(--cp-font-mono);
+  font-size: 13px;
+  color: var(--cp-text-primary);
+  background: var(--cp-bg-elevated);
+  border: 1px solid var(--cp-border-base);
+  outline: none;
+  transition: border-color var(--cp-duration-base) var(--cp-easing);
 
-  // 左上 / 右下角的 6px L 形刻度 tick
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background-image:
-      linear-gradient(#fff, #fff),
-      linear-gradient(#fff, #fff);
-    background-size: 6px 1px, 1px 6px;
-    background-repeat: no-repeat;
-    pointer-events: none;
-  }
-  &::before {
-    top: -1px;
-    left: -1px;
-    background-position: left top, left top;
-  }
-  &::after {
-    bottom: -1px;
-    right: -1px;
-    background-position: right bottom, right bottom;
+  &::placeholder {
+    color: var(--cp-text-dim);
+    font-style: italic;
   }
 
-  &--focused {
-    border-color: var(--cp-border-active);
+  &:focus {
+    border-color: var(--cp-color-primary);
+    
+    ~ .blueprint-input__scale {
+      border-color: var(--cp-color-primary);
+    }
   }
 
-  &--disabled {
+  &--error {
+    border-color: var(--cp-color-danger);
+    
+    ~ .blueprint-input__scale {
+      border-color: var(--cp-color-danger);
+    }
+  }
+
+  &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-
-  &__field {
-    flex: 1;
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--cp-text-primary);
-    font-family: inherit;
-    font-size: 13px;
-    width: 100%;
-    caret-color: var(--cp-color-primary);
-
-    &::placeholder { color: var(--cp-text-dim); }
-  }
-
-  &__clear {
-    cursor: pointer;
-    color: var(--cp-text-muted);
-    font-size: 11px;
-    &:hover { color: var(--cp-text-primary); }
-  }
-
-  &__prefix,
-  &__suffix {
-    color: var(--cp-text-muted);
-    font-size: 12px;
-    display: flex;
-    align-items: center;
   }
 }
 </style>

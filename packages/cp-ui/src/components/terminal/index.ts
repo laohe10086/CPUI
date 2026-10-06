@@ -1,4 +1,7 @@
 export { default as CyberTerminal } from './CyberTerminal.vue'
 export { default as SterileCyberTerminal } from './SterileCyberTerminal.vue'
 export { default as SterileTerminal } from './SterileTerminal.vue'
+export { default as BlueprintTerminal } from './BlueprintTerminal.vue'
+export { default as BrutalTerminal } from './BrutalTerminal.vue'
+export { default as NoirTerminal } from './NoirTerminal.vue'
 export type { TerminalEntry } from '../../types/components'

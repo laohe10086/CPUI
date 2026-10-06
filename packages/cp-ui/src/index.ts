@@ -79,7 +79,7 @@ export { SterileTerminal } from './components/terminal'
 export { SterileChatBubble } from './components/chat-bubble'
 export { SterileHeading } from './components/heading'
 
-// ===== Brutal Components (8) =====
+// ===== Brutal Components (16) =====
 export { BrutalButton } from './components/button'
 export { BrutalCard } from './components/card'
 export { BrutalInput } from './components/input'
@@ -88,8 +88,16 @@ export { BrutalBadge } from './components/badge'
 export { BrutalBracketLabel } from './components/bracket-label'
 export { BrutalProgressBar } from './components/progress-bar'
 export { BrutalHeading } from './components/heading'
+export { BrutalAvatar } from './components/avatar'
+export { BrutalPanel } from './components/panel'
+export { BrutalModal } from './components/modal'
+export { BrutalStatsGrid } from './components/stats-grid'
+export { BrutalPagination } from './components/pagination'
+export { BrutalCategoryTabs } from './components/category-tabs'
+export { BrutalTerminal } from './components/terminal'
+export { BrutalChatBubble } from './components/chat-bubble'
 
-// ===== Blueprint Components (8) =====
+// ===== Blueprint Components (16) =====
 export { BlueprintButton } from './components/button'
 export { BlueprintCard } from './components/card'
 export { BlueprintInput } from './components/input'
@@ -98,8 +106,16 @@ export { BlueprintBadge } from './components/badge'
 export { BlueprintBracketLabel } from './components/bracket-label'
 export { BlueprintProgressBar } from './components/progress-bar'
 export { BlueprintHeading } from './components/heading'
+export { BlueprintAvatar } from './components/avatar'
+export { BlueprintPanel } from './components/panel'
+export { BlueprintModal } from './components/modal'
+export { BlueprintStatsGrid } from './components/stats-grid'
+export { BlueprintPagination } from './components/pagination'
+export { BlueprintCategoryTabs } from './components/category-tabs'
+export { BlueprintTerminal } from './components/terminal'
+export { BlueprintChatBubble } from './components/chat-bubble'
 
-// ===== Noir Components (8) =====
+// ===== Noir Components (16) =====
 export { NoirButton } from './components/button'
 export { NoirCard } from './components/card'
 export { NoirInput } from './components/input'
@@ -108,6 +124,42 @@ export { NoirBadge } from './components/badge'
 export { NoirBracketLabel } from './components/bracket-label'
 export { NoirProgressBar } from './components/progress-bar'
 export { NoirHeading } from './components/heading'
+export { NoirAvatar } from './components/avatar'
+export { NoirPanel } from './components/panel'
+export { NoirModal } from './components/modal'
+export { NoirStatsGrid } from './components/stats-grid'
+export { NoirPagination } from './components/pagination'
+export { NoirCategoryTabs } from './components/category-tabs'
+export { NoirTerminal } from './components/terminal'
+export { NoirChatBubble } from './components/chat-bubble'
+
+// ===== Modern Components (8 + 4 exclusive) =====
+export { ModernButton } from './components/button'
+export { ModernCard } from './components/card'
+export { ModernInput } from './components/input'
+export { ModernTag } from './components/tag'
+export { ModernBadge } from './components/badge'
+export { ModernBracketLabel } from './components/bracket-label'
+export { ModernProgressBar } from './components/progress-bar'
+export { ModernHeading } from './components/heading'
+export { ModernTooltip } from './components/ModernTooltip'
+export { ModernChip } from './components/ModernChip'
+export { ModernSwitch } from './components/ModernSwitch'
+export { ModernSelect } from './components/ModernSelect'
+
+// ===== CyberModern Components (8 + 4 exclusive) =====
+export { CyberModernButton } from './components/CyberModernButton'
+export { CyberModernCard } from './components/CyberModernCard'
+export { CyberModernInput } from './components/CyberModernInput'
+export { CyberModernTag } from './components/CyberModernTag'
+export { CyberModernBadge } from './components/CyberModernBadge'
+export { CyberModernBracketLabel } from './components/CyberModernBracketLabel'
+export { CyberModernProgressBar } from './components/CyberModernProgressBar'
+export { CyberModernHeading } from './components/CyberModernHeading'
+export { CyberModernGlitch } from './components/CyberModernGlitch'
+export { CyberModernHologram } from './components/CyberModernHologram'
+export { CyberModernScanLine } from './components/CyberModernScanLine'
+export { CyberModernPulse } from './components/CyberModernPulse'
 
 // ===== Cyber-Only Components (10) =====
 export { CyberGlitchText } from './components/glitch-text'
@@ -154,16 +206,40 @@ import { CyberInput, SterileCyberInput, SterileInput, BrutalInput, BlueprintInpu
 import { CyberTag, SterileCyberTag, SterileTag, BrutalTag, BlueprintTag, NoirTag } from './components/tag'
 import { CyberBadge, SterileCyberBadge, SterileBadge, BrutalBadge, BlueprintBadge, NoirBadge } from './components/badge'
 import { CyberBracketLabel, SterileCyberBracketLabel, SterileBracketLabel, BrutalBracketLabel, BlueprintBracketLabel, NoirBracketLabel } from './components/bracket-label'
-import { CyberPanel, SterileCyberPanel, SterilePanel } from './components/panel'
-import { CyberModal, SterileCyberModal, SterileModal } from './components/modal'
-import { CyberPagination, SterileCyberPagination, SterilePagination } from './components/pagination'
-import { CyberAvatar, SterileCyberAvatar, SterileAvatar } from './components/avatar'
+import { CyberPanel, SterileCyberPanel, SterilePanel, BrutalPanel, BlueprintPanel, NoirPanel } from './components/panel'
+import { CyberModal, SterileCyberModal, SterileModal, BrutalModal, BlueprintModal, NoirModal } from './components/modal'
+import { CyberPagination, SterileCyberPagination, SterilePagination, BrutalPagination, BlueprintPagination, NoirPagination } from './components/pagination'
+import { CyberAvatar, SterileCyberAvatar, SterileAvatar, BrutalAvatar, BlueprintAvatar, NoirAvatar } from './components/avatar'
 import { CyberProgressBar, SterileCyberProgressBar, SterileProgressBar, BrutalProgressBar, BlueprintProgressBar, NoirProgressBar } from './components/progress-bar'
-import { CyberCategoryTabs, SterileCyberCategoryTabs, SterileCategoryTabs } from './components/category-tabs'
-import { CyberStatsGrid, SterileCyberStatsGrid, SterileStatsGrid } from './components/stats-grid'
-import { CyberTerminal, SterileCyberTerminal, SterileTerminal } from './components/terminal'
-import { CyberChatBubble, SterileCyberChatBubble, SterileChatBubble } from './components/chat-bubble'
+import { CyberCategoryTabs, SterileCyberCategoryTabs, SterileCategoryTabs, BrutalCategoryTabs, BlueprintCategoryTabs, NoirCategoryTabs } from './components/category-tabs'
+import { CyberStatsGrid, SterileCyberStatsGrid, SterileStatsGrid, BrutalStatsGrid, BlueprintStatsGrid, NoirStatsGrid } from './components/stats-grid'
+import { CyberTerminal, SterileCyberTerminal, SterileTerminal, BrutalTerminal, BlueprintTerminal, NoirTerminal } from './components/terminal'
+import { CyberChatBubble, SterileCyberChatBubble, SterileChatBubble, BrutalChatBubble, BlueprintChatBubble, NoirChatBubble } from './components/chat-bubble'
 import { CyberHeading, SterileCyberHeading, SterileHeading, BrutalHeading, BlueprintHeading, NoirHeading } from './components/heading'
+import { ModernButton } from './components/ModernButton'
+import { ModernCard } from './components/ModernCard'
+import { ModernInput } from './components/ModernInput'
+import { ModernTag } from './components/ModernTag'
+import { ModernBadge } from './components/ModernBadge'
+import { ModernBracketLabel } from './components/ModernBracketLabel'
+import { ModernProgressBar } from './components/ModernProgressBar'
+import { ModernHeading } from './components/ModernHeading'
+import { ModernTooltip } from './components/ModernTooltip'
+import { ModernChip } from './components/ModernChip'
+import { ModernSwitch } from './components/ModernSwitch'
+import { ModernSelect } from './components/ModernSelect'
+import { CyberModernButton } from './components/CyberModernButton'
+import { CyberModernCard } from './components/CyberModernCard'
+import { CyberModernInput } from './components/CyberModernInput'
+import { CyberModernTag } from './components/CyberModernTag'
+import { CyberModernBadge } from './components/CyberModernBadge'
+import { CyberModernBracketLabel } from './components/CyberModernBracketLabel'
+import { CyberModernProgressBar } from './components/CyberModernProgressBar'
+import { CyberModernHeading } from './components/CyberModernHeading'
+import { CyberModernGlitch } from './components/CyberModernGlitch'
+import { CyberModernHologram } from './components/CyberModernHologram'
+import { CyberModernScanLine } from './components/CyberModernScanLine'
+import { CyberModernPulse } from './components/CyberModernPulse'
 import { CyberGlitchText } from './components/glitch-text'
 import { CyberDecipherText } from './components/decipher-text'
 import { CyberScanLine } from './components/scan-line'
@@ -200,16 +276,20 @@ const allComponents = {
   CyberTag, SterileCyberTag, SterileTag, BrutalTag, BlueprintTag, NoirTag,
   CyberBadge, SterileCyberBadge, SterileBadge, BrutalBadge, BlueprintBadge, NoirBadge,
   CyberBracketLabel, SterileCyberBracketLabel, SterileBracketLabel, BrutalBracketLabel, BlueprintBracketLabel, NoirBracketLabel,
-  CyberPanel, SterileCyberPanel, SterilePanel,
-  CyberModal, SterileCyberModal, SterileModal,
-  CyberPagination, SterileCyberPagination, SterilePagination,
-  CyberAvatar, SterileCyberAvatar, SterileAvatar,
+  CyberPanel, SterileCyberPanel, SterilePanel, BrutalPanel, BlueprintPanel, NoirPanel,
+  CyberModal, SterileCyberModal, SterileModal, BrutalModal, BlueprintModal, NoirModal,
+  CyberPagination, SterileCyberPagination, SterilePagination, BrutalPagination, BlueprintPagination, NoirPagination,
+  CyberAvatar, SterileCyberAvatar, SterileAvatar, BrutalAvatar, BlueprintAvatar, NoirAvatar,
   CyberProgressBar, SterileCyberProgressBar, SterileProgressBar, BrutalProgressBar, BlueprintProgressBar, NoirProgressBar,
-  CyberCategoryTabs, SterileCyberCategoryTabs, SterileCategoryTabs,
-  CyberStatsGrid, SterileCyberStatsGrid, SterileStatsGrid,
-  CyberTerminal, SterileCyberTerminal, SterileTerminal,
-  CyberChatBubble, SterileCyberChatBubble, SterileChatBubble,
+  CyberCategoryTabs, SterileCyberCategoryTabs, SterileCategoryTabs, BrutalCategoryTabs, BlueprintCategoryTabs, NoirCategoryTabs,
+  CyberStatsGrid, SterileCyberStatsGrid, SterileStatsGrid, BrutalStatsGrid, BlueprintStatsGrid, NoirStatsGrid,
+  CyberTerminal, SterileCyberTerminal, SterileTerminal, BrutalTerminal, BlueprintTerminal, NoirTerminal,
+  CyberChatBubble, SterileCyberChatBubble, SterileChatBubble, BrutalChatBubble, BlueprintChatBubble, NoirChatBubble,
   CyberHeading, SterileCyberHeading, SterileHeading, BrutalHeading, BlueprintHeading, NoirHeading,
+  ModernButton, ModernCard, ModernInput, ModernTag, ModernBadge, ModernBracketLabel, ModernProgressBar, ModernHeading,
+  ModernTooltip, ModernChip, ModernSwitch, ModernSelect,
+  CyberModernButton, CyberModernCard, CyberModernInput, CyberModernTag, CyberModernBadge, CyberModernBracketLabel, CyberModernProgressBar, CyberModernHeading,
+  CyberModernGlitch, CyberModernHologram, CyberModernScanLine, CyberModernPulse,
   CyberGlitchText,
   CyberDecipherText,
   CyberScanLine,

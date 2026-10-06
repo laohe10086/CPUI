@@ -38,6 +38,8 @@ provide(THEME_KEY, { currentTheme, setTheme })
 @use './themes/sterile/sterile-dark' as sdark;
 @use './themes/sterile/sterile-light' as slight;
 @use './themes/sterile/brutal' as brutal;
+@use './themes/sterile/modern' as modern;
+@use './themes/sterile/cyber-modern' as cybermod;
 
 // === Shared styles ===
 @use '../styles/shared/reset';
@@ -120,6 +122,8 @@ body[data-theme] {
   &[data-theme="sterile-dark"] { @include sdark.sterile-dark; }
   &[data-theme="sterile-light"] { @include slight.sterile-light; }
   &[data-theme="brutal"] { @include brutal.brutal; }
+  &[data-theme="modern"] { @include modern.modern-theme; }
+  &[data-theme="cyber-modern"] { @include cybermod.cyber-modern-theme; }
 
   // Legacy alias: "light" maps to sterile-light
   &[data-theme="light"] { @include slight.sterile-light; }

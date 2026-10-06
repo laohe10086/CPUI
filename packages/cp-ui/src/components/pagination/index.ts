@@ -1,3 +1,6 @@
 export { default as CyberPagination } from './CyberPagination.vue'
 export { default as SterileCyberPagination } from './SterileCyberPagination.vue'
 export { default as SterilePagination } from './SterilePagination.vue'
+export { default as BlueprintPagination } from './BlueprintPagination.vue'
+export { default as BrutalPagination } from './BrutalPagination.vue'
+export { default as NoirPagination } from './NoirPagination.vue'

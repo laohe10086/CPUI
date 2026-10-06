@@ -1,4 +1,7 @@
 export { default as CyberCategoryTabs } from './CyberCategoryTabs.vue'
 export { default as SterileCyberCategoryTabs } from './SterileCyberCategoryTabs.vue'
 export { default as SterileCategoryTabs } from './SterileCategoryTabs.vue'
+export { default as BlueprintCategoryTabs } from './BlueprintCategoryTabs.vue'
+export { default as BrutalCategoryTabs } from './BrutalCategoryTabs.vue'
+export { default as NoirCategoryTabs } from './NoirCategoryTabs.vue'
 export type { CategoryTab } from '../../types/components'

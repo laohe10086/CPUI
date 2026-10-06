@@ -1,0 +1,64 @@
+@mixin cyber-modern-theme {
+  // 深黑 + 赛博青色调
+  --cp-background: #000000;
+  --cp-surface-1: #0a0d12;
+  --cp-surface-2: #0f1319;
+  --cp-surface-3: #151a24;
+
+  // 文字带青色调
+  --cp-text-primary: #e0f4ff;
+  --cp-text-secondary: #8bacc8;
+  --cp-text-tertiary: #5a7a99;
+
+  // 品牌色：赛博青 + 品红
+  --cp-primary: #00d9ff;
+  --cp-primary-hover: #00f0ff;
+  --cp-primary-subtle: rgba(0, 217, 255, 0.15);
+
+  // 次要：赛博品红
+  --cp-secondary: #ff00aa;
+  --cp-secondary-hover: #ff33bb;
+  --cp-secondary-subtle: rgba(255, 0, 170, 0.15);
+
+  // 边框：带发光
+  --cp-border: #1a3a52;
+  --cp-border-subtle: #0f1f2e;
+
+  // 状态色：赛博色调
+  --cp-success: #00ff9f;
+  --cp-warning: #ffaa00;
+  --cp-error: #ff0055;
+  --cp-info: #00bbff;
+
+  // 圆角：现代 pill
+  --cp-radius-sm: 4px;
+  --cp-radius-md: 8px;
+  --cp-radius-lg: 12px;
+  --cp-radius-full: 9999px;
+
+  // 间距
+  --cp-spacing-xs: 4px;
+  --cp-spacing-sm: 8px;
+  --cp-spacing-md: 16px;
+  --cp-spacing-lg: 24px;
+  --cp-spacing-xl: 32px;
+
+  // 字体：现代 sans
+  --cp-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cp-font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  // 字体大小
+  --cp-font-size-xs: 12px;
+  --cp-font-size-sm: 14px;
+  --cp-font-size-base: 16px;
+  --cp-font-size-lg: 18px;
+  --cp-font-size-xl: 24px;
+
+  // 阴影：带青色发光
+  --cp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 8px rgba(0, 217, 255, 0.1);
+  --cp-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 217, 255, 0.15);
+  --cp-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 217, 255, 0.2);
+
+  // 过渡
+  --cp-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}

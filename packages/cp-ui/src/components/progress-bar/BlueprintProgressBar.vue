@@ -1,11 +1,15 @@
 <template>
-  <div class="blueprint-progress" :style="{ height: height + 'px' }">
-    <div
-      class="blueprint-progress__bar"
-      :class="[`blueprint-progress__bar--${variant}`, { 'blueprint-progress__bar--animated': animated }]"
-      :style="{ width: clampedValue + '%' }"
-    />
-    <div class="blueprint-progress__ticks" />
+  <div class="blueprint-progress">
+    <div class="blueprint-progress__ruler">
+      <span v-for="mark in rulerMarks" :key="mark" class="blueprint-progress__mark">{{ mark }}</span>
+    </div>
+    <div class="blueprint-progress__track">
+      <div
+        class="blueprint-progress__fill"
+        :class="[`blueprint-progress__fill--${variant}`]"
+        :style="{ width: clampedValue + '%' }"
+      />
+    </div>
   </div>
 </template>
 
@@ -15,80 +19,90 @@ import type { ProgressBarProps } from '../../types/components'
 
 const props = withDefaults(defineProps<ProgressBarProps>(), {
   variant: 'default',
-  height: 10,
+  height: 6,
   animated: false,
 })
 
 const clampedValue = computed(() => Math.max(0, Math.min(100, props.value)))
+const rulerMarks = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 </script>
 
 <style lang="scss" scoped>
-// 图纸标尺：固定刻度在上，靛蓝→青色填充从下推进，末端亮边为尺寸界线
 .blueprint-progress {
-  position: relative;
   width: 100%;
-  background: transparent;
-  border: 1px solid var(--cp-border-base);
-  border-radius: 0;
-  overflow: hidden;
-
-  &__bar {
+  
+  &__ruler {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2px 4px;
+    margin-bottom: 2px;
+  }
+  
+  &__mark {
+    font-family: var(--cp-font-mono);
+    font-size: 9px;
+    color: var(--cp-text-dim);
+    line-height: 1;
     position: relative;
-    height: 100%;
-    transition: width var(--cp-duration-base) var(--cp-easing);
-
-    &::after {
+    
+    &::before {
       content: '';
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 2px;
-      height: 100%;
-      background: currentColor;
-    }
-
-    &--default,
-    &--primary {
-      color: var(--cp-color-secondary);
-      background: linear-gradient(90deg, var(--cp-color-primary), var(--cp-color-secondary));
-    }
-
-    &--secondary {
-      color: var(--cp-color-secondary);
-      background: linear-gradient(90deg, rgba(0, 240, 255, 0.35), var(--cp-color-secondary));
-    }
-
-    &--danger {
-      color: var(--cp-color-danger);
-      background: linear-gradient(90deg, rgba(255, 0, 60, 0.35), var(--cp-color-danger));
-    }
-
-    &--animated::after {
-      animation: blueprint-progress-pulse 1.2s var(--cp-easing) infinite;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 3px;
+      background: var(--cp-border-base);
     }
   }
-
-  &__ticks {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.22) 0 1px,
-      transparent 1px 8px
-    );
-    background-size: 8px 4px;
-    background-repeat: repeat-x;
+  
+  &__track {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: var(--cp-bg-elevated);
+    border: 1px solid var(--cp-border-base);
+    overflow: hidden;
+  }
+  
+  &__fill {
+    height: 100%;
+    position: relative;
+    transition: width var(--cp-duration-base) var(--cp-easing);
+    
+    &--default,
+    &--primary {
+      background: linear-gradient(90deg, var(--cp-color-primary) 0%, var(--cp-color-secondary) 100%);
+      
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        animation: blueprint-progress-pulse 1.4s ease-in-out infinite;
+      }
+    }
+    
+    &--secondary {
+      background: var(--cp-color-secondary);
+    }
+    
+    &--danger {
+      background: var(--cp-color-danger);
+    }
   }
 }
 
 @keyframes blueprint-progress-pulse {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.35;
+    opacity: 0.3;
   }
 }
 </style>

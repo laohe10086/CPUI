@@ -9,12 +9,12 @@
   --cp-color-warning: #ff8c00;
 
   --cp-bg-void: #030308;
-  --cp-bg-base: #080812;
+  --cp-bg-base: #020206;
   --cp-bg-panel: #0e0e1e;
   --cp-bg-elevated: #18182e;
   --cp-bg-hover: #22223e;
 
-  --cp-text-primary: #eeeeff;
+  --cp-text-primary: #f5f5ff;
   --cp-text-secondary: #bbbbcc;
   --cp-text-muted: #888899;
   --cp-text-dim: #555566;
@@ -58,5 +58,5 @@
   --cp-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
   --cp-scanline-opacity: 0.04;
-  --cp-noise-opacity: 0.02;
+  --cp-noise-opacity: 0.08;
 }

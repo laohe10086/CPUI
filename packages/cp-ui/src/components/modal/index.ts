@@ -1,3 +1,6 @@
 export { default as CyberModal } from './CyberModal.vue'
 export { default as SterileCyberModal } from './SterileCyberModal.vue'
 export { default as SterileModal } from './SterileModal.vue'
+export { default as BlueprintModal } from './BlueprintModal.vue'
+export { default as BrutalModal } from './BrutalModal.vue'
+export { default as NoirModal } from './NoirModal.vue'

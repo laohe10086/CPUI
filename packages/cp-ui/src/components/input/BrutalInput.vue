@@ -1,117 +1,79 @@
 <template>
-  <div
-    class="brutal-input"
-    :class="{
-      'brutal-input--focused': focused,
-      'brutal-input--disabled': disabled,
-    }"
-  >
+  <div class="brutal-input-wrapper">
     <span class="brutal-input__prompt">&gt;</span>
-    <span v-if="$slots.prefix" class="brutal-input__prefix"><slot name="prefix" /></span>
     <input
-      ref="inputRef"
-      class="brutal-input__field"
-      :value="modelValue"
+      class="brutal-input"
+      :class="{ 'brutal-input--error': error }"
+      :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
-      :type="type"
+      :value="modelValue"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-      @focus="focused = true"
-      @blur="focused = false"
     />
-    <span v-if="clearable && modelValue" class="brutal-input__clear" @click="$emit('update:modelValue', '')">×</span>
-    <span v-if="$slots.suffix" class="brutal-input__suffix"><slot name="suffix" /></span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import type { InputProps } from '../../types/components'
 
-withDefaults(defineProps<{
-  modelValue?: string
-  placeholder?: string
-  disabled?: boolean
-  clearable?: boolean
-  type?: string
-}>(), {
-  modelValue: '',
+withDefaults(defineProps<InputProps>(), {
+  type: 'text',
   placeholder: '',
   disabled: false,
-  clearable: false,
-  type: 'text',
+  error: false,
+  modelValue: '',
 })
 
 defineEmits<{
   'update:modelValue': [value: string]
 }>()
-
-const focused = ref(false)
-const inputRef = ref<HTMLInputElement>()
-
-defineExpose({ inputRef })
 </script>
 
 <style lang="scss" scoped>
-// 终端粗野：直角输入条 + 内置 > 提示符，focus 亮靛蓝边
-.brutal-input {
+.brutal-input-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--cp-bg-base);
-  border: 1px solid var(--cp-border-base);
-  border-radius: 0;
-  padding: 0 12px;
-  height: 38px;
-  transition:
-    border-color var(--cp-duration-fast) var(--cp-easing),
-    background var(--cp-duration-fast) var(--cp-easing);
-  font-family: var(--cp-font-mono);
+  width: 100%;
+}
 
-  &--focused {
-    border-color: var(--cp-border-active);
-    background: var(--cp-bg-panel);
+.brutal-input__prompt {
+  font-family: var(--cp-font-mono);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--cp-color-primary);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.brutal-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-family: var(--cp-font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cp-text-primary);
+  background: var(--cp-bg-elevated);
+  border: 3px solid var(--cp-border-base);
+  outline: none;
+  transition: border-color var(--cp-duration-fast) linear;
+
+  &::placeholder {
+    color: var(--cp-text-dim);
   }
 
-  &--disabled {
+  &:focus {
+    border-color: var(--cp-color-primary);
+  }
+
+  &--error {
+    border-color: var(--cp-color-danger);
+  }
+
+  &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-
-  &__prompt {
-    color: var(--cp-color-primary);
-    font-weight: 600;
-    font-size: 13px;
-    user-select: none;
-    flex: none;
-  }
-
-  &__field {
-    flex: 1;
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--cp-text-primary);
-    font-family: inherit;
-    font-size: 13px;
-    width: 100%;
-    caret-color: var(--cp-color-primary);
-
-    &::placeholder { color: var(--cp-text-dim); }
-  }
-
-  &__clear {
-    cursor: pointer;
-    color: var(--cp-text-muted);
-    font-size: 14px;
-    &:hover { color: var(--cp-text-primary); }
-  }
-
-  &__prefix,
-  &__suffix {
-    color: var(--cp-text-muted);
-    font-size: 12px;
-    display: flex;
-    align-items: center;
   }
 }
 </style>

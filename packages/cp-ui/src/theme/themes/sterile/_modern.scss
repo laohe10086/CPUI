@@ -1,0 +1,64 @@
+@mixin modern-theme {
+  // 纯黑背景 + 高对比
+  --cp-background: #000000;
+  --cp-surface-1: #0a0a0a;
+  --cp-surface-2: #111111;
+  --cp-surface-3: #1a1a1a;
+
+  // 文字高对比
+  --cp-text-primary: #fafafa;
+  --cp-text-secondary: #a1a1aa;
+  --cp-text-tertiary: #71717a;
+
+  // 品牌色：Linear 电紫
+  --cp-primary: #5e6ad2;
+  --cp-primary-hover: #4c5bc7;
+  --cp-primary-subtle: rgba(94, 106, 210, 0.1);
+
+  // 次要：青色强调
+  --cp-secondary: #00d9ff;
+  --cp-secondary-hover: #00c4e6;
+  --cp-secondary-subtle: rgba(0, 217, 255, 0.1);
+
+  // 边框：极深灰 hairline
+  --cp-border: #222225;
+  --cp-border-subtle: #18181b;
+
+  // 状态色
+  --cp-success: #10b981;
+  --cp-warning: #f59e0b;
+  --cp-error: #ef4444;
+  --cp-info: #3b82f6;
+
+  // 圆角：pill 和小圆角
+  --cp-radius-sm: 4px;
+  --cp-radius-md: 8px;
+  --cp-radius-lg: 12px;
+  --cp-radius-full: 9999px;
+
+  // 间距保持标准
+  --cp-spacing-xs: 4px;
+  --cp-spacing-sm: 8px;
+  --cp-spacing-md: 16px;
+  --cp-spacing-lg: 24px;
+  --cp-spacing-xl: 32px;
+
+  // 字体：现代几何 sans
+  --cp-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --cp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  // 字体大小
+  --cp-font-size-xs: 12px;
+  --cp-font-size-sm: 14px;
+  --cp-font-size-base: 16px;
+  --cp-font-size-lg: 18px;
+  --cp-font-size-xl: 24px;
+
+  // 阴影：极轻微
+  --cp-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --cp-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --cp-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+
+  // 过渡
+  --cp-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}

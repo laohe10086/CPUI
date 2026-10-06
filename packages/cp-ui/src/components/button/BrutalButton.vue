@@ -33,7 +33,6 @@ defineEmits<{ click: [e: MouseEvent] }>()
 </script>
 
 <style lang="scss" scoped>
-// 终端粗野：直角方块 + 等宽大写，hover 直接反白填充——黑底上的硬结构
 .brutal-button {
   position: relative;
   display: inline-flex;
@@ -41,68 +40,78 @@ defineEmits<{ click: [e: MouseEvent] }>()
   justify-content: center;
   gap: 8px;
   font-family: var(--cp-font-mono);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border: 1px solid transparent;
-  border-radius: 0;
+  letter-spacing: 0.15em;
+  border: 4px solid #000;
   background: transparent;
   cursor: pointer;
   white-space: nowrap;
   user-select: none;
-  transition:
-    background-color var(--cp-duration-fast) var(--cp-easing),
-    border-color var(--cp-duration-fast) var(--cp-easing),
-    color var(--cp-duration-fast) var(--cp-easing),
-    filter var(--cp-duration-fast) var(--cp-easing);
+  transition: all var(--cp-duration-fast) linear;
 
   &--sm {
-    padding: 4px 14px;
+    padding: 6px 16px;
     font-size: 11px;
-    height: 30px;
+    height: 32px;
+    border-width: 3px;
   }
   &--md {
-    padding: 6px 20px;
+    padding: 8px 22px;
     font-size: 13px;
-    height: 36px;
+    height: 38px;
   }
   &--lg {
-    padding: 8px 26px;
+    padding: 10px 28px;
     font-size: 14px;
-    height: 42px;
+    height: 44px;
+    border-width: 5px;
   }
 
   &--primary {
     background: var(--cp-color-primary);
-    color: #fff;
-    border-color: var(--cp-color-primary);
+    background-image: var(--cp-halftone-pattern);
+    background-size: var(--cp-halftone-size);
+    color: #000;
+    border-color: #000;
+
     &:hover:not(:disabled) {
-      filter: brightness(1.2);
+      background: #000;
+      color: var(--cp-color-primary);
     }
   }
+
   &--secondary {
-    color: var(--cp-text-primary);
-    border-color: var(--cp-border-base);
+    background: transparent;
+    color: var(--cp-color-secondary);
+    border-color: var(--cp-color-secondary);
+
     &:hover:not(:disabled) {
-      background: var(--cp-text-primary);
+      background: var(--cp-color-secondary);
       color: #000;
-      border-color: var(--cp-text-primary);
     }
   }
+
   &--danger {
-    color: var(--cp-color-danger);
-    border-color: rgba(239, 68, 68, 0.5);
+    background: var(--cp-color-danger);
+    color: #fff;
+    border-color: #000;
+
     &:hover:not(:disabled) {
-      background: var(--cp-color-danger);
-      color: #000;
-      border-color: var(--cp-color-danger);
+      background: #000;
+      color: var(--cp-color-danger);
     }
   }
+
   &--ghost {
+    background: transparent;
     color: var(--cp-text-muted);
-    border-color: transparent;
+    border-color: var(--cp-border-base);
+    border-width: 2px;
+
     &:hover:not(:disabled) {
       color: var(--cp-text-primary);
+      border-color: var(--cp-text-primary);
     }
   }
 
@@ -112,26 +121,20 @@ defineEmits<{ click: [e: MouseEvent] }>()
   }
 
   &:disabled {
-    opacity: 0.35;
+    opacity: 0.4;
     cursor: not-allowed;
   }
 
   &--loading .brutal-button__content {
-    opacity: 0.5;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--cp-border-active);
-    outline-offset: 2px;
+    opacity: 0.6;
   }
 
   &__loader {
     width: 12px;
     height: 12px;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
     border-top-color: currentColor;
-    border-radius: 50%;
-    animation: brutal-btn-spin 700ms linear infinite;
+    animation: brutal-btn-spin 400ms linear infinite;
   }
 }
 

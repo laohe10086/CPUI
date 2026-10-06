@@ -29,6 +29,8 @@
             <option value="neon-noir">霓虹黑</option>
             <option value="blueprint">蓝图</option>
             <option value="brutal">终端粗野</option>
+            <option value="modern">现代科技</option>
+            <option value="cyber-modern">赛博现代</option>
             <option value="sterile-dark">无菌暗色</option>
             <option value="sterile-light">无菌亮色</option>
           </select>
@@ -110,7 +112,7 @@
           <!-- ==================== 主题展示 ==================== -->
 
           <template v-if="activeItem === 'theme-showcase'">
-            <DocsTitle title="七主题对比" desc="同一组件在 7 种主题下的视觉差异。每个区块独立包裹 CpThemeProvider，使用对应风格的组件。" />
+            <DocsTitle title="九主题对比" desc="同一组件在 9 种主题下的视觉差异。每个区块独立包裹 CpThemeProvider，使用对应风格的组件。" />
             <div style="display:flex;flex-direction:column;gap:20px">
 
               <!-- 赛博朋克 -->
@@ -339,6 +341,72 @@
                     </div>
                     <div style="margin-top:12px">
                       <SterileProgressBar :percentage="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 现代科技 -->
+              <CpThemeProvider theme="modern">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">现代科技</span>
+                    <code class="theme-card__value">modern</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <ModernButton variant="primary">Primary</ModernButton>
+                      <ModernButton variant="secondary">Secondary</ModernButton>
+                      <ModernButton variant="danger">Danger</ModernButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <ModernTag>TAG</ModernTag>
+                      <ModernBadge>42</ModernBadge>
+                      <ModernBracketLabel>LABEL</ModernBracketLabel>
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <ModernCard title="Modern Card" style="width:200px">
+                        <div style="font-size:12px">Card 内容</div>
+                      </ModernCard>
+                      <ModernInput v-model="themeInputVal" placeholder="输入内容..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <ModernProgressBar :value="72" />
+                    </div>
+                  </div>
+                </div>
+              </CpThemeProvider>
+
+              <!-- 赛博现代 -->
+              <CpThemeProvider theme="cyber-modern">
+                <div class="theme-card">
+                  <div class="theme-card__header">
+                    <span class="theme-card__name">赛博现代</span>
+                    <code class="theme-card__value">cyber-modern</code>
+                  </div>
+                  <div class="theme-card__body">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                      <CyberModernButton variant="primary">Primary</CyberModernButton>
+                      <CyberModernButton variant="secondary">Secondary</CyberModernButton>
+                      <CyberModernButton variant="danger">Danger</CyberModernButton>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                      <CyberModernTag>TAG</CyberModernTag>
+                      <CyberModernBadge>42</CyberModernBadge>
+                      <CyberModernBracketLabel>LABEL</CyberModernBracketLabel>
+                      <CpStatusLed status="online" :pulse="true" />
+                      <CpDigitalClock :show-seconds="false" :glitch="false" />
+                    </div>
+                    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                      <CyberModernCard title="Cyber Modern" style="width:200px">
+                        <div style="font-size:12px">Card 内容</div>
+                      </CyberModernCard>
+                      <CyberModernInput v-model="themeInputVal" placeholder="输入内容..." style="flex:1;min-width:160px" />
+                    </div>
+                    <div style="margin-top:12px">
+                      <CyberModernProgressBar :value="72" />
                     </div>
                   </div>
                 </div>
@@ -578,8 +646,8 @@
           <!-- Avatar -->
           <template v-if="activeItem === 'avatar'">
             <DocsTitle title="Avatar 头像" desc="用户头像。Cyber irregular 为六边形蜂巢。" />
-            <DemoBlock title="三风格对比">
-              <div style="display:flex;gap:24px;align-items:flex-end">
+            <DemoBlock title="六风格对比">
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
                 <div>
                   <div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div>
                   <div style="display:flex;gap:12px">
@@ -589,7 +657,7 @@
                   </div>
                 </div>
                 <div>
-                  <div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SC</div>
+                  <div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div>
                   <div style="display:flex;gap:12px">
                     <SterileCyberAvatar size="sm" id="SM" />
                     <SterileCyberAvatar size="md" id="MD" />
@@ -604,6 +672,30 @@
                     <SterileAvatar size="lg" status="online" :status-pulse="true" />
                   </div>
                 </div>
+                <div>
+                  <div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div>
+                  <div style="display:flex;gap:12px">
+                    <BlueprintAvatar size="sm" id="SM" />
+                    <BlueprintAvatar size="md" id="MD" />
+                    <BlueprintAvatar size="lg" status="online" :status-pulse="true" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div>
+                  <div style="display:flex;gap:12px">
+                    <BrutalAvatar size="sm" id="SM" />
+                    <BrutalAvatar size="md" id="MD" />
+                    <BrutalAvatar size="lg" status="online" :status-pulse="true" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
+                  <div style="display:flex;gap:12px">
+                    <NoirAvatar size="sm" id="SM" />
+                    <NoirAvatar size="md" id="MD" />
+                    <NoirAvatar size="lg" status="online" :status-pulse="true" />
+                  </div>
+                </div>
               </div>
               <template #code><DemoCode :code="codes.avatar" /></template>
             </DemoBlock>
@@ -612,24 +704,16 @@
           <!-- StatsGrid -->
           <template v-if="activeItem === 'stats-grid'">
             <DocsTitle title="StatsGrid 数据面板" desc="角装饰 + 趋势箭头 + 数值脉冲 + 扫描线。" />
-            <DemoBlock title="Cyber" description="角括号装饰 + 趋势箭头（绿/红）+ 高亮脉冲">
-              <div style="max-width:420px">
-                <CyberStatsGrid :stats="statsData" />
+            <DemoBlock title="六风格对比">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberStatsGrid :stats="statsData" style="width:100%" /></div>
+                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberStatsGrid :stats="statsData" style="width:100%" /></div>
+                <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileStatsGrid :stats="statsData" style="width:100%" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintStatsGrid :stats="statsData" style="width:100%" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalStatsGrid :stats="statsData" style="width:100%" /></div>
+                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirStatsGrid :stats="statsData" style="width:100%" /></div>
               </div>
               <template #code><DemoCode :code="codes.stats" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber + 扫描线" description="叠加 CRT 扫描线纹理">
-              <div style="max-width:420px">
-                <CyberStatsGrid :stats="statsData" :scanline="true" />
-              </div>
-              <template #code><DemoCode :code="codes.statsScanline" /></template>
-            </DemoBlock>
-            <DemoBlock title="三风格对比">
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
-                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberStatsGrid :stats="statsData" style="width:100%" /></div>
-                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SC</div><SterileCyberStatsGrid :stats="statsData" style="width:100%" /></div>
-                <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileStatsGrid :stats="statsData" style="width:100%" /></div>
-              </div>
             </DemoBlock>
           </template>
 
@@ -662,11 +746,14 @@
                 </div>
               </div>
             </DemoBlock>
-            <DemoBlock title="三风格对比">
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
-                <CyberTerminal title="SYSTEM.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" />
-                <SterileCyberTerminal title="SC.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" />
-                <SterileTerminal title="SYSTEM.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" />
+            <DemoBlock title="六风格对比">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberTerminal title="SYSTEM.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberTerminal title="SC.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileTerminal title="SYSTEM.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintTerminal title="BP.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalTerminal title="BRUTAL.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirTerminal title="NOIR.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
               </div>
               <template #code><DemoCode :code="codes.terminal" /></template>
             </DemoBlock>
@@ -675,8 +762,8 @@
           <!-- ChatBubble -->
           <template v-if="activeItem === 'chat-bubble'">
             <DocsTitle title="ChatBubble 聊天气泡" desc="对话气泡。Cyber 左上角有斜切。" />
-            <DemoBlock title="三风格对比">
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <DemoBlock title="六风格对比">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
                 <div>
                   <div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div>
                   <div style="display:flex;flex-direction:column;gap:8px">
@@ -685,7 +772,7 @@
                   </div>
                 </div>
                 <div>
-                  <div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SC</div>
+                  <div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div>
                   <div style="display:flex;flex-direction:column;gap:8px">
                     <SterileCyberChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</SterileCyberChatBubble>
                     <SterileCyberChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</SterileCyberChatBubble>
@@ -698,6 +785,27 @@
                     <SterileChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</SterileChatBubble>
                   </div>
                 </div>
+                <div>
+                  <div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <BlueprintChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</BlueprintChatBubble>
+                    <BlueprintChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</BlueprintChatBubble>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <BrutalChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</BrutalChatBubble>
+                    <BrutalChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</BrutalChatBubble>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <NoirChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</NoirChatBubble>
+                    <NoirChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</NoirChatBubble>
+                  </div>
+                </div>
               </div>
               <template #code><DemoCode :code="codes.chat" /></template>
             </DemoBlock>
@@ -706,7 +814,7 @@
           <!-- Panel -->
           <template v-if="activeItem === 'panel'">
             <DocsTitle title="Panel 面板" desc="带标题的内容容器。Cyber irregular 蜂窝四角斜切。" />
-            <DemoBlock title="三风格对比">
+            <DemoBlock title="六风格对比">
               <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
                 <CyberPanel title="SYSTEM" label="monitor" shape="irregular">
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
@@ -717,10 +825,16 @@
                 <SterilePanel title="Panel" label="monitor">
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
                 </SterilePanel>
+                <BlueprintPanel title="BLUEPRINT" label="monitor">
+                  <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                </BlueprintPanel>
+                <BrutalPanel title="BRUTAL" label="monitor">
+                  <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                </BrutalPanel>
+                <NoirPanel title="NOIR" label="monitor">
+                  <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                </NoirPanel>
               </div>
-              <CyberPanel title="SYSTEM" label="monitor" shape="regular">
-                <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
-              </CyberPanel>
               <template #code><DemoCode :code="codes.panel" /></template>
             </DemoBlock>
           </template>
@@ -730,18 +844,14 @@
           <!-- Pagination -->
           <template v-if="activeItem === 'pagination'">
             <DocsTitle title="Pagination 分页" desc="数据翻页。Cyber 提供规则 / 不规则两种形状。" />
-            <DemoBlock title="Cyber 赛博朋克" description="梯形斜切 + 发光">
-              <CyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" />
-              <template #code><DemoCode :code="codes.paginationCyber" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框 + 发光">
-              <CyberPagination shape="regular" :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" />
-              <template #code><DemoCode :code="codes.paginationRegular" /></template>
-            </DemoBlock>
-            <DemoBlock title="SterileCyber / Sterile">
+            <DemoBlock title="六风格对比">
               <div style="display:flex;flex-direction:column;gap:20px">
+                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterilePagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
               </div>
               <template #code><DemoCode :code="codes.paginationSC" /></template>
             </DemoBlock>
@@ -750,18 +860,14 @@
           <!-- CategoryTabs -->
           <template v-if="activeItem === 'category-tabs'">
             <DocsTitle title="CategoryTabs 分类标签" desc="分类选择器。Cyber 提供规则 / 不规则两种形状。" />
-            <DemoBlock title="Cyber 赛博朋克" description="平行四边形斜切 + 发光">
-              <CyberCategoryTabs :tabs="catTabs" v-model="activeCat" />
-              <template #code><DemoCode :code="codes.catTabsCyber" /></template>
-            </DemoBlock>
-            <DemoBlock title="Cyber 赛博朋克（规则）" description="shape=regular 上下线框 + 发光">
-              <CyberCategoryTabs shape="regular" :tabs="catTabs" v-model="activeCat" />
-              <template #code><DemoCode :code="codes.catTabsRegular" /></template>
-            </DemoBlock>
-            <DemoBlock title="SterileCyber / Sterile">
+            <DemoBlock title="六风格对比">
               <div style="display:flex;flex-direction:column;gap:20px">
+                <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
               </div>
               <template #code><DemoCode :code="codes.catTabsSC" /></template>
             </DemoBlock>
@@ -772,11 +878,14 @@
           <!-- Modal -->
           <template v-if="activeItem === 'modal'">
             <DocsTitle title="Modal 弹窗" desc="对话框。Cyber 有大斜边 + 角落装饰。" />
-            <DemoBlock title="三风格对比">
-              <div style="display:flex;gap:12px">
+            <DemoBlock title="六风格对比">
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
                 <CyberButton variant="primary" @click="showCyberModal = true">Cyber Modal</CyberButton>
                 <SterileCyberButton variant="primary" @click="showSCModal = true">SC Modal</SterileCyberButton>
                 <SterileButton variant="primary" @click="showSterileModal = true">Sterile Modal</SterileButton>
+                <BlueprintButton variant="primary" @click="showBlueprintModal = true">Blueprint Modal</BlueprintButton>
+                <BrutalButton variant="primary" @click="showBrutalModal = true">Brutal Modal</BrutalButton>
+                <NoirButton variant="primary" @click="showNoirModal = true">Noir Modal</NoirButton>
               </div>
               <CyberModal v-model="showCyberModal" size="md">
                 <h3 style="color:var(--cp-color-primary);font-family:var(--cp-font-mono);margin-bottom:12px">CYBER.MODAL</h3>
@@ -795,6 +904,21 @@
                 <p style="color:var(--cp-text-secondary)">直角 + 无发光。</p>
                 <div style="margin-top:16px"><SterileButton variant="primary" size="sm" @click="showSterileModal = false">CONFIRM</SterileButton></div>
               </SterileModal>
+              <BlueprintModal v-model="showBlueprintModal" size="md">
+                <h3 style="color:#6366f1;font-family:var(--cp-font-mono);margin-bottom:12px">BLUEPRINT.MODAL</h3>
+                <p style="color:var(--cp-text-secondary)">工程图纸风格 + 虚线边框。</p>
+                <div style="margin-top:16px"><BlueprintButton variant="primary" size="sm" @click="showBlueprintModal = false">CONFIRM</BlueprintButton></div>
+              </BlueprintModal>
+              <BrutalModal v-model="showBrutalModal" size="md">
+                <h3 style="color:#6366f1;font-family:var(--cp-font-mono);margin-bottom:12px">BRUTAL.MODAL</h3>
+                <p style="color:var(--cp-text-secondary)">终端粗野风格 + 直角硬边。</p>
+                <div style="margin-top:16px"><BrutalButton variant="primary" size="sm" @click="showBrutalModal = false">CONFIRM</BrutalButton></div>
+              </BrutalModal>
+              <NoirModal v-model="showNoirModal" size="md">
+                <h3 style="color:#00f0ff;font-family:var(--cp-font-mono);margin-bottom:12px">NOIR.MODAL</h3>
+                <p style="color:var(--cp-text-secondary)">霓虹黑风格 + 发光边框。</p>
+                <div style="margin-top:16px"><NoirButton variant="primary" size="sm" @click="showNoirModal = false">CONFIRM</NoirButton></div>
+              </NoirModal>
               <template #code><DemoCode :code="codes.modal" /></template>
             </DemoBlock>
           </template>
@@ -923,9 +1047,21 @@
           <!-- ==================== 蓝图专属 Blueprint Only ==================== -->
 
           <template v-if="activeItem === 'blueprint-components'">
-            <DocsTitle title="蓝图组件" desc="蓝图主题专属组件族：直角 mono + 图纸语言——图例格 Tag、尺寸标注 BracketLabel、标尺 ProgressBar、FIG. 编号卡片。" />
+            <DocsTitle title="蓝图组件" desc="蓝图主题专属组件族：工程图纸语言——虚线框、刻度标尺、图例键、编号章、剖面线、尺寸标注，零辉光零切角。" />
             <CpThemeProvider theme="blueprint">
-              <DemoBlock title="Button 按钮" description="靛蓝实心 / 青色描边 / 红色描边，hover 叠加 45° 斜线填充">
+              <DemoBlock title="设计语言" description="Blueprint 蓝图主题的核心视觉签名">
+                <div style="padding:16px;background:var(--cp-bg-base);border:1px solid var(--cp-border-base);font-size:13px;line-height:1.8">
+                  <div style="margin-bottom:12px;font-family:var(--cp-font-mono);color:var(--cp-color-primary);letter-spacing:0.1em">BLUEPRINT DESIGN LANGUAGE</div>
+                  <div style="color:var(--cp-text-secondary)">
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 图纸语言：</strong>虚线框、刻度标尺、图例键、编号章、剖面线（45° 斜线纹理）</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 配色体系：</strong>靛蓝 Primary / 青色 Secondary / 红色 Danger，零辉光零切角</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 排版规则：</strong>mono 全大写、加宽字距、尺寸标注箭头 ◄── ──►</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 交互反馈：</strong>hover 叠加 45° 斜线填充动画（剖面线扫过效果）</div>
+                    <div><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>技术文档、工程看板、系统架构图、API 文档</div>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Button 按钮" description="靛蓝实心 / 青色虚线描边 / 红色描边，hover 叠加 45° 斜线填充">
                 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                   <BlueprintButton variant="primary">Primary</BlueprintButton>
                   <BlueprintButton variant="secondary">Secondary</BlueprintButton>
@@ -969,15 +1105,49 @@
                 <div style="margin-top:12px"><BlueprintProgressBar variant="danger" :value="30" /></div>
                 <template #code><DemoCode :code="codes.blueprintProgress" /></template>
               </DemoBlock>
+              <DemoBlock title="综合演示" description="工程图纸风格的完整面板">
+                <div style="border:2px solid var(--cp-border-base);padding:20px;background:var(--cp-bg-void);position:relative">
+                  <div style="position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid var(--cp-color-primary);border-left:2px solid var(--cp-color-primary)"></div>
+                  <div style="position:absolute;top:-1px;right:-1px;width:16px;height:16px;border-top:2px solid var(--cp-color-primary);border-right:2px solid var(--cp-color-primary)"></div>
+                  <div style="position:absolute;bottom:-1px;left:-1px;width:16px;height:16px;border-bottom:2px solid var(--cp-color-secondary);border-left:2px solid var(--cp-color-secondary)"></div>
+                  <div style="position:absolute;bottom:-1px;right:-1px;width:16px;height:16px;border-bottom:2px solid var(--cp-color-secondary);border-right:2px solid var(--cp-color-secondary)"></div>
+                  <BlueprintHeading style="margin-bottom:16px">SYSTEM BLUEPRINT</BlueprintHeading>
+                  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+                    <BlueprintTag>v2.0.7</BlueprintTag>
+                    <BlueprintBadge text="08" />
+                    <BlueprintBracketLabel text="MODULE_A" />
+                    <BlueprintTag variant="primary">ACTIVE</BlueprintTag>
+                  </div>
+                  <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                    <BlueprintButton variant="primary">Execute</BlueprintButton>
+                    <BlueprintButton variant="secondary">Analyze</BlueprintButton>
+                    <BlueprintButton variant="danger">Abort</BlueprintButton>
+                  </div>
+                  <BlueprintProgressBar :value="68" :animated="true" />
+                  <div style="margin-top:16px;font-family:var(--cp-font-mono);font-size:11px;color:var(--cp-text-muted);text-align:right">FIG. 2024.10.06</div>
+                </div>
+              </DemoBlock>
             </CpThemeProvider>
           </template>
 
           <!-- ==================== 终端粗野专属 Brutal Only ==================== -->
 
           <template v-if="activeItem === 'brutal-components'">
-            <DocsTitle title="粗野组件" desc="终端粗野专属组件族：纯黑 + 等宽即正文 + 零圆角零阴影，hover 反白，> 命令提示符，分段方块进度。" />
+            <DocsTitle title="粗野组件" desc="终端粗野专属组件族：荧光橙朋克海报——网点纹理、ASCII 字符、粗边倾斜、硬投影、`>` 命令提示符，零圆角零辉光。" />
             <CpThemeProvider theme="brutal">
-              <DemoBlock title="Button 按钮" description="直角方块 + 等宽大写，secondary / danger hover 直接反白填充">
+              <DemoBlock title="设计语言" description="Brutal 终端粗野主题的核心视觉签名">
+                <div style="padding:16px;background:var(--cp-bg-base);border:4px solid var(--cp-border-base);font-size:13px;line-height:1.8">
+                  <div style="margin-bottom:12px;font-family:var(--cp-font-mono);color:var(--cp-color-primary);letter-spacing:0.2em;text-transform:uppercase">BRUTAL DESIGN LANGUAGE</div>
+                  <div style="color:var(--cp-text-secondary)">
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 朋克印刷：</strong>荧光橙 #ff6b35、网点纹理（半色调印刷）、ASCII 字符 █░、粗边倾斜 -3deg</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 终端元素：</strong>`>` 命令提示符、`[ ]` 方括号标注、等宽 mono 全大写、超宽字距</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 配色体系：</strong>纯黑背景、荧光橙 Primary、白色 Secondary、红色 Danger，零圆角零辉光</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 交互反馈：</strong>hover 网点密度变化、硬投影 6px、直接反白填充</div>
+                    <div><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>命令行工具、开发者工具、极客社区、朋克风活动页</div>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Button 按钮" description="直角方块 + 等宽大写，PRIMARY 荧光橙 + 网点纹理，hover 反白填充">
                 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                   <BrutalButton variant="primary">Primary</BrutalButton>
                   <BrutalButton variant="secondary">Secondary</BrutalButton>
@@ -1016,10 +1186,29 @@
                 </div>
                 <template #code><DemoCode :code="codes.brutalCard" /></template>
               </DemoBlock>
-              <DemoBlock title="ProgressBar 进度条" description="直角轨道 + 分段方块填充，steps() 跳动推进">
+              <DemoBlock title="ProgressBar 进度条" description="ASCII 字符填充 ████░░ + 百分比数字，steps() 跳动推进">
                 <BrutalProgressBar :value="72" :animated="true" />
                 <div style="margin-top:12px"><BrutalProgressBar variant="danger" :value="30" /></div>
                 <template #code><DemoCode :code="codes.brutalProgress" /></template>
+              </DemoBlock>
+              <DemoBlock title="综合演示" description="终端朋克风格的完整命令面板">
+                <div style="border:6px solid #000;padding:20px;background:var(--cp-bg-void);box-shadow:6px 6px 0 rgba(255,107,53,0.3)">
+                  <BrutalHeading style="margin-bottom:16px">$ SYSTEM_READY</BrutalHeading>
+                  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+                    <BrutalTag>v3.14</BrutalTag>
+                    <BrutalBadge text="99" />
+                    <BrutalBracketLabel text="ROOT" />
+                    <BrutalTag variant="danger">HOT</BrutalTag>
+                  </div>
+                  <BrutalInput v-model="themeInputVal" placeholder="> type command..." style="width:100%;margin-bottom:16px" />
+                  <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                    <BrutalButton variant="primary">EXEC</BrutalButton>
+                    <BrutalButton variant="secondary">SCAN</BrutalButton>
+                    <BrutalButton variant="danger">KILL</BrutalButton>
+                  </div>
+                  <BrutalProgressBar :value="85" :animated="true" />
+                  <div style="margin-top:16px;font-family:var(--cp-font-mono);font-size:11px;color:var(--cp-text-muted);text-transform:uppercase;letter-spacing:0.1em">[STATUS: ACTIVE]</div>
+                </div>
               </DemoBlock>
             </CpThemeProvider>
           </template>
@@ -1027,9 +1216,21 @@
           <!-- ==================== 霓虹黑专属 Noir Only ==================== -->
 
           <template v-if="activeItem === 'noir-components'">
-            <DocsTitle title="霓虹组件" desc="霓虹黑专属组件族：衬线大标题 + 宽字距 + 克制霓虹辉光，黑色电影气质。" />
+            <DocsTitle title="霓虹组件" desc="霓虹黑专属组件族：黑色电影氛围——Cormorant 衬线、宽字距、克制霓虹辉光、胶片颗粒、暗金配色、切角卡片。" />
             <CpThemeProvider theme="neon-noir">
-              <DemoBlock title="Button 按钮" description="宽字距大写 + 柔光晕，primary 青 / danger 红">
+              <DemoBlock title="设计语言" description="Noir 霓虹黑主题的核心视觉签名">
+                <div style="padding:16px;background:var(--cp-bg-base);border:1px solid var(--cp-border-base);font-size:13px;line-height:1.8">
+                  <div style="margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cp-color-primary);letter-spacing:0.15em">NOIR DESIGN LANGUAGE</div>
+                  <div style="color:var(--cp-text-secondary)">
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 电影质感：</strong>衬线字体 Cormorant Garamond、胶片颗粒纹理、暗金暖色调、低饱和度</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 霓虹元素：</strong>克制辉光（仅按钮和强调）、青色 #00d9ff Primary、品红 #ff006e Secondary、切角几何</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 排版规则：</strong>宽字距大写、下划线强调、衬线标题 + 无衬线正文对比</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 交互反馈：</strong>hover 辉光强度变化、柔光晕扩散、切角边框闪烁</div>
+                    <div><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>作品集、艺术展示、夜店活动、电影网站、潮牌官网</div>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Button 按钮" description="宽字距大写 + 柔光晕，primary 青 #00d9ff / danger 红 #ff006e">
                 <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                   <NoirButton variant="primary">Primary</NoirButton>
                   <NoirButton variant="secondary">Secondary</NoirButton>
@@ -1068,10 +1269,269 @@
                 </div>
                 <template #code><DemoCode :code="codes.noirCard" /></template>
               </DemoBlock>
-              <DemoBlock title="ProgressBar 进度条" description="霓虹黑进度条">
+              <DemoBlock title="ProgressBar 进度条" description="霓虹黑进度条，青色辉光渐变填充">
                 <NoirProgressBar :value="72" :animated="true" />
                 <div style="margin-top:12px"><NoirProgressBar variant="danger" :value="30" /></div>
                 <template #code><DemoCode :code="codes.noirProgress" /></template>
+              </DemoBlock>
+              <DemoBlock title="综合演示" description="黑色电影风格的完整场景面板">
+                <div style="border:1px solid var(--cp-border-base);padding:24px;background:var(--cp-bg-void);clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))">
+                  <NoirHeading style="margin-bottom:20px">雾都夜景</NoirHeading>
+                  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+                    <NoirTag>SCENE_07</NoirTag>
+                    <NoirBadge text="42" />
+                    <NoirBracketLabel text="FILM NOIR" />
+                    <NoirTag variant="primary">ACTIVE</NoirTag>
+                  </div>
+                  <NoirInput v-model="themeInputVal" placeholder="输入场景..." style="width:100%;margin-bottom:16px" />
+                  <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                    <NoirButton variant="primary">开始</NoirButton>
+                    <NoirButton variant="secondary">暂停</NoirButton>
+                    <NoirButton variant="danger">终止</NoirButton>
+                  </div>
+                  <NoirProgressBar :value="67" :animated="true" />
+                  <div style="margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--cp-text-muted);letter-spacing:0.1em;font-style:italic">"In the neon-lit darkness..."</div>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 无菌专属 Sterile ==================== -->
+
+          <template v-if="activeItem === 'sterile-components'">
+            <DocsTitle title="无菌组件" desc="无菌专属组件族：医疗级精准——Inter/Roboto 无衬线、极简直角、细线分割、高对比黑白、零装饰零特效。" />
+            <CpThemeProvider theme="sterile-dark">
+              <DemoBlock title="设计语言" description="Sterile 无菌主题的核心视觉签名">
+                <div style="padding:16px;background:var(--cp-bg-base);border:1px solid var(--cp-border-base);font-size:13px;line-height:1.8">
+                  <div style="margin-bottom:12px;font-size:16px;font-weight:600;color:var(--cp-text-primary);letter-spacing:0.05em">STERILE DESIGN LANGUAGE</div>
+                  <div style="color:var(--cp-text-secondary)">
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 极简主义：</strong>Inter/Roboto 无衬线、零装饰、零圆角、零阴影、零渐变、零动画</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 医疗精准：</strong>1px 细线分割、8px 网格对齐、高对比黑白、纯色填充、平面设计</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 排版规则：</strong>常规大小写、紧凑字距、清晰层级、无斜体无粗体装饰</div>
+                    <div style="margin-bottom:8px"><strong style="color:var(--cp-text-primary)">▪ 交互反馈：</strong>即时反白填充、无过渡动画、直接状态切换、二值逻辑</div>
+                    <div><strong style="color:var(--cp-text-primary)">▪ 适用场景：</strong>医疗系统、数据后台、监控仪表板、实验室界面、专业工具</div>
+                  </div>
+                </div>
+              </DemoBlock>
+              <DemoBlock title="Button 按钮" description="直角按钮 + 平面填充，primary 纯黑/纯白">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <SterileButton variant="primary">Primary</SterileButton>
+                  <SterileButton variant="secondary">Secondary</SterileButton>
+                  <SterileButton variant="danger">Danger</SterileButton>
+                  <SterileButton variant="ghost">Ghost</SterileButton>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center">
+                  <SterileButton size="sm">SM</SterileButton>
+                  <SterileButton size="md">MD</SterileButton>
+                  <SterileButton size="lg">LG</SterileButton>
+                </div>
+                <template #code><DemoCode :code="codes.sterileButton" /></template>
+              </DemoBlock>
+              <DemoBlock title="Heading 标题" description="无衬线精准标题">
+                <SterileHeading>无菌标题</SterileHeading>
+                <template #code><DemoCode :code="codes.sterileHeading" /></template>
+              </DemoBlock>
+              <DemoBlock title="Tag / Badge / BracketLabel" description="无菌风格的标签、徽章与括号标注">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <SterileTag>Tag</SterileTag>
+                  <SterileTag variant="primary">Primary</SterileTag>
+                  <SterileTag variant="danger">Danger</SterileTag>
+                  <SterileBadge text="42" />
+                  <SterileBadge variant="primary" text="07" />
+                  <SterileBracketLabel text="LABEL" />
+                  <SterileBracketLabel variant="accent" text="ACCENT" />
+                </div>
+                <template #code><DemoCode :code="codes.sterileMeta" /></template>
+              </DemoBlock>
+              <DemoBlock title="Card / Input" description="直角卡片 + 无菌输入框">
+                <div style="display:flex;gap:12px;flex-wrap:wrap">
+                  <SterileCard title="数据" style="width:200px">
+                    <div style="font-size:12px">Card 内容</div>
+                  </SterileCard>
+                  <SterileInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                </div>
+                <template #code><DemoCode :code="codes.sterileCard" /></template>
+              </DemoBlock>
+              <DemoBlock title="ProgressBar 进度条" description="无菌进度条，平面填充">
+                <SterileProgressBar :value="72" :animated="false" />
+                <div style="margin-top:12px"><SterileProgressBar variant="danger" :value="30" /></div>
+                <template #code><DemoCode :code="codes.sterileProgress" /></template>
+              </DemoBlock>
+              <DemoBlock title="综合演示" description="医疗级精准的完整监控面板">
+                <div style="border:1px solid var(--cp-border-base);padding:24px;background:var(--cp-bg-void)">
+                  <SterileHeading style="margin-bottom:20px">系统监控</SterileHeading>
+                  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+                    <SterileTag>SYS_01</SterileTag>
+                    <SterileBadge text="99" />
+                    <SterileBracketLabel text="MONITOR" />
+                    <SterileTag variant="primary">ACTIVE</SterileTag>
+                  </div>
+                  <SterileInput v-model="themeInputVal" placeholder="输入指令..." style="width:100%;margin-bottom:16px" />
+                  <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+                    <SterileButton variant="primary">启动</SterileButton>
+                    <SterileButton variant="secondary">暂停</SterileButton>
+                    <SterileButton variant="danger">停止</SterileButton>
+                  </div>
+                  <SterileProgressBar :value="85" :animated="false" />
+                  <div style="margin-top:16px;font-size:12px;color:var(--cp-text-muted)">Status: All systems operational</div>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 现代专属 Modern Only ==================== -->
+
+          <template v-if="activeItem === 'modern-tooltip'">
+            <DocsTitle title="ModernTooltip 提示框" desc="现代科技风格的悬浮提示框，微妙阴影 + 柔和圆角。" />
+            <CpThemeProvider theme="modern">
+              <DemoBlock title="基础用法" description="鼠标悬停触发提示">
+                <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:center;padding:60px 20px">
+                  <ModernTooltip content="这是一个提示">
+                    <ModernButton>悬停查看提示</ModernButton>
+                  </ModernTooltip>
+                  <ModernTooltip content="顶部提示" placement="top">
+                    <ModernButton variant="secondary">顶部</ModernButton>
+                  </ModernTooltip>
+                  <ModernTooltip content="底部提示" placement="bottom">
+                    <ModernButton variant="secondary">底部</ModernButton>
+                  </ModernTooltip>
+                  <ModernTooltip content="左侧提示" placement="left">
+                    <ModernButton variant="secondary">左侧</ModernButton>
+                  </ModernTooltip>
+                  <ModernTooltip content="右侧提示" placement="right">
+                    <ModernButton variant="secondary">右侧</ModernButton>
+                  </ModernTooltip>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <template v-if="activeItem === 'modern-chip'">
+            <DocsTitle title="ModernChip 标签片" desc="现代风格的可删除标签，圆润设计 + 关闭按钮。" />
+            <CpThemeProvider theme="modern">
+              <DemoBlock title="基础用法" description="可删除的标签片">
+                <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                  <ModernChip>Vue.js</ModernChip>
+                  <ModernChip variant="primary">TypeScript</ModernChip>
+                  <ModernChip variant="danger">Deprecated</ModernChip>
+                  <ModernChip closable @close="() => {}">可关闭</ModernChip>
+                  <ModernChip variant="primary" closable @close="() => {}">Primary 可关闭</ModernChip>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <template v-if="activeItem === 'modern-switch'">
+            <DocsTitle title="ModernSwitch 开关" desc="现代风格的优雅开关，流畅动画 + 圆形滑块。" />
+            <CpThemeProvider theme="modern">
+              <DemoBlock title="基础用法" description="开关控制">
+                <div style="display:flex;flex-direction:column;gap:16px">
+                  <div style="display:flex;gap:12px;align-items:center">
+                    <ModernSwitch :model-value="true" />
+                    <span style="color:var(--cp-text-secondary)">已开启</span>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:center">
+                    <ModernSwitch :model-value="false" />
+                    <span style="color:var(--cp-text-secondary)">已关闭</span>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:center">
+                    <ModernSwitch :model-value="true" variant="primary" />
+                    <span style="color:var(--cp-text-secondary)">Primary 变体</span>
+                  </div>
+                  <div style="display:flex;gap:12px;align-items:center">
+                    <ModernSwitch :model-value="true" disabled />
+                    <span style="color:var(--cp-text-muted)">禁用状态</span>
+                  </div>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <template v-if="activeItem === 'modern-select'">
+            <DocsTitle title="ModernSelect 选择器" desc="现代风格的下拉选择框，流畅展开动画。" />
+            <CpThemeProvider theme="modern">
+              <DemoBlock title="基础用法" description="下拉选择">
+                <div style="display:flex;flex-direction:column;gap:16px;max-width:300px">
+                  <ModernSelect 
+                    :model-value="'vue'" 
+                    :options="[
+                      { label: 'Vue.js', value: 'vue' },
+                      { label: 'React', value: 'react' },
+                      { label: 'Angular', value: 'angular' },
+                      { label: 'Svelte', value: 'svelte' }
+                    ]" 
+                    placeholder="选择框架"
+                  />
+                  <ModernSelect 
+                    :options="[
+                      { label: 'TypeScript', value: 'ts' },
+                      { label: 'JavaScript', value: 'js' }
+                    ]" 
+                    placeholder="选择语言"
+                  />
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <!-- ==================== 赛博现代专属 CyberModern Only ==================== -->
+
+          <template v-if="activeItem === 'cyber-modern-glitch'">
+            <DocsTitle title="CyberModernGlitch 故障效果" desc="赛博现代风格的文字故障效果，RGB 分离 + 数字乱码。" />
+            <CpThemeProvider theme="cyber-modern">
+              <DemoBlock title="基础用法" description="故障文字效果">
+                <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+                  <CyberModernGlitch text="CYBER MODERN" :animated="true" />
+                  <CyberModernGlitch text="数据流异常" intensity="high" :animated="true" />
+                  <CyberModernGlitch text="SYSTEM ERROR" variant="danger" :animated="true" />
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <template v-if="activeItem === 'cyber-modern-hologram'">
+            <DocsTitle title="CyberModernHologram 全息卡片" desc="赛博现代风格的全息投影卡片，扫描线 + 半透明层。" />
+            <CpThemeProvider theme="cyber-modern">
+              <DemoBlock title="基础用法" description="全息投影效果">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+                  <CyberModernHologram title="Neural Link">
+                    <div style="font-size:13px;line-height:1.6">脑机接口协议 v2.1 已激活</div>
+                  </CyberModernHologram>
+                  <CyberModernHologram title="Quantum Core" variant="primary">
+                    <div style="font-size:13px;line-height:1.6">量子核心运算中...</div>
+                  </CyberModernHologram>
+                  <CyberModernHologram title="System Alert" variant="danger">
+                    <div style="font-size:13px;line-height:1.6">检测到数据流异常</div>
+                  </CyberModernHologram>
+                </div>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <template v-if="activeItem === 'cyber-modern-scanline'">
+            <DocsTitle title="CyberModernScanLine 扫描线" desc="赛博现代风格的扫描线容器，模拟 CRT 显示器效果。" />
+            <CpThemeProvider theme="cyber-modern">
+              <DemoBlock title="基础用法" description="扫描线效果容器">
+                <CyberModernScanLine>
+                  <div style="padding:32px;text-align:center">
+                    <div style="font-size:24px;font-weight:600;margin-bottom:12px;color:var(--cp-color-primary)">TERMINAL ACCESS</div>
+                    <div style="font-size:14px;color:var(--cp-text-secondary)">扫描线效果模拟 CRT 显示器</div>
+                  </div>
+                </CyberModernScanLine>
+              </DemoBlock>
+            </CpThemeProvider>
+          </template>
+
+          <template v-if="activeItem === 'cyber-modern-pulse'">
+            <DocsTitle title="CyberModernPulse 脉冲按钮" desc="赛博现代风格的脉冲按钮，辉光波纹扩散效果。" />
+            <CpThemeProvider theme="cyber-modern">
+              <DemoBlock title="基础用法" description="脉冲辉光按钮">
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+                  <CyberModernPulse>启动系统</CyberModernPulse>
+                  <CyberModernPulse variant="primary">连接神经</CyberModernPulse>
+                  <CyberModernPulse variant="danger">紧急中断</CyberModernPulse>
+                  <CyberModernPulse size="lg">大号脉冲</CyberModernPulse>
+                </div>
               </DemoBlock>
             </CpThemeProvider>
           </template>
@@ -1169,16 +1629,61 @@
           </template>
 
           <template v-if="activeItem === 'shared-utils'">
-            <DocsTitle title="共享组件" desc="不区分风格的通用基础组件。" />
-            <DemoBlock title="StatusLed / DigitalClock / TypingIndicator">
+            <DocsTitle title="共享组件" desc="不区分风格的通用基础组件：状态指示、时钟、背景、网格、HUD 条、工具栏等。" />
+            <DemoBlock title="StatusLed 状态指示灯" description="三种状态：online / warning / error，支持脉动动画">
               <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
                 <div style="display:flex;align-items:center;gap:6px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:12px">ONLINE</span></div>
                 <div style="display:flex;align-items:center;gap:6px"><CpStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:12px">WARNING</span></div>
                 <div style="display:flex;align-items:center;gap:6px"><CpStatusLed status="error" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:12px">ERROR</span></div>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="DigitalClock 数字时钟" description="可选显示秒数、glitch 故障效果">
+              <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
                 <CpDigitalClock :show-seconds="true" :glitch="true" />
+                <CpDigitalClock :show-seconds="false" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="TypingIndicator 输入指示器" description="三点跳动动画，表示正在输入">
+              <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
                 <CpTypingIndicator />
+                <div style="display:flex;align-items:center;gap:8px;padding:12px;background:var(--cp-bg-panel);border-radius:var(--cp-radius-md)">
+                  <span style="color:var(--cp-text-secondary);font-size:13px">AI 正在思考</span>
+                  <CpTypingIndicator />
+                </div>
               </div>
               <template #code><DemoCode :code="codes.shared" /></template>
+            </DemoBlock>
+            <DemoBlock title="综合演示" description="共享组件组合使用场景">
+              <div style="border:1px solid var(--cp-border-base);min-height:240px;position:relative;overflow:hidden">
+                <CpHudStrip position="top" />
+                <div style="padding:24px">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+                    <div style="display:flex;align-items:center;gap:12px">
+                      <CpLogo text="CPUI" size="sm" />
+                      <div style="display:flex;gap:12px">
+                        <div style="display:flex;align-items:center;gap:4px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:11px">SYSTEM</span></div>
+                        <div style="display:flex;align-items:center;gap:4px"><CpStatusLed status="warning" :pulse="true" /><span style="color:var(--cp-text-muted);font-size:11px">CACHE</span></div>
+                      </div>
+                    </div>
+                    <CpDigitalClock :show-seconds="true" :glitch="true" />
+                  </div>
+                  <div style="padding:16px;background:var(--cp-bg-elevated);border:1px solid var(--cp-border-base);border-radius:var(--cp-radius-md)">
+                    <div style="font-family:var(--cp-font-mono);font-size:13px;color:var(--cp-text-secondary);line-height:1.8">
+                      <div style="margin-bottom:8px;color:var(--cp-color-primary)">> System initializing...</div>
+                      <div style="margin-bottom:8px">Loading modules [████████░░] 80%</div>
+                      <div style="display:flex;align-items:center;gap:8px">
+                        <span>AI agent responding</span>
+                        <CpTypingIndicator />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <CpHudStrip position="bottom" dense />
+                <CpFloatingToolbar position="right">
+                  <CpToolButton label="Settings">⚙</CpToolButton>
+                  <CpToolButton label="Help">?</CpToolButton>
+                </CpFloatingToolbar>
+              </div>
             </DemoBlock>
           </template>
 
@@ -1523,10 +2028,22 @@ import {
   SterileHeading,
   BrutalButton, BrutalCard, BrutalInput, BrutalTag, BrutalBadge,
   BrutalBracketLabel, BrutalProgressBar, BrutalHeading,
+  BrutalAvatar, BrutalPanel, BrutalModal, BrutalStatsGrid,
+  BrutalPagination, BrutalCategoryTabs, BrutalTerminal, BrutalChatBubble,
   BlueprintButton, BlueprintCard, BlueprintInput, BlueprintTag, BlueprintBadge,
   BlueprintBracketLabel, BlueprintProgressBar, BlueprintHeading,
+  BlueprintAvatar, BlueprintPanel, BlueprintModal, BlueprintStatsGrid,
+  BlueprintPagination, BlueprintCategoryTabs, BlueprintTerminal, BlueprintChatBubble,
   NoirButton, NoirCard, NoirInput, NoirTag, NoirBadge,
   NoirBracketLabel, NoirProgressBar, NoirHeading,
+  NoirAvatar, NoirPanel, NoirModal, NoirStatsGrid,
+  NoirPagination, NoirCategoryTabs, NoirTerminal, NoirChatBubble,
+  ModernButton, ModernCard, ModernInput, ModernTag, ModernBadge,
+  ModernBracketLabel, ModernProgressBar, ModernHeading,
+  ModernTooltip, ModernChip, ModernSwitch, ModernSelect,
+  CyberModernButton, CyberModernCard, CyberModernInput, CyberModernTag, CyberModernBadge,
+  CyberModernBracketLabel, CyberModernProgressBar, CyberModernHeading,
+  CyberModernGlitch, CyberModernHologram, CyberModernScanLine, CyberModernPulse,
   CyberGlitchText, CyberDecipherText, CyberScanLine,
   CyberCornerBrackets, CyberLabelBar, CyberMonitorEye,
   CyberBootAnimation,
@@ -1568,6 +2085,9 @@ const inputVal = ref('')
 const showCyberModal = ref(false)
 const showSCModal = ref(false)
 const showSterileModal = ref(false)
+const showBlueprintModal = ref(false)
+const showBrutalModal = ref(false)
+const showNoirModal = ref(false)
 const currentPage = ref(3)
 const activeCat = ref('all')
 const activeNav = ref(0)
@@ -1696,19 +2216,19 @@ const articleMessages = [
 
 const categories = [
   {
-    key: 'quickstart', label: '快速开始 Quickstart',
+    key: 'quickstart', label: '快速开始 QUICKSTART',
     items: [
       { key: 'quickstart', label: '安装与使用' },
     ],
   },
   {
-    key: 'theme', label: '主题展示 Theme',
+    key: 'theme', label: '主题展示 THEME',
     items: [
-      { key: 'theme-showcase', label: '七主题对比' },
+      { key: 'theme-showcase', label: '九主题对比' },
     ],
   },
   {
-    key: 'components', label: '组件 Components',
+    key: 'components', label: '组件 COMPONENTS',
     items: [
       { key: 'button', label: 'Button 按钮' },
       { key: 'heading', label: 'Heading 标题' },
@@ -1729,35 +2249,58 @@ const categories = [
     ],
   },
   {
-    key: 'cyber', label: '赛博专属 Cyber',
+    key: 'cyber', label: '赛博专属 CYBER',
     items: [
       { key: 'glitch-text', label: 'GlitchText 故障文字' },
       { key: 'decipher-text', label: 'DecipherText 解码文字' },
       { key: 'cyber-decor', label: '装饰组件' },
       { key: 'disconnect', label: 'Disconnect 断开连接' },
-      { key: 'boot-animation', label: 'BootAnimation 开机动画' },
     ],
   },
   {
-    key: 'blueprint-zone', label: '蓝图专属 Blueprint',
+    key: 'blueprint-zone', label: '蓝图专属 BLUEPRINT',
     items: [
       { key: 'blueprint-components', label: '蓝图组件' },
     ],
   },
   {
-    key: 'brutal-zone', label: '终端粗野专属 Brutal',
+    key: 'brutal-zone', label: '终端粗野专属 BRUTAL',
     items: [
       { key: 'brutal-components', label: '粗野组件' },
     ],
   },
   {
-    key: 'noir-zone', label: '霓虹黑专属 Noir',
+    key: 'noir-zone', label: '霓虹黑专属 NOIR',
     items: [
       { key: 'noir-components', label: '霓虹组件' },
     ],
   },
   {
-    key: 'shared', label: '共享组件 Shared',
+    key: 'sterile-zone', label: '无菌专属 STERILE',
+    items: [
+      { key: 'sterile-components', label: '无菌组件' },
+    ],
+  },
+  {
+    key: 'modern-zone', label: '现代专属 MODERN',
+    items: [
+      { key: 'modern-tooltip', label: 'ModernTooltip 提示框' },
+      { key: 'modern-chip', label: 'ModernChip 标签片' },
+      { key: 'modern-switch', label: 'ModernSwitch 开关' },
+      { key: 'modern-select', label: 'ModernSelect 选择器' },
+    ],
+  },
+  {
+    key: 'cyber-modern-zone', label: '赛博现代专属 CYBER-MODERN',
+    items: [
+      { key: 'cyber-modern-glitch', label: 'CyberModernGlitch 故障效果' },
+      { key: 'cyber-modern-hologram', label: 'CyberModernHologram 全息卡片' },
+      { key: 'cyber-modern-scanline', label: 'CyberModernScanLine 扫描线' },
+      { key: 'cyber-modern-pulse', label: 'CyberModernPulse 脉冲按钮' },
+    ],
+  },
+  {
+    key: 'shared', label: '共享组件 SHARED',
     items: [
       { key: 'logo', label: 'Logo 品牌标识' },
       { key: 'shared-utils', label: 'StatusLed / Clock / Typing' },
@@ -1768,7 +2311,7 @@ const categories = [
     ],
   },
   {
-    key: 'business', label: '业务 Business',
+    key: 'business', label: '业务 BUSINESS',
     items: [
       { key: 'nav-menu', label: 'NavMenu 导航菜单' },
       { key: 'blog-card', label: 'BlogCard 博客卡片' },
@@ -1780,14 +2323,20 @@ const categories = [
     ],
   },
   {
-    key: 'layout', label: '布局演示 Layout',
+    key: 'layout', label: '布局演示 LAYOUT',
     items: [
       { key: 'index-panel', label: 'IndexPanel 索引面板' },
       { key: 'topnav', label: 'TopNav 顶栏' },
     ],
   },
   {
-    key: 'creative', label: '创意工坊 Creative',
+    key: 'animations', label: '开机动画 ANIMATIONS',
+    items: [
+      { key: 'boot-animation', label: 'BootAnimation 开机动画' },
+    ],
+  },
+  {
+    key: 'creative', label: '创意工坊 CREATIVE',
     items: [
       { key: 'creative-workshop', label: '创意组件区' },
     ],
@@ -2157,6 +2706,19 @@ const tabs = [
 <NoirInput v-model="val" placeholder="输入框..." />`,
   noirProgress: `<NoirProgressBar :value="72" :animated="true" />
 <NoirProgressBar variant="danger" :value="30" />`,
+  sterileButton: `<CpThemeProvider theme="sterile-dark">
+  <SterileButton variant="primary">Primary</SterileButton>
+  <SterileButton variant="secondary">Secondary</SterileButton>
+  <SterileButton variant="danger">Danger</SterileButton>
+</CpThemeProvider>`,
+  sterileHeading: `<SterileHeading>无菌标题</SterileHeading>`,
+  sterileMeta: `<SterileTag>Tag</SterileTag>
+<SterileBadge text="42" />
+<SterileBracketLabel text="LABEL" />`,
+  sterileCard: `<SterileCard title="数据">Card 内容</SterileCard>
+<SterileInput v-model="val" placeholder="输入框..." />`,
+  sterileProgress: `<SterileProgressBar :value="72" :animated="false" />
+<SterileProgressBar variant="danger" :value="30" />`,
   shared: `<CpStatusLed status="online" :pulse="true" />
 <CpStatusLed status="warning" :pulse="true" />
 <CpDigitalClock :show-seconds="true" :glitch="true" />

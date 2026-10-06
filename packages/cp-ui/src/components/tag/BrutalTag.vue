@@ -1,15 +1,6 @@
 <template>
-  <span
-    class="brutal-tag"
-    :class="[
-      `brutal-tag--${variant}`,
-      `brutal-tag--${size}`,
-      { 'brutal-tag--clickable': clickable },
-    ]"
-    @click="clickable && $emit('click', $event)"
-  >
+  <span class="brutal-tag" :class="[`brutal-tag--${variant}`, `brutal-tag--${size}`]">
     <slot />
-    <span v-if="closable" class="brutal-tag__close" @click.stop="$emit('close')">×</span>
   </span>
 </template>
 
@@ -19,74 +10,50 @@ import type { TagProps } from '../../types/components'
 withDefaults(defineProps<TagProps>(), {
   variant: 'default',
   size: 'md',
-  closable: false,
-  clickable: false,
 })
-
-defineEmits<{
-  click: [e: MouseEvent]
-  close: []
-}>()
 </script>
 
 <style lang="scss" scoped>
-// 终端粗野：直角小格 + 等宽大写
 .brutal-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline-block;
+  padding: 4px 12px;
   font-family: var(--cp-font-mono);
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border: 1px solid var(--cp-border-base);
-  border-radius: 0;
+  letter-spacing: 0.05em;
+  border: 3px solid currentColor;
   background: transparent;
   white-space: nowrap;
+  transform: skewX(-3deg);
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.3));
 
   &--sm {
-    padding: 2px 8px;
+    padding: 2px 10px;
     font-size: 10px;
+    border-width: 2px;
   }
-  &--md {
-    padding: 3px 10px;
-    font-size: 11px;
+
+  &--lg {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-width: 4px;
   }
 
   &--default {
     color: var(--cp-text-secondary);
-    border-color: var(--cp-border-base);
   }
+
   &--primary {
     color: var(--cp-color-primary);
-    border-color: var(--cp-border-bright);
   }
+
   &--secondary {
     color: var(--cp-color-secondary);
-    border-color: var(--cp-color-secondary);
   }
+
   &--danger {
     color: var(--cp-color-danger);
-    border-color: rgba(239, 68, 68, 0.5);
-  }
-  &--success {
-    color: var(--cp-color-success);
-    border-color: rgba(74, 222, 128, 0.5);
-  }
-
-  &--clickable {
-    cursor: pointer;
-    transition: background var(--cp-duration-fast) var(--cp-easing);
-    &:hover {
-      background: var(--cp-bg-hover);
-    }
-  }
-
-  &__close {
-    cursor: pointer;
-    color: var(--cp-text-dim);
-    &:hover {
-      color: var(--cp-text-primary);
-    }
   }
 }
 </style>
