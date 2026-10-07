@@ -102,10 +102,26 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: var(--cp-bg-base);
-  color: var(--cp-text-muted);
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(99, 102, 241, 0.03) 2px,
+      rgba(99, 102, 241, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(99, 102, 241, 0.03) 2px,
+      rgba(99, 102, 241, 0.03) 4px
+    ),
+    var(--cp-bg-base);
+  color: var(--cp-color-primary);
   font-family: var(--cp-font-mono);
   font-size: 1.2em;
+  font-weight: 600;
   text-transform: uppercase;
 }
 

@@ -58,9 +58,11 @@ const hasError = ref(false)
   &--cut .cyber-avatar__frame {
     clip-path: var(--cp-cut-corner-sm);
   }
-  &--irregular .cyber-avatar__frame,
+  &--irregular .cyber-avatar__frame {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
   &--regular .cyber-avatar__frame {
-    /* 保持原样，无额外形状 */
+    /* 保持矩形 */
   }
 }
 
@@ -97,10 +99,11 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: var(--cp-bg-elevated);
-  color: var(--cp-text-muted);
+  background: linear-gradient(135deg, rgba(252, 232, 3, 0.1) 0%, rgba(0, 240, 255, 0.05) 100%);
+  color: var(--cp-color-primary);
   font-family: var(--cp-font-mono);
   font-size: 1.2em;
+  font-weight: 700;
 }
 
 .cyber-avatar__scanline {

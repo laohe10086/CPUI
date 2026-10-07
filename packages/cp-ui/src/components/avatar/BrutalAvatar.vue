@@ -93,13 +93,17 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: var(--cp-bg-base);
-  color: var(--cp-text-primary);
+  background: 
+    radial-gradient(circle, var(--cp-color-primary) 1px, transparent 1px),
+    var(--cp-bg-base);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  color: var(--cp-color-primary);
   font-family: var(--cp-font-mono);
-  font-size: 1.2em;
-  font-weight: 700;
+  font-size: 1.4em;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0;
 }
 
 .brutal-avatar__id {
