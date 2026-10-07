@@ -539,50 +539,82 @@
 
           <!-- Heading -->
           <template v-if="activeItem === 'heading'">
-            <DocsTitle title="Heading 标题" desc="各风格的标题组件，覆盖九大主题。" />
-            <DemoBlock title="Cyber 赛博朋克" description="CP2077 风格下划线 + 可选文字/横线效果">
-              <div style="display:flex;flex-direction:column;gap:16px">
-                <CyberHeading>默认标题</CyberHeading>
-                <CyberHeading line-color="var(--cp-color-danger)" text-color="var(--cp-color-danger)">自定义颜色</CyberHeading>
-                <CyberHeading :neon="true">霓虹发光</CyberHeading>
-                <CyberHeading :rgb-split="true">RGB 色差</CyberHeading>
-                <CyberHeading :glitched="true">Glitch 抖动</CyberHeading>
-                <CyberHeading :line-pulse="true">横线脉冲</CyberHeading>
-                <CyberHeading :line-glow="true">横线发光</CyberHeading>
-                <CyberHeading :underline="false">无下划线</CyberHeading>
+            <DocsTitle title="Heading 标题" desc="各风格的标题组件，展现独特的视觉语言。" />
+            
+            <DemoBlock title="Cyber 赛博朋克" description="CP2077 风格 · RGB 色差 · 霓虹发光 · Glitch 故障">
+              <div style="display:flex;flex-direction:column;gap:20px">
+                <CyberHeading level="h1">CYBER PROTOCOL H1</CyberHeading>
+                <CyberHeading level="h2" :neon="true">NEON GLOW EFFECT</CyberHeading>
+                <CyberHeading level="h3" :rgb-split="true">RGB CHROMATIC</CyberHeading>
+                <CyberHeading :glitched="true" :line-glow="true">GLITCH DISTORTION</CyberHeading>
+                <CyberHeading :line-pulse="true" line-color="var(--cp-color-danger)">PULSE ANIMATION</CyberHeading>
               </div>
               <template #code><DemoCode :code="codes.headingCyber" /></template>
             </DemoBlock>
-            <DemoBlock title="SterileCyber" description="单层发光 + 可选效果">
-              <div style="display:flex;flex-direction:column;gap:12px">
-                <SterileCyberHeading>默认标题</SterileCyberHeading>
-                <SterileCyberHeading :neon="true">霓虹发光</SterileCyberHeading>
-                <SterileCyberHeading :line-pulse="true">横线脉冲</SterileCyberHeading>
+
+            <DemoBlock title="SterileCyber 无菌赛博" description="单层辉光 · 冷色调 · 精准感">
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <SterileCyberHeading level="h1">SC PROTOCOL HEADER</SterileCyberHeading>
+                <SterileCyberHeading :neon="true">CLINICAL GLOW</SterileCyberHeading>
+                <SterileCyberHeading :line-pulse="true">PULSE INDICATOR</SterileCyberHeading>
               </div>
               <template #code><DemoCode :code="codes.headingSC" /></template>
             </DemoBlock>
-            <DemoBlock title="Sterile" description="极简风格">
-              <div style="display:flex;flex-direction:column;gap:12px">
-                <SterileHeading>默认标题</SterileHeading>
-                <SterileHeading :underline="true">带下划线</SterileHeading>
-                <SterileHeading :underline="true" :line-pulse="true">横线脉冲</SterileHeading>
+
+            <DemoBlock title="Sterile 无菌美学" description="极简 · 高对比 · 去装饰">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <SterileHeading level="h1">Sterile Design H1</SterileHeading>
+                <SterileHeading level="h2" :underline="true">Minimal Typography</SterileHeading>
+                <SterileHeading :underline="true" :line-pulse="true">Animated Underline</SterileHeading>
               </div>
               <template #code><DemoCode :code="codes.headingSterile" /></template>
             </DemoBlock>
-            <DemoBlock title="Blueprint 蓝图" description="尺寸标注线风格标题">
-              <BlueprintHeading>BLUEPRINT HEADING</BlueprintHeading>
+
+            <DemoBlock title="Blueprint 蓝图" description="工程标注 · 尺寸指示 · 技术图纸">
+              <div style="display:flex;flex-direction:column;gap:18px">
+                <BlueprintHeading level="h1">BLUEPRINT SPECIFICATION</BlueprintHeading>
+                <BlueprintHeading level="h2">TECHNICAL DRAWING</BlueprintHeading>
+                <BlueprintHeading level="h3">DIMENSION LABEL</BlueprintHeading>
+              </div>
+              <template #code><DemoCode code='<BlueprintHeading level="h2">TITLE</BlueprintHeading>' /></template>
             </DemoBlock>
-            <DemoBlock title="Brutal 终端粗野" description="等宽大写 + 2px 粗结构线">
-              <BrutalHeading>BRUTAL HEADING</BrutalHeading>
+
+            <DemoBlock title="Brutal 终端粗野" description="等宽粗体 · 3px 实线 · 工业感">
+              <div style="display:flex;flex-direction:column;gap:18px">
+                <BrutalHeading level="h1">BRUTAL TERMINAL H1</BrutalHeading>
+                <BrutalHeading level="h2">MONOSPACE HEAVY</BrutalHeading>
+                <BrutalHeading level="h3">RAW STRUCTURE</BrutalHeading>
+              </div>
+              <template #code><DemoCode code="<BrutalHeading>TITLE</BrutalHeading>" /></template>
             </DemoBlock>
-            <DemoBlock title="Noir 霓虹黑" description="Cormorant Garamond 衬线标题">
-              <NoirHeading>霓虹黑标题</NoirHeading>
+
+            <DemoBlock title="Noir 霓虹黑" description="Cormorant 衬线 · 优雅字距 · 电影感">
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <NoirHeading level="h1">霓虹黑标题 H1</NoirHeading>
+                <NoirHeading level="h2">Noir Elegance</NoirHeading>
+                <NoirHeading :underline="false" level="h3">无下划线版本</NoirHeading>
+                <NoirHeading line-color="#00f0ff" text-color="#00f0ff">自定义霓虹色</NoirHeading>
+              </div>
+              <template #code><DemoCode code="<NoirHeading>Title</NoirHeading>" /></template>
             </DemoBlock>
-            <DemoBlock title="Modern 现代科技" description="Inter 字体 + 紧凑负字距">
-              <ModernHeading>Modern Heading</ModernHeading>
+
+            <DemoBlock title="Modern 现代科技" description="Inter 负字距 · 层级清晰 · 专业感">
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <ModernHeading level="h1">Modern Typography H1</ModernHeading>
+                <ModernHeading level="h2">Clean Hierarchy H2</ModernHeading>
+                <ModernHeading level="h3">Professional Tone H3</ModernHeading>
+                <ModernHeading level="h4">Subtitle Level H4</ModernHeading>
+              </div>
+              <template #code><DemoCode code='<ModernHeading level="h2">Title</ModernHeading>' /></template>
             </DemoBlock>
-            <DemoBlock title="CyberModern 赛博现代" description="渐变文字 + 辉光">
-              <CyberModernHeading>CyberModern Heading</CyberModernHeading>
+
+            <DemoBlock title="CyberModern 赛博现代" description="渐变底线 · 柔和辉光 · 未来感">
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <CyberModernHeading level="h1">CyberModern Future H1</CyberModernHeading>
+                <CyberModernHeading level="h2">Gradient Glow H2</CyberModernHeading>
+                <CyberModernHeading level="h3">Soft Luminance H3</CyberModernHeading>
+              </div>
+              <template #code><DemoCode code="<CyberModernHeading>Title</CyberModernHeading>" /></template>
             </DemoBlock>
           </template>
 
@@ -956,7 +988,7 @@
                     <div style="color:#ddd">&gt; Initializing system... <span style="color:#00ff00">[OK]</span></div>
                     <div style="color:#666;font-style:italic">&gt; Connection established. Session ID: #A7F2</div>
                     <div style="color:#ddd">&gt; <span style="color:#888">[INIT]</span> Migration 042 applied <span style="color:#00ff00">[OK]</span></div>
-                    <div style="color:#ddd">&gt; <span style="color:#888">[DB]</span> Cache miss <span style="color:var(--cp-yellow, #fce803)">[WARN]</span></div>
+                    <div style="color:#ddd">&gt; <span style="color:#888">[DB]</span> Cache miss <span style="color:var(--cp-color-warning, #ff8c00)">[WARN]</span></div>
                     <div style="color:#ddd">&gt; <span style="color:#888">[NET]</span> Node response: 142ms</div>
                     <div style="color:var(--cp-red, #ff3333)">&gt; <span style="color:var(--cp-red, #ff3333)">[ERR]</span> Timeout on shard 7</div>
                     <div class="heixiazi-demo__cursor">>_</div>
@@ -3601,8 +3633,8 @@ export default { name: 'App', components: { DocsTitle } }
     &:hover { color: #aaa; }
 
     &--active {
-      color: var(--cp-color-primary, #fce803);
-      border-bottom-color: var(--cp-color-primary, #fce803);
+      color: var(--cp-color-primary, #00f0ff);
+      border-bottom-color: var(--cp-color-primary, #00f0ff);
     }
   }
 
