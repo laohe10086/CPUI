@@ -606,12 +606,14 @@
             </DemoBlock>
 
             <DemoBlock title="Noir 霓虹黑" description="Cormorant 衬线 · 优雅字距 · 电影感">
-              <div style="display:flex;flex-direction:column;gap:16px">
-                <NoirHeading level="h1">霓虹黑标题 H1</NoirHeading>
-                <NoirHeading level="h2">Noir Elegance</NoirHeading>
-                <NoirHeading :underline="false" level="h3">无下划线版本</NoirHeading>
-                <NoirHeading line-color="#00f0ff" text-color="#00f0ff">自定义霓虹色</NoirHeading>
-              </div>
+              <CpThemeProvider theme="neon-noir">
+                <div style="display:flex;flex-direction:column;gap:16px">
+                  <NoirHeading level="h1">霓虹黑标题 H1</NoirHeading>
+                  <NoirHeading level="h2">Noir Elegance</NoirHeading>
+                  <NoirHeading :underline="false" level="h3">无下划线版本</NoirHeading>
+                  <NoirHeading line-color="#00f0ff" text-color="#00f0ff">自定义霓虹色</NoirHeading>
+                </div>
+              </CpThemeProvider>
               <template #code><DemoCode code="<NoirHeading>Title</NoirHeading>" /></template>
             </DemoBlock>
 
@@ -1029,14 +1031,16 @@
                     <BrutalAvatar size="lg" status="online" :status-pulse="true" />
                   </div>
                 </div>
-                <div>
-                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
-                  <div style="display:flex;gap:12px">
-                    <NoirAvatar size="sm" id="SM" />
-                    <NoirAvatar size="md" id="MD" />
-                    <NoirAvatar size="lg" status="online" :status-pulse="true" />
+                <CpThemeProvider theme="neon-noir">
+                  <div>
+                    <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
+                    <div style="display:flex;gap:12px">
+                      <NoirAvatar size="sm" id="SM" />
+                      <NoirAvatar size="md" id="MD" />
+                      <NoirAvatar size="lg" status="online" :status-pulse="true" />
+                    </div>
                   </div>
-                </div>
+                </CpThemeProvider>
               </div>
               <template #code><DemoCode :code="codes.avatar" /></template>
             </DemoBlock>
@@ -1052,7 +1056,9 @@
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileStatsGrid :stats="statsData" style="width:100%" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintStatsGrid :stats="statsData" style="width:100%" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalStatsGrid :stats="statsData" style="width:100%" /></div>
-                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirStatsGrid :stats="statsData" style="width:100%" /></div>
+                <CpThemeProvider theme="neon-noir">
+                  <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirStatsGrid :stats="statsData" style="width:100%" /></div>
+                </CpThemeProvider>
               </div>
               <template #code><DemoCode :code="codes.stats" /></template>
             </DemoBlock>
@@ -1094,7 +1100,9 @@
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileTerminal title="SYSTEM.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintTerminal title="BP.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalTerminal title="BRUTAL.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
-                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirTerminal title="NOIR.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                <CpThemeProvider theme="neon-noir">
+                  <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirTerminal title="NOIR.LOG" :entries="terminalEntries" status-state="online" status-text="ACTIVE" memory="2.1GB" uptime="14d" /></div>
+                </CpThemeProvider>
               </div>
               <template #code><DemoCode :code="codes.terminal" /></template>
             </DemoBlock>
@@ -1140,13 +1148,15 @@
                     <BrutalChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</BrutalChatBubble>
                   </div>
                 </div>
-                <div>
-                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
-                  <div style="display:flex;flex-direction:column;gap:8px">
-                    <NoirChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</NoirChatBubble>
-                    <NoirChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</NoirChatBubble>
+                <CpThemeProvider theme="neon-noir">
+                  <div>
+                    <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <NoirChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</NoirChatBubble>
+                      <NoirChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</NoirChatBubble>
+                    </div>
                   </div>
-                </div>
+                </CpThemeProvider>
                 <div>
                   <div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div>
                   <CpThemeProvider theme="modern">
@@ -1190,9 +1200,11 @@
                 <BrutalPanel title="BRUTAL" label="monitor">
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
                 </BrutalPanel>
-                <NoirPanel title="NOIR" label="monitor">
-                  <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
-                </NoirPanel>
+                <CpThemeProvider theme="neon-noir">
+                  <NoirPanel title="NOIR" label="monitor">
+                    <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                  </NoirPanel>
+                </CpThemeProvider>
                 <CpThemeProvider theme="modern">
                   <ModernPanel title="Modern" label="monitor">
                     <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
@@ -1220,7 +1232,9 @@
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterilePagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
-                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <CpThemeProvider theme="neon-noir">
+                  <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                </CpThemeProvider>
                 <div><div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div><CpThemeProvider theme="modern"><div style=""><ModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div></CpThemeProvider></div>
                 <div><div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div><CpThemeProvider theme="cyber-modern"><div style=""><CyberModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div></CpThemeProvider></div>
               </div>
@@ -1238,7 +1252,9 @@
                 <div><div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">Sterile</div><SterileCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
-                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <CpThemeProvider theme="neon-noir">
+                  <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                </CpThemeProvider>
                 <div><div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div><CpThemeProvider theme="modern"><div style=""><ModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div></CpThemeProvider></div>
                 <div><div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div><CpThemeProvider theme="cyber-modern"><div style=""><CyberModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div></CpThemeProvider></div>
               </div>
@@ -1630,7 +1646,7 @@
                 <template #code><DemoCode :code="codes.brutalProgress" /></template>
               </DemoBlock>
               <DemoBlock title="综合演示" description="终端朋克风格的完整命令面板">
-                <div style="border:6px solid #000;padding:20px;background:var(--cp-bg-void);box-shadow:6px 6px 0 rgba(255,107,53,0.3)">
+                <div style="border:6px solid var(--cp-text-primary);padding:20px;background:var(--cp-bg-void);box-shadow:6px 6px 0 rgba(255,107,53,0.3)">
                   <BrutalHeading style="margin-bottom:16px">$ SYSTEM_READY</BrutalHeading>
                   <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
                     <BrutalTag>v3.14</BrutalTag>
@@ -1699,12 +1715,14 @@
                 <template #code><DemoCode :code="codes.noirMeta" /></template>
               </DemoBlock>
               <DemoBlock title="Card / Input" description="衬线标题卡片 + 霓虹黑输入框">
-                <div style="display:flex;gap:12px;flex-wrap:wrap">
-                  <NoirCard title="场景" style="width:200px">
-                    <div style="font-size:12px">Card 内容</div>
-                  </NoirCard>
-                  <NoirInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
-                </div>
+                <CpThemeProvider theme="neon-noir">
+                  <div style="display:flex;gap:12px;flex-wrap:wrap">
+                    <NoirCard title="场景" style="width:200px">
+                      <div style="font-size:12px">Card 内容</div>
+                    </NoirCard>
+                    <NoirInput v-model="themeInputVal" placeholder="输入框..." style="flex:1;min-width:160px" />
+                  </div>
+                </CpThemeProvider>
                 <template #code><DemoCode :code="codes.noirCard" /></template>
               </DemoBlock>
               <DemoBlock title="ProgressBar 进度条" description="霓虹黑进度条，青色辉光渐变填充">
