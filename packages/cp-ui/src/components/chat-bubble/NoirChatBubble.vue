@@ -107,7 +107,7 @@ withDefaults(defineProps<ChatBubbleProps>(), {
 }
 
 .noir-chat-bubble__content {
-  padding: 10px 14px;
+  padding: 12px 16px;
   background: var(--cp-bg-elevated);
   border: 2px solid var(--cp-color-primary);
   color: var(--cp-text-secondary);

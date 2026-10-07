@@ -99,7 +99,7 @@ withDefaults(defineProps<ChatBubbleProps>(), {
 }
 
 .sterile-chat-bubble__content {
-  padding: 10px 14px;
+  padding: 12px 16px;
   background: var(--cp-bg-elevated);
   border: 1px solid var(--cp-border-base);
   border-radius: 0;

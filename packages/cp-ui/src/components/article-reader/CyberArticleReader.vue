@@ -249,6 +249,9 @@ watch(() => props.visible, (v) => {
 
 <style lang="scss" scoped>
 .cyber-article-reader__overlay {
+  --cyber-article-accent: var(--cyber-article-accent);
+  --cyber-article-danger: var(--cyber-article-danger);
+
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.96);
@@ -343,8 +346,8 @@ watch(() => props.visible, (v) => {
 
   &__close-btn {
     background: #1a0505;
-    border: 1px solid #ff3333;
-    color: #ff3333;
+    border: 1px solid var(--cyber-article-danger);
+    color: var(--cyber-article-danger);
     padding: 6px 16px;
     display: flex;
     align-items: center;
@@ -357,7 +360,7 @@ watch(() => props.visible, (v) => {
     letter-spacing: 0.1em;
 
     &:hover {
-      background: #ff3333;
+      background: var(--cyber-article-danger);
       color: #000;
       box-shadow: 0 0 20px rgba(255, 51, 51, 0.6);
     }
@@ -434,7 +437,7 @@ watch(() => props.visible, (v) => {
     clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
 
     .cyber-article-reader__bubble--right & {
-      border-color: #ffb700;
+      border-color: var(--cyber-article-accent);
     }
 
     img {
@@ -468,7 +471,7 @@ watch(() => props.visible, (v) => {
     animation: avatar-scan 3s linear infinite;
 
     .cyber-article-reader__bubble--right & {
-      background: #ffb700;
+      background: var(--cyber-article-accent);
     }
   }
 
@@ -480,7 +483,7 @@ watch(() => props.visible, (v) => {
     text-transform: uppercase;
 
     .cyber-article-reader__bubble--right & {
-      color: #ffb700;
+      color: var(--cyber-article-accent);
     }
   }
 
@@ -514,7 +517,7 @@ watch(() => props.visible, (v) => {
     }
 
     .cyber-article-reader__bubble--author & {
-      border-right: 4px solid #ffb700;
+      border-right: 4px solid var(--cyber-article-accent);
       background: #1a1505;
       box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.6);
       border-top: 1px solid rgba(255, 183, 0, 0.2);
@@ -554,7 +557,7 @@ watch(() => props.visible, (v) => {
     font-weight: bold;
 
     .cyber-article-reader__bubble--left & { color: rgba(0, 255, 247, 0.8); }
-    .cyber-article-reader__bubble--right & { color: #ffb700; }
+    .cyber-article-reader__bubble--right & { color: var(--cyber-article-accent); }
   }
 
   &__bubble-status {
@@ -614,7 +617,7 @@ watch(() => props.visible, (v) => {
     position: relative;
     display: inline-block;
     max-width: 100%;
-    border: 1px solid #ffb700;
+    border: 1px solid var(--cyber-article-accent);
     padding: 2px;
     background: rgba(0, 0, 0, 0.5);
     cursor: zoom-in;
@@ -652,7 +655,7 @@ watch(() => props.visible, (v) => {
   &__typing-dot {
     width: 6px;
     height: 6px;
-    background: #ffb700;
+    background: var(--cyber-article-accent);
     border-radius: 50%;
     animation: reader-typing 1s infinite;
     opacity: 0.5;
@@ -730,7 +733,7 @@ watch(() => props.visible, (v) => {
     max-width: 95vw;
     max-height: 95vh;
     position: relative;
-    border: 1px solid #ffb700;
+    border: 1px solid var(--cyber-article-accent);
 
     img { max-width: 100%; max-height: 95vh; display: block; box-shadow: 0 0 50px rgba(0, 0, 0, 1); }
   }

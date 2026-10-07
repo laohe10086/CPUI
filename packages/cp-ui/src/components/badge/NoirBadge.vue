@@ -49,10 +49,10 @@ withDefaults(defineProps<BadgeProps>(), {
   &--primary {
     color: var(--cp-color-primary);
     border-color: var(--cp-color-primary);
-    background: rgba(0, 240, 255, 0.08);
+    background: color-mix(in srgb, var(--cp-color-primary) 8%, transparent);
     box-shadow: 
-      0 0 8px rgba(0, 240, 255, 0.15),
-      inset 0 0 8px rgba(0, 240, 255, 0.08);
+      0 0 8px color-mix(in srgb, var(--cp-color-primary) 15%, transparent),
+      inset 0 0 8px color-mix(in srgb, var(--cp-color-primary) 8%, transparent);
   }
 
   &--secondary {
