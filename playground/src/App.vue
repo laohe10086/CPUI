@@ -606,39 +606,31 @@
             </DemoBlock>
 
             <DemoBlock title="Noir 霓虹黑" description="Cormorant 衬线 · 优雅字距 · 电影感">
-              <CpThemeProvider theme="neon-noir">
-                <div style="">
-                  <div style="display:flex;flex-direction:column;gap:16px">
-                    <NoirHeading level="h1">霓虹黑标题 H1</NoirHeading>
-                    <NoirHeading level="h2">Noir Elegance</NoirHeading>
-                    <NoirHeading :underline="false" level="h3">无下划线版本</NoirHeading>
-                    <NoirHeading line-color="#00f0ff" text-color="#00f0ff">自定义霓虹色</NoirHeading>
-                  </div>
-                </div>
-              </CpThemeProvider>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <NoirHeading level="h1">霓虹黑标题 H1</NoirHeading>
+                <NoirHeading level="h2">Noir Elegance</NoirHeading>
+                <NoirHeading :underline="false" level="h3">无下划线版本</NoirHeading>
+                <NoirHeading line-color="#00f0ff" text-color="#00f0ff">自定义霓虹色</NoirHeading>
+              </div>
               <template #code><DemoCode code="<NoirHeading>Title</NoirHeading>" /></template>
             </DemoBlock>
 
             <DemoBlock title="Modern 现代科技" description="Inter 负字距 · 层级清晰 · 专业感">
-              <CpThemeProvider theme="modern">
-                <div style="display:flex;flex-direction:column;gap:14px;">
-                  <ModernHeading level="h1">Modern Typography H1</ModernHeading>
-                  <ModernHeading level="h2">Clean Hierarchy H2</ModernHeading>
-                  <ModernHeading level="h3">Professional Tone H3</ModernHeading>
-                  <ModernHeading level="h4">Subtitle Level H4</ModernHeading>
-                </div>
-              </CpThemeProvider>
+              <div style="display:flex;flex-direction:column;gap:14px">
+                <ModernHeading level="h1">Modern Typography H1</ModernHeading>
+                <ModernHeading level="h2">Clean Hierarchy H2</ModernHeading>
+                <ModernHeading level="h3">Professional Tone H3</ModernHeading>
+                <ModernHeading level="h4">Subtitle Level H4</ModernHeading>
+              </div>
               <template #code><DemoCode code='<ModernHeading level="h2">Title</ModernHeading>' /></template>
             </DemoBlock>
 
             <DemoBlock title="CyberModern 赛博现代" description="渐变底线 · 柔和辉光 · 未来感">
-              <CpThemeProvider theme="cyber-modern">
-                <div style="display:flex;flex-direction:column;gap:16px;">
-                  <CyberModernHeading level="h1">CyberModern Future H1</CyberModernHeading>
-                  <CyberModernHeading level="h2">Gradient Glow H2</CyberModernHeading>
-                  <CyberModernHeading level="h3">Soft Luminance H3</CyberModernHeading>
-                </div>
-              </CpThemeProvider>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <CyberModernHeading level="h1">CyberModern Future H1</CyberModernHeading>
+                <CyberModernHeading level="h2">Gradient Glow H2</CyberModernHeading>
+                <CyberModernHeading level="h3">Soft Luminance H3</CyberModernHeading>
+              </div>
               <template #code><DemoCode code="<CyberModernHeading>Title</CyberModernHeading>" /></template>
             </DemoBlock>
           </template>
