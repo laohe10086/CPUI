@@ -188,9 +188,9 @@ export { CyberNotFound } from './components/not-found'
 
 // ===== Shared Components (11) =====
 export { CpLogo, CpLogoTvOff, CpLogoNeon, CpLogoFlicker, CpLogoScanline, CpLogoDecipher } from './components/logo'
-export { CpBackground } from './components/background'
+export { CpBackground, CyberBackground, BlueprintBackground, BrutalBackground, NoirBackground, SterileBackground, ModernBackground, CyberModernBackground } from './components/background'
 export { CpGridLayer } from './components/grid-layer'
-export { CpStatusLed } from './components/status-led'
+export { CpStatusLed, CyberStatusLed, BlueprintStatusLed, BrutalStatusLed, NoirStatusLed, SterileStatusLed, ModernStatusLed, CyberModernStatusLed } from './components/status-led'
 export { CpDigitalClock } from './components/digital-clock'
 export { CpTypingIndicator } from './components/typing-indicator'
 export { CpHudStrip } from './components/hud-strip'
