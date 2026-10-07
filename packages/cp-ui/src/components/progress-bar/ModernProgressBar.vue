@@ -1,7 +1,7 @@
 <template>
   <div class="modern-progress">
-    <div class="modern-progress__track">
-      <div 
+    <div class="modern-progress__track" :style="{ height: `${height}px` }">
+      <div
         class="modern-progress__fill"
         :style="{ width: `${value}%` }"
       />
@@ -11,10 +11,14 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   value: number
+  height?: number
   showLabel?: boolean
-}>()
+}>(), {
+  height: 8,
+  showLabel: false,
+})
 </script>
 
 <style scoped lang="scss">
@@ -23,23 +27,22 @@ defineProps<{
   align-items: center;
   gap: 12px;
   width: 100%;
-  
+
   &__track {
     flex: 1;
-    height: 8px;
     background: var(--cp-surface-2);
     border-radius: var(--cp-radius-full);
     overflow: hidden;
     position: relative;
   }
-  
+
   &__fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--cp-primary), var(--cp-secondary));
+    background: var(--cp-primary);
     border-radius: var(--cp-radius-full);
-    transition: width 0.3s var(--cp-transition);
+    transition: width 400ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   &__label {
     font-family: var(--cp-font-family-mono);
     font-size: var(--cp-font-size-xs);

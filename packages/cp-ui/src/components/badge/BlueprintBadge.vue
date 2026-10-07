@@ -1,7 +1,10 @@
 <template>
   <span class="blueprint-badge" :class="[`blueprint-badge--${variant}`]">
-    <span class="blueprint-badge__prefix">№</span>
-    <slot />
+    <span class="blueprint-badge__corner blueprint-badge__corner--tl">+</span>
+    <span class="blueprint-badge__corner blueprint-badge__corner--tr">+</span>
+    <span class="blueprint-badge__corner blueprint-badge__corner--bl">+</span>
+    <span class="blueprint-badge__corner blueprint-badge__corner--br">+</span>
+    <slot>{{ text }}</slot>
   </span>
 </template>
 
@@ -10,28 +13,39 @@ import type { BadgeProps } from '../../types/components'
 
 withDefaults(defineProps<BadgeProps>(), {
   variant: 'default',
+  text: '',
 })
 </script>
 
 <style lang="scss" scoped>
 .blueprint-badge {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  padding: 2px 8px;
-  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
-  font-size: 13px;
-  font-weight: 500;
-  border: 1px solid var(--cp-border-base);
-  border-radius: 50%;
-  background: transparent;
-  min-width: 28px;
-  height: 28px;
   justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 8px;
+  font-family: var(--cp-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid currentColor;
+  background: transparent;
+  line-height: 1;
 
-  &__prefix {
-    font-size: 11px;
-    opacity: 0.6;
+  &__corner {
+    position: absolute;
+    font-size: 7px;
+    line-height: 1;
+    opacity: 0.4;
+    pointer-events: none;
+    
+    &--tl { top: -1px; left: -1px; }
+    &--tr { top: -1px; right: -1px; }
+    &--bl { bottom: -1px; left: -1px; }
+    &--br { bottom: -1px; right: -1px; }
   }
 
   &--default {
@@ -42,16 +56,31 @@ withDefaults(defineProps<BadgeProps>(), {
   &--primary {
     color: var(--cp-color-primary);
     border-color: var(--cp-color-primary);
+    background: var(--cp-color-primary);
+    color: var(--cp-bg-base);
   }
 
   &--secondary {
     color: var(--cp-color-secondary);
     border-color: var(--cp-color-secondary);
+    border-style: dashed;
   }
 
   &--danger {
     color: var(--cp-color-danger);
     border-color: var(--cp-color-danger);
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 0, 60, 0.08) 2px,
+      rgba(255, 0, 60, 0.08) 4px
+    );
+  }
+
+  &--success {
+    color: var(--cp-color-success);
+    border-color: var(--cp-color-success);
   }
 }
 </style>

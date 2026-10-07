@@ -24,27 +24,27 @@ withDefaults(defineProps<HeadingProps>(), {
   line-height: 1.2;
   text-shadow: 0 0 20px var(--cp-primary-subtle);
 
-  &[data-v-]:is(h1) {
+  &:is(h1) {
     font-size: 48px;
   }
 
-  &[data-v-]:is(h2) {
+  &:is(h2) {
     font-size: 36px;
   }
 
-  &[data-v-]:is(h3) {
+  &:is(h3) {
     font-size: 24px;
   }
 
-  &[data-v-]:is(h4) {
+  &:is(h4) {
     font-size: 20px;
   }
 
-  &[data-v-]:is(h5) {
+  &:is(h5) {
     font-size: 16px;
   }
 
-  &[data-v-]:is(h6) {
+  &:is(h6) {
     font-size: 14px;
   }
 

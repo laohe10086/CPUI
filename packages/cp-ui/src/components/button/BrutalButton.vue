@@ -43,7 +43,7 @@ defineEmits<{ click: [e: MouseEvent] }>()
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  border: 4px solid #000;
+  border: 3px solid #000;
   background: transparent;
   cursor: pointer;
   white-space: nowrap;

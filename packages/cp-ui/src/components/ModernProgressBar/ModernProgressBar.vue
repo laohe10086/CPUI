@@ -1,8 +1,8 @@
 <template>
   <div class="modern-progress-bar">
-    <div class="modern-progress-bar__track">
-      <div 
-        class="modern-progress-bar__fill" 
+    <div class="modern-progress-bar__track" :style="{ height: `${height}px` }">
+      <div
+        class="modern-progress-bar__fill"
         :style="{ width: `${value}%` }"
       />
     </div>
@@ -14,6 +14,7 @@ import type { ProgressBarProps } from '../../types/components'
 
 withDefaults(defineProps<ProgressBarProps>(), {
   value: 0,
+  height: 4,
 })
 </script>
 
@@ -23,7 +24,6 @@ withDefaults(defineProps<ProgressBarProps>(), {
 
   &__track {
     width: 100%;
-    height: 4px;
     background: var(--cp-surface-2);
     border-radius: var(--cp-radius-full);
     overflow: hidden;

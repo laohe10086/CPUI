@@ -1,5 +1,5 @@
 <template>
-  <div class="modern-card">
+  <div :class="['modern-card', { 'modern-card--hoverable': hoverable }]">
     <div v-if="title" class="modern-card__header">
       <h3 class="modern-card__title">{{ title }}</h3>
     </div>
@@ -12,19 +12,23 @@
 <script setup lang="ts">
 import type { CardProps } from '../../types/components'
 
-defineProps<CardProps>()
+withDefaults(defineProps<CardProps>(), {
+  hoverable: true,
+})
 </script>
 
 <style scoped lang="scss">
 .modern-card {
   background: var(--cp-surface-1);
   border: 1px solid var(--cp-border);
-  border-radius: var(--cp-radius-md);
+  border-radius: var(--cp-radius-lg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  transition: border-color var(--cp-transition);
+  transition: all var(--cp-transition);
 
-  &:hover {
-    border-color: var(--cp-border-subtle);
+  &--hoverable:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
   }
 
   &__header {

@@ -34,20 +34,20 @@ withDefaults(defineProps<{
   &--lg { width: 14px; height: 14px; }
 
   &--online {
-    background: #00ff00;
-    border-color: #00ff00;
+    background: var(--cp-color-success);
+    border-color: var(--cp-color-success);
   }
   &--offline {
-    background: #333;
-    border-color: #666;
+    background: var(--cp-bg-muted);
+    border-color: var(--cp-border-base);
   }
   &--warning {
-    background: #ffff00;
-    border-color: #ffff00;
+    background: var(--cp-color-warning);
+    border-color: var(--cp-color-warning);
   }
   &--error {
-    background: #ff0000;
-    border-color: #ff0000;
+    background: var(--cp-color-danger);
+    border-color: var(--cp-color-danger);
   }
 
   &--pulse {

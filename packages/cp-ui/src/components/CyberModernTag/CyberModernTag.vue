@@ -37,6 +37,13 @@ withDefaults(defineProps<TagProps>(), {
     box-shadow: 0 0 12px var(--cp-primary-subtle);
   }
 
+  &--secondary {
+    background: var(--cp-secondary-subtle);
+    color: var(--cp-secondary);
+    border: 1px solid var(--cp-secondary);
+    box-shadow: 0 0 12px var(--cp-secondary-subtle);
+  }
+
   &--success {
     background: rgba(0, 255, 159, 0.1);
     color: var(--cp-success);

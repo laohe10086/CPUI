@@ -21,36 +21,36 @@ withDefaults(defineProps<TagProps>(), {
   font-size: var(--cp-font-size-xs);
   font-weight: 500;
   border-radius: var(--cp-radius-full);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 
   &--default {
     background: var(--cp-surface-2);
     color: var(--cp-text-secondary);
-    border: 1px solid var(--cp-border);
+    border: 1px solid var(--cp-border-subtle);
   }
 
   &--primary {
     background: var(--cp-primary-subtle);
     color: var(--cp-primary);
-    border: 1px solid var(--cp-primary);
+    border: 1px solid rgba(94, 106, 210, 0.2);
+  }
+
+  &--secondary {
+    background: var(--cp-secondary-subtle);
+    color: var(--cp-secondary);
+    border: 1px solid rgba(0, 217, 255, 0.2);
   }
 
   &--success {
     background: rgba(16, 185, 129, 0.1);
     color: var(--cp-success);
-    border: 1px solid var(--cp-success);
-  }
-
-  &--warning {
-    background: rgba(245, 158, 11, 0.1);
-    color: var(--cp-warning);
-    border: 1px solid var(--cp-warning);
+    border: 1px solid rgba(16, 185, 129, 0.2);
   }
 
   &--danger {
     background: rgba(239, 68, 68, 0.1);
     color: var(--cp-error);
-    border: 1px solid var(--cp-error);
+    border: 1px solid rgba(239, 68, 68, 0.2);
   }
 }
 </style>

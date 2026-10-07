@@ -33,20 +33,20 @@ withDefaults(defineProps<{
   &--lg { width: 12px; height: 12px; }
 
   &--online {
-    background: #ff0099;
-    box-shadow: 0 0 10px #ff0099, 0 0 20px rgba(255, 0, 153, 0.4);
+    background: var(--cp-color-primary);
+    box-shadow: 0 0 10px var(--cp-color-primary), 0 0 20px var(--cp-glow-primary);
   }
   &--offline {
-    background: #1a1a1a;
+    background: var(--cp-bg-elevated);
     box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
   }
   &--warning {
-    background: #ffaa00;
-    box-shadow: 0 0 10px #ffaa00, 0 0 20px rgba(255, 170, 0, 0.4);
+    background: var(--cp-color-warning);
+    box-shadow: 0 0 10px var(--cp-color-warning), 0 0 20px rgba(255, 140, 0, 0.4);
   }
   &--error {
-    background: #ff3366;
-    box-shadow: 0 0 10px #ff3366, 0 0 20px rgba(255, 51, 102, 0.4);
+    background: var(--cp-color-danger);
+    box-shadow: 0 0 10px var(--cp-color-danger), 0 0 20px var(--cp-glow-danger);
   }
 
   &--pulse {

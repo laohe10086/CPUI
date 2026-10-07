@@ -46,9 +46,13 @@ defineEmits<{
     color: var(--cp-text-tertiary);
   }
 
+  &:hover:not(:disabled) {
+    border-color: var(--cp-primary);
+  }
+
   &:focus {
     border-color: var(--cp-primary);
-    background: var(--cp-surface-2);
+    box-shadow: 0 0 0 3px var(--cp-primary-subtle);
   }
 
   &:disabled {

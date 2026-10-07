@@ -1,6 +1,6 @@
 <template>
   <span class="brutal-badge" :class="[`brutal-badge--${variant}`]">
-    <slot />
+    <slot>{{ text }}</slot>
   </span>
 </template>
 
@@ -9,6 +9,7 @@ import type { BadgeProps } from '../../types/components'
 
 withDefaults(defineProps<BadgeProps>(), {
   variant: 'default',
+  text: '',
 })
 </script>
 
@@ -17,15 +18,17 @@ withDefaults(defineProps<BadgeProps>(), {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 10px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 8px;
   font-family: var(--cp-font-mono);
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 900;
-  border: 3px solid currentColor;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 3px solid #000;
   background: transparent;
-  min-width: 32px;
-  height: 32px;
-  transform: skewX(-3deg);
+  line-height: 1;
 
   &--default {
     color: var(--cp-text-secondary);
@@ -33,20 +36,29 @@ withDefaults(defineProps<BadgeProps>(), {
   }
 
   &--primary {
-    color: var(--cp-color-primary);
-    border-color: var(--cp-color-primary);
     background: var(--cp-color-primary);
+    background-image: var(--cp-halftone-pattern);
+    background-size: var(--cp-halftone-size);
     color: #000;
+    border-color: #000;
   }
 
   &--secondary {
     color: var(--cp-color-secondary);
     border-color: var(--cp-color-secondary);
+    background: transparent;
   }
 
   &--danger {
-    color: var(--cp-color-danger);
-    border-color: var(--cp-color-danger);
+    background: var(--cp-color-danger);
+    color: #fff;
+    border-color: #000;
+  }
+
+  &--success {
+    background: var(--cp-color-success);
+    color: #000;
+    border-color: #000;
   }
 }
 </style>

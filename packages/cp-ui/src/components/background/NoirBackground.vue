@@ -18,7 +18,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  background: #0a0a0a;
+  background: var(--cp-bg-void);
 }
 
 .noir-background__vignette {
@@ -37,7 +37,7 @@
     height: 55vh;
     top: -15%;
     right: -15%;
-    background: #ff0099;
+    background: var(--cp-color-secondary);
     opacity: 0.12;
     animation: noir-float-a 20s ease-in-out infinite alternate;
   }
@@ -47,7 +47,7 @@
     height: 50vh;
     bottom: -15%;
     left: -10%;
-    background: #00ffff;
+    background: var(--cp-color-primary);
     opacity: 0.08;
     animation: noir-float-b 22s ease-in-out infinite alternate;
   }

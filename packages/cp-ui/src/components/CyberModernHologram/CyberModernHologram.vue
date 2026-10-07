@@ -1,7 +1,7 @@
 <template>
-  <div class="cyber-modern-hologram">
+  <div :class="['cyber-modern-hologram', `cyber-modern-hologram--${variant}`]">
     <div class="cyber-modern-hologram__inner">
-      <div class="cyber-modern-hologram__header">
+      <div v-if="title" class="cyber-modern-hologram__header">
         <span class="cyber-modern-hologram__title">{{ title }}</span>
         <div class="cyber-modern-hologram__signal"></div>
       </div>
@@ -15,10 +15,14 @@
 
 <script setup lang="ts">
 interface Props {
-  title: string
+  title?: string
+  variant?: 'primary' | 'danger'
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  title: '',
+  variant: 'primary',
+})
 </script>
 
 <style scoped lang="scss">
@@ -33,11 +37,11 @@ defineProps<Props>()
 }
 
 @keyframes signal-pulse {
-  0%, 100% { 
+  0%, 100% {
     box-shadow: 0 0 4px var(--cp-primary), 0 0 8px var(--cp-primary);
     transform: scale(1);
   }
-  50% { 
+  50% {
     box-shadow: 0 0 8px var(--cp-primary), 0 0 16px var(--cp-primary);
     transform: scale(1.1);
   }
@@ -49,7 +53,7 @@ defineProps<Props>()
   background: linear-gradient(135deg, var(--cp-primary) 0%, var(--cp-secondary) 100%);
   border-radius: 12px;
   animation: hologram-flicker 3s infinite;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -60,7 +64,23 @@ defineProps<Props>()
     filter: blur(8px);
     z-index: -1;
   }
-  
+
+  &--danger {
+    background: linear-gradient(135deg, var(--cp-error) 0%, var(--cp-secondary) 100%);
+
+    &::before {
+      background: linear-gradient(135deg, var(--cp-error), var(--cp-secondary));
+    }
+
+    .cyber-modern-hologram__title {
+      color: var(--cp-error);
+    }
+
+    .cyber-modern-hologram__signal {
+      background: var(--cp-error);
+    }
+  }
+
   &__inner {
     position: relative;
     padding: 20px;
@@ -68,7 +88,7 @@ defineProps<Props>()
     border-radius: 11px;
     overflow: hidden;
   }
-  
+
   &__header {
     display: flex;
     align-items: center;
@@ -77,7 +97,7 @@ defineProps<Props>()
     padding-bottom: 12px;
     border-bottom: 1px solid var(--cp-border);
   }
-  
+
   &__title {
     font-family: var(--cp-font-heading, 'Rajdhani', 'Inter', sans-serif);
     font-size: 18px;
@@ -86,7 +106,7 @@ defineProps<Props>()
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   &__signal {
     width: 8px;
     height: 8px;
@@ -94,7 +114,7 @@ defineProps<Props>()
     border-radius: 50%;
     animation: signal-pulse 2s infinite;
   }
-  
+
   &__content {
     position: relative;
     z-index: 1;
@@ -102,7 +122,7 @@ defineProps<Props>()
     font-size: 14px;
     line-height: 1.6;
   }
-  
+
   &__scanline {
     position: absolute;
     top: 0;

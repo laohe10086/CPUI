@@ -31,7 +31,7 @@ withDefaults(defineProps<TagProps>(), {
   &--sm {
     padding: 2px 10px;
     font-size: 10px;
-    border-width: 2px;
+    border-width: 3px;
   }
 
   &--lg {
@@ -45,15 +45,22 @@ withDefaults(defineProps<TagProps>(), {
   }
 
   &--primary {
-    color: var(--cp-color-primary);
+    background: var(--cp-color-primary);
+    background-image: var(--cp-halftone-pattern);
+    background-size: var(--cp-halftone-size);
+    color: #000;
+    border-color: #000;
   }
 
   &--secondary {
     color: var(--cp-color-secondary);
+    border-color: var(--cp-color-secondary);
   }
 
   &--danger {
-    color: var(--cp-color-danger);
+    background: var(--cp-color-danger);
+    color: #fff;
+    border-color: #000;
   }
 }
 </style>

@@ -1,5 +1,12 @@
 <template>
-  <div class="cyber-modern-glitch" :class="{ 'cyber-modern-glitch--active': active }">
+  <div
+    class="cyber-modern-glitch"
+    :class="[
+      `cyber-modern-glitch--${variant}`,
+      `cyber-modern-glitch--${intensity}`,
+      { 'cyber-modern-glitch--active': active },
+    ]"
+  >
     <span class="cyber-modern-glitch__text" :data-text="text">{{ text }}</span>
     <span class="cyber-modern-glitch__text cyber-modern-glitch__text--clone" aria-hidden="true" :data-text="text">{{ text }}</span>
     <span class="cyber-modern-glitch__text cyber-modern-glitch__text--clone" aria-hidden="true" :data-text="text">{{ text }}</span>
@@ -10,10 +17,14 @@
 interface Props {
   text: string
   active?: boolean
+  intensity?: 'normal' | 'high'
+  variant?: 'primary' | 'danger'
 }
 
 withDefaults(defineProps<Props>(), {
-  active: true
+  active: true,
+  intensity: 'normal',
+  variant: 'primary',
 })
 </script>
 
@@ -42,11 +53,15 @@ withDefaults(defineProps<Props>(), {
   font-size: 28px;
   color: var(--cp-primary);
   letter-spacing: 0.05em;
-  
+
+  &--danger {
+    color: var(--cp-error);
+  }
+
   &__text {
     position: relative;
     display: block;
-    
+
     &--clone {
       position: absolute;
       top: 0;
@@ -54,20 +69,32 @@ withDefaults(defineProps<Props>(), {
       opacity: 0;
     }
   }
-  
+
   &--active {
     .cyber-modern-glitch__text--clone:nth-child(2) {
-      color: #00d9ff;
+      color: var(--cp-primary);
       animation: glitch-anim-1 2s infinite linear alternate-reverse;
       opacity: 0.8;
       transform: translateX(-2px);
     }
-    
+
     .cyber-modern-glitch__text--clone:nth-child(3) {
-      color: #ff006e;
+      color: var(--cp-secondary);
       animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
       opacity: 0.8;
       transform: translateX(2px);
+    }
+  }
+
+  &--high.cyber-modern-glitch--active {
+    .cyber-modern-glitch__text--clone:nth-child(2) {
+      animation-duration: 1.2s;
+      transform: translateX(-4px);
+    }
+
+    .cyber-modern-glitch__text--clone:nth-child(3) {
+      animation-duration: 1.5s;
+      transform: translateX(4px);
     }
   }
 }

@@ -1,17 +1,24 @@
 <template>
   <input
-    :class="['modern-input']"
+    class="modern-input"
+    :type="type"
     :value="modelValue"
     :placeholder="placeholder"
+    :disabled="disabled"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   />
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   modelValue?: string
   placeholder?: string
-}>()
+  type?: string
+  disabled?: boolean
+}>(), {
+  type: 'text',
+  disabled: false,
+})
 
 defineEmits<{
   'update:modelValue': [value: string]
@@ -30,18 +37,23 @@ defineEmits<{
   border-radius: 8px;
   outline: none;
   transition: all var(--cp-transition);
-  
+
   &::placeholder {
     color: var(--cp-text-tertiary);
   }
-  
-  &:hover {
+
+  &:hover:not(:disabled) {
     border-color: var(--cp-primary);
   }
-  
+
   &:focus {
     border-color: var(--cp-primary);
     box-shadow: 0 0 0 3px var(--cp-primary-subtle);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 </style>

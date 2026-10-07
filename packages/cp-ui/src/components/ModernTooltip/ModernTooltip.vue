@@ -74,13 +74,49 @@ const hide = () => {
       top: calc(100% + 8px);
       left: 50%;
       transform: translateX(-50%);
-      
+
       .modern-tooltip__arrow {
         bottom: 100%;
         left: 50%;
         transform: translateX(-50%) rotate(180deg);
         border-top-color: var(--cp-border);
-        
+
+        &::after {
+          bottom: 1px;
+          border-top-color: var(--cp-surface-2);
+        }
+      }
+    }
+
+    &--left {
+      right: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%);
+
+      .modern-tooltip__arrow {
+        right: -9px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        border-top-color: var(--cp-border);
+
+        &::after {
+          bottom: 1px;
+          border-top-color: var(--cp-surface-2);
+        }
+      }
+    }
+
+    &--right {
+      left: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%);
+
+      .modern-tooltip__arrow {
+        left: -9px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        border-top-color: var(--cp-border);
+
         &::after {
           bottom: 1px;
           border-top-color: var(--cp-surface-2);
@@ -119,5 +155,17 @@ const hide = () => {
 .modern-tooltip-fade-leave-to {
   opacity: 0;
   transform: translateX(-50%) translateY(-4px);
+}
+
+.modern-tooltip__popup--left.modern-tooltip-fade-enter-from,
+.modern-tooltip__popup--left.modern-tooltip-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-50%) translateX(4px);
+}
+
+.modern-tooltip__popup--right.modern-tooltip-fade-enter-from,
+.modern-tooltip__popup--right.modern-tooltip-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-50%) translateX(-4px);
 }
 </style>

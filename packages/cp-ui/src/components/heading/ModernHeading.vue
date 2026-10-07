@@ -5,9 +5,11 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-}>()
+}>(), {
+  level: 'h2',
+})
 </script>
 
 <style scoped lang="scss">

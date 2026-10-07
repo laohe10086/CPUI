@@ -1,6 +1,11 @@
 <template>
-  <button 
-    :class="['cyber-modern-button', `cyber-modern-button--${variant}`, { 'cyber-modern-button--disabled': disabled }]"
+  <button
+    :class="[
+      'cyber-modern-button',
+      `cyber-modern-button--${variant}`,
+      `cyber-modern-button--${size}`,
+      { 'cyber-modern-button--disabled': disabled },
+    ]"
     :disabled="disabled"
     @click="$emit('click', $event)"
   >
@@ -13,6 +18,7 @@ import type { ButtonProps } from '../../types/components'
 
 withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
+  size: 'md',
   disabled: false,
 })
 
@@ -33,6 +39,16 @@ defineEmits<{
   border-radius: var(--cp-radius-full);
   letter-spacing: 0.02em;
   position: relative;
+
+  &--sm {
+    padding: 6px 16px;
+    font-size: var(--cp-font-size-xs);
+  }
+
+  &--lg {
+    padding: 14px 32px;
+    font-size: var(--cp-font-size-base);
+  }
 
   &--primary {
     background: var(--cp-primary);
@@ -62,10 +78,21 @@ defineEmits<{
     background: transparent;
     color: var(--cp-error);
     border: 1px solid var(--cp-error);
-    
+
     &:hover:not(.cyber-modern-button--disabled) {
       background: rgba(255, 0, 85, 0.1);
       box-shadow: 0 0 20px rgba(255, 0, 85, 0.3);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--cp-text-secondary);
+
+    &:hover:not(.cyber-modern-button--disabled) {
+      color: var(--cp-primary);
+      background: var(--cp-primary-subtle);
+      box-shadow: 0 0 16px var(--cp-primary-subtle);
     }
   }
 

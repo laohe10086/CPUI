@@ -133,7 +133,7 @@ export { NoirCategoryTabs } from './components/category-tabs'
 export { NoirTerminal } from './components/terminal'
 export { NoirChatBubble } from './components/chat-bubble'
 
-// ===== Modern Components (8 + 4 exclusive) =====
+// ===== Modern Components (8 + 5 exclusive) =====
 export { ModernButton } from './components/button'
 export { ModernCard } from './components/card'
 export { ModernInput } from './components/input'
@@ -146,8 +146,13 @@ export { ModernTooltip } from './components/ModernTooltip'
 export { ModernChip } from './components/ModernChip'
 export { ModernSwitch } from './components/ModernSwitch'
 export { ModernSelect } from './components/ModernSelect'
+export { ModernModal } from './components/ModernModal'
+export { ModernPanel } from './components/ModernPanel'
+export { ModernPagination } from './components/ModernPagination'
+export { ModernCategoryTabs } from './components/ModernCategoryTabs'
+export { ModernChatBubble } from './components/ModernChatBubble'
 
-// ===== CyberModern Components (8 + 4 exclusive) =====
+// ===== CyberModern Components (8 + 5 exclusive) =====
 export { CyberModernButton } from './components/CyberModernButton'
 export { CyberModernCard } from './components/CyberModernCard'
 export { CyberModernInput } from './components/CyberModernInput'
@@ -160,6 +165,11 @@ export { CyberModernGlitch } from './components/CyberModernGlitch'
 export { CyberModernHologram } from './components/CyberModernHologram'
 export { CyberModernScanLine } from './components/CyberModernScanLine'
 export { CyberModernPulse } from './components/CyberModernPulse'
+export { CyberModernModal } from './components/CyberModernModal'
+export { CyberModernPanel } from './components/CyberModernPanel'
+export { CyberModernPagination } from './components/CyberModernPagination'
+export { CyberModernCategoryTabs } from './components/CyberModernCategoryTabs'
+export { CyberModernChatBubble } from './components/CyberModernChatBubble'
 
 // ===== Cyber-Only Components (10) =====
 export { CyberGlitchText } from './components/glitch-text'
@@ -228,6 +238,11 @@ import { ModernTooltip } from './components/ModernTooltip'
 import { ModernChip } from './components/ModernChip'
 import { ModernSwitch } from './components/ModernSwitch'
 import { ModernSelect } from './components/ModernSelect'
+import { ModernModal } from './components/ModernModal'
+import { ModernPanel } from './components/ModernPanel'
+import { ModernPagination } from './components/ModernPagination'
+import { ModernCategoryTabs } from './components/ModernCategoryTabs'
+import { ModernChatBubble } from './components/ModernChatBubble'
 import { CyberModernButton } from './components/CyberModernButton'
 import { CyberModernCard } from './components/CyberModernCard'
 import { CyberModernInput } from './components/CyberModernInput'
@@ -240,6 +255,11 @@ import { CyberModernGlitch } from './components/CyberModernGlitch'
 import { CyberModernHologram } from './components/CyberModernHologram'
 import { CyberModernScanLine } from './components/CyberModernScanLine'
 import { CyberModernPulse } from './components/CyberModernPulse'
+import { CyberModernModal } from './components/CyberModernModal'
+import { CyberModernPanel } from './components/CyberModernPanel'
+import { CyberModernPagination } from './components/CyberModernPagination'
+import { CyberModernCategoryTabs } from './components/CyberModernCategoryTabs'
+import { CyberModernChatBubble } from './components/CyberModernChatBubble'
 import { CyberGlitchText } from './components/glitch-text'
 import { CyberDecipherText } from './components/decipher-text'
 import { CyberScanLine } from './components/scan-line'
@@ -288,8 +308,10 @@ const allComponents = {
   CyberHeading, SterileCyberHeading, SterileHeading, BrutalHeading, BlueprintHeading, NoirHeading,
   ModernButton, ModernCard, ModernInput, ModernTag, ModernBadge, ModernBracketLabel, ModernProgressBar, ModernHeading,
   ModernTooltip, ModernChip, ModernSwitch, ModernSelect,
+  ModernModal, ModernPanel, ModernPagination, ModernCategoryTabs, ModernChatBubble,
   CyberModernButton, CyberModernCard, CyberModernInput, CyberModernTag, CyberModernBadge, CyberModernBracketLabel, CyberModernProgressBar, CyberModernHeading,
   CyberModernGlitch, CyberModernHologram, CyberModernScanLine, CyberModernPulse,
+  CyberModernModal, CyberModernPanel, CyberModernPagination, CyberModernCategoryTabs, CyberModernChatBubble,
   CyberGlitchText,
   CyberDecipherText,
   CyberScanLine,
