@@ -419,7 +419,7 @@
 
           <!-- Button -->
           <template v-if="activeItem === 'button'">
-            <DocsTitle title="Button 按钮" desc="常用的操作按钮，提供 Cyber / SterileCyber / Sterile 三种风格。" />
+            <DocsTitle title="Button 按钮" desc="常用的操作按钮，覆盖九大主题风格。" />
             <DemoBlock title="Cyber 赛博朋克" description="shape=regular 上下线框 + 多层发光 + 悬停位移">
               <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                 <CyberButton variant="primary">PRIMARY</CyberButton>
@@ -470,11 +470,76 @@
               </div>
               <template #code><DemoCode :code="codes.buttonSterile" /></template>
             </DemoBlock>
+            <DemoBlock title="Blueprint 蓝图" description="靛蓝实心 + 虚线描边 + hover 斜线填充">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <BlueprintButton variant="primary">PRIMARY</BlueprintButton>
+                <BlueprintButton variant="secondary">SECONDARY</BlueprintButton>
+                <BlueprintButton variant="danger">DANGER</BlueprintButton>
+                <BlueprintButton variant="ghost">GHOST</BlueprintButton>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+                <BlueprintButton size="sm">SM</BlueprintButton>
+                <BlueprintButton size="md">MD</BlueprintButton>
+                <BlueprintButton size="lg">LG</BlueprintButton>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Brutal 终端粗野" description="荧光橙 + 网点纹理 + 直角硬边">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <BrutalButton variant="primary">PRIMARY</BrutalButton>
+                <BrutalButton variant="secondary">SECONDARY</BrutalButton>
+                <BrutalButton variant="danger">DANGER</BrutalButton>
+                <BrutalButton variant="ghost">GHOST</BrutalButton>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+                <BrutalButton size="sm">SM</BrutalButton>
+                <BrutalButton size="md">MD</BrutalButton>
+                <BrutalButton size="lg">LG</BrutalButton>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Noir 霓虹黑" description="宽字距大写 + 柔光晕 + 切角">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <NoirButton variant="primary">PRIMARY</NoirButton>
+                <NoirButton variant="secondary">SECONDARY</NoirButton>
+                <NoirButton variant="danger">DANGER</NoirButton>
+                <NoirButton variant="ghost">GHOST</NoirButton>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+                <NoirButton size="sm">SM</NoirButton>
+                <NoirButton size="md">MD</NoirButton>
+                <NoirButton size="lg">LG</NoirButton>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Modern 现代科技" description="圆角 pill + 微妙阴影 + 流畅动画">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <ModernButton variant="primary">PRIMARY</ModernButton>
+                <ModernButton variant="secondary">SECONDARY</ModernButton>
+                <ModernButton variant="danger">DANGER</ModernButton>
+                <ModernButton variant="ghost">GHOST</ModernButton>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+                <ModernButton size="sm">SM</ModernButton>
+                <ModernButton size="md">MD</ModernButton>
+                <ModernButton size="lg">LG</ModernButton>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="CyberModern 赛博现代" description="霓虹青 + 电紫 + 全息投影质感">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+                <CyberModernButton variant="primary">PRIMARY</CyberModernButton>
+                <CyberModernButton variant="secondary">SECONDARY</CyberModernButton>
+                <CyberModernButton variant="danger">DANGER</CyberModernButton>
+                <CyberModernButton variant="ghost">GHOST</CyberModernButton>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+                <CyberModernButton size="sm">SM</CyberModernButton>
+                <CyberModernButton size="md">MD</CyberModernButton>
+                <CyberModernButton size="lg">LG</CyberModernButton>
+              </div>
+            </DemoBlock>
           </template>
 
           <!-- Heading -->
           <template v-if="activeItem === 'heading'">
-            <DocsTitle title="Heading 标题" desc="借鉴 CP2077 风格的标题组件，带锯齿下划线 + 可选故障抖动。" />
+            <DocsTitle title="Heading 标题" desc="各风格的标题组件，覆盖九大主题。" />
             <DemoBlock title="Cyber 赛博朋克" description="CP2077 风格下划线 + 可选文字/横线效果">
               <div style="display:flex;flex-direction:column;gap:16px">
                 <CyberHeading>默认标题</CyberHeading>
@@ -504,11 +569,26 @@
               </div>
               <template #code><DemoCode :code="codes.headingSterile" /></template>
             </DemoBlock>
+            <DemoBlock title="Blueprint 蓝图" description="尺寸标注线风格标题">
+              <BlueprintHeading>BLUEPRINT HEADING</BlueprintHeading>
+            </DemoBlock>
+            <DemoBlock title="Brutal 终端粗野" description="等宽大写 + 2px 粗结构线">
+              <BrutalHeading>BRUTAL HEADING</BrutalHeading>
+            </DemoBlock>
+            <DemoBlock title="Noir 霓虹黑" description="Cormorant Garamond 衬线标题">
+              <NoirHeading>霓虹黑标题</NoirHeading>
+            </DemoBlock>
+            <DemoBlock title="Modern 现代科技" description="Inter 字体 + 紧凑负字距">
+              <ModernHeading>Modern Heading</ModernHeading>
+            </DemoBlock>
+            <DemoBlock title="CyberModern 赛博现代" description="渐变文字 + 辉光">
+              <CyberModernHeading>CyberModern Heading</CyberModernHeading>
+            </DemoBlock>
           </template>
 
           <!-- Tag -->
           <template v-if="activeItem === 'tag'">
-            <DocsTitle title="Tag 标签" desc="用于标记和分类，Cyber 的 irregular 模式有左侧三角突出。" />
+            <DocsTitle title="Tag 标签" desc="用于标记和分类，覆盖九大主题风格。" />
             <DemoBlock title="Cyber">
               <div style="display:flex;gap:6px;flex-wrap:wrap">
                 <CyberTag variant="default">DEFAULT</CyberTag>
@@ -535,58 +615,150 @@
               </div>
               <template #code><DemoCode :code="codes.tagSterile" /></template>
             </DemoBlock>
+            <DemoBlock title="Blueprint">
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <BlueprintTag variant="primary">PRIMARY</BlueprintTag>
+                <BlueprintTag variant="secondary">SECONDARY</BlueprintTag>
+                <BlueprintTag variant="danger">DANGER</BlueprintTag>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Brutal">
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <BrutalTag variant="primary">PRIMARY</BrutalTag>
+                <BrutalTag variant="secondary">SECONDARY</BrutalTag>
+                <BrutalTag variant="danger">DANGER</BrutalTag>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Noir">
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <NoirTag variant="primary">PRIMARY</NoirTag>
+                <NoirTag variant="secondary">SECONDARY</NoirTag>
+                <NoirTag variant="danger">DANGER</NoirTag>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Modern">
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <ModernTag variant="primary">PRIMARY</ModernTag>
+                <ModernTag variant="secondary">SECONDARY</ModernTag>
+                <ModernTag variant="danger">DANGER</ModernTag>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="CyberModern">
+              <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <CyberModernTag variant="primary">PRIMARY</CyberModernTag>
+                <CyberModernTag variant="secondary">SECONDARY</CyberModernTag>
+                <CyberModernTag variant="danger">DANGER</CyberModernTag>
+              </div>
+            </DemoBlock>
           </template>
 
           <!-- Badge -->
           <template v-if="activeItem === 'badge'">
-            <DocsTitle title="Badge 徽章" desc="状态标记。Cyber irregular 模式左侧箭头突出。" />
-            <DemoBlock title="三风格对比">
+            <DocsTitle title="Badge 徽章" desc="状态标记，覆盖九大主题风格。" />
+            <DemoBlock title="Cyber">
               <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
                 <CyberBadge variant="primary">ONLINE</CyberBadge>
                 <CyberBadge variant="danger">ERROR</CyberBadge>
                 <CyberBadge variant="success">OK</CyberBadge>
-                <span style="color:var(--cp-text-dim);margin:0 4px">|</span>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="SterileCyber">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
                 <SterileCyberBadge variant="primary">ONLINE</SterileCyberBadge>
                 <SterileCyberBadge variant="danger">ERROR</SterileCyberBadge>
-                <span style="color:var(--cp-text-dim);margin:0 4px">|</span>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Sterile">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
                 <SterileBadge variant="primary">ONLINE</SterileBadge>
                 <SterileBadge variant="danger">ERROR</SterileBadge>
               </div>
-              <template #code><DemoCode :code="codes.badge" /></template>
+            </DemoBlock>
+            <DemoBlock title="Blueprint">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <BlueprintBadge variant="primary">READY</BlueprintBadge>
+                <BlueprintBadge variant="danger">ERROR</BlueprintBadge>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Brutal">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <BrutalBadge variant="primary">ACTIVE</BrutalBadge>
+                <BrutalBadge variant="danger">FAIL</BrutalBadge>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Noir">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <NoirBadge variant="primary">ONLINE</NoirBadge>
+                <NoirBadge variant="danger">DOWN</NoirBadge>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Modern">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <ModernBadge variant="primary">LIVE</ModernBadge>
+                <ModernBadge variant="danger">ERROR</ModernBadge>
+              </div>
+            </DemoBlock>
+            <DemoBlock title="CyberModern">
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <CyberModernBadge variant="primary">ACTIVE</CyberModernBadge>
+                <CyberModernBadge variant="danger">ALERT</CyberModernBadge>
+              </div>
             </DemoBlock>
           </template>
 
           <!-- BracketLabel -->
           <template v-if="activeItem === 'bracket-label'">
-            <DocsTitle title="BracketLabel 括号标签" desc="方括号包裹的文字标签。" />
-            <DemoBlock title="三风格对比">
-              <div style="display:flex;gap:12px;flex-wrap:wrap">
-                <div>
-                  <div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">CYBER</div>
-                  <div style="display:flex;gap:8px">
-                    <CyberBracketLabel text="DEFAULT" />
-                    <CyberBracketLabel text="ACCENT" variant="accent" />
-                    <CyberBracketLabel text="DANGER" variant="danger" />
-                  </div>
-                </div>
-                <div>
-                  <div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">STERILE CYBER</div>
-                  <div style="display:flex;gap:8px">
-                    <SterileCyberBracketLabel text="DEFAULT" />
-                    <SterileCyberBracketLabel text="ACCENT" variant="accent" />
-                    <SterileCyberBracketLabel text="DANGER" variant="danger" />
-                  </div>
-                </div>
-                <div>
-                  <div style="font-size:10px;color:var(--cp-text-muted);margin-bottom:6px">STERILE</div>
-                  <div style="display:flex;gap:8px">
-                    <SterileBracketLabel text="DEFAULT" />
-                    <SterileBracketLabel text="ACCENT" variant="accent" />
-                    <SterileBracketLabel text="DANGER" variant="danger" />
-                  </div>
-                </div>
+            <DocsTitle title="BracketLabel 括号标签" desc="方括号包裹的文字标签，覆盖九大主题风格。" />
+            <DemoBlock title="Cyber">
+              <div style="display:flex;gap:8px">
+                <CyberBracketLabel text="DEFAULT" />
+                <CyberBracketLabel text="ACCENT" variant="accent" />
+                <CyberBracketLabel text="DANGER" variant="danger" />
               </div>
-              <template #code><DemoCode :code="codes.bracket" /></template>
+            </DemoBlock>
+            <DemoBlock title="SterileCyber">
+              <div style="display:flex;gap:8px">
+                <SterileCyberBracketLabel text="DEFAULT" />
+                <SterileCyberBracketLabel text="ACCENT" variant="accent" />
+                <SterileCyberBracketLabel text="DANGER" variant="danger" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Sterile">
+              <div style="display:flex;gap:8px">
+                <SterileBracketLabel text="DEFAULT" />
+                <SterileBracketLabel text="ACCENT" variant="accent" />
+                <SterileBracketLabel text="DANGER" variant="danger" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Blueprint">
+              <div style="display:flex;gap:8px">
+                <BlueprintBracketLabel text="DEFAULT" />
+                <BlueprintBracketLabel text="ACCENT" variant="accent" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Brutal">
+              <div style="display:flex;gap:8px">
+                <BrutalBracketLabel text="DEFAULT" />
+                <BrutalBracketLabel text="ACCENT" variant="accent" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Noir">
+              <div style="display:flex;gap:8px">
+                <NoirBracketLabel text="DEFAULT" />
+                <NoirBracketLabel text="ACCENT" variant="accent" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Modern">
+              <div style="display:flex;gap:8px">
+                <ModernBracketLabel text="DEFAULT" />
+                <ModernBracketLabel text="ACCENT" variant="accent" />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="CyberModern">
+              <div style="display:flex;gap:8px">
+                <CyberModernBracketLabel text="DEFAULT" />
+                <CyberModernBracketLabel text="ACCENT" variant="accent" />
+              </div>
             </DemoBlock>
           </template>
 
@@ -594,7 +766,7 @@
 
           <!-- Input -->
           <template v-if="activeItem === 'input'">
-            <DocsTitle title="Input 输入框" desc="文本输入框，支持清除、禁用、前缀/后缀。" />
+            <DocsTitle title="Input 输入框" desc="文本输入框，覆盖九大主题风格。" />
             <DemoBlock title="Cyber" description="不规则形状 + 多层发光">
               <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
                 <CyberInput v-model="inputVal" placeholder="> 霓虹输入..." />
@@ -617,29 +789,82 @@
               </div>
               <template #code><DemoCode :code="codes.inputSterile" /></template>
             </DemoBlock>
+            <DemoBlock title="Blueprint">
+              <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
+                <BlueprintInput v-model="inputVal" placeholder="蓝图风格输入..." />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Brutal">
+              <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
+                <BrutalInput v-model="inputVal" placeholder="BRUTAL INPUT..." />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Noir">
+              <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
+                <NoirInput v-model="inputVal" placeholder="霓虹黑输入..." />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="Modern">
+              <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
+                <ModernInput v-model="inputVal" placeholder="现代风格输入..." />
+              </div>
+            </DemoBlock>
+            <DemoBlock title="CyberModern">
+              <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
+                <CyberModernInput v-model="inputVal" placeholder="赛博现代输入..." />
+              </div>
+            </DemoBlock>
           </template>
 
           <!-- ==================== 数据展示 Data ==================== -->
 
           <!-- Card -->
           <template v-if="activeItem === 'card'">
-            <DocsTitle title="Card 卡片" desc="通用容器。Cyber irregular 有顶右大斜切 + 底左倒角。" />
-            <DemoBlock title="三风格对比">
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
-                <CyberCard title="CYBER" shape="irregular" :hoverable="true">
+            <DocsTitle title="Card 卡片" desc="通用容器，覆盖九大主题风格。" />
+            <DemoBlock title="Cyber">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px">
+                <CyberCard title="CYBER IRREGULAR" shape="irregular" :hoverable="true">
                   <p style="color:var(--cp-text-secondary);font-size:13px">不规则 + 发光</p>
                 </CyberCard>
-                <SterileCyberCard title="SC" :hoverable="true">
-                  <p style="color:var(--cp-text-secondary);font-size:13px">直角 + 克制发光</p>
-                </SterileCyberCard>
-                <SterileCard title="STERILE" :hoverable="true">
-                  <p style="color:var(--cp-text-secondary);font-size:13px">直角 + 无发光</p>
-                </SterileCard>
+                <CyberCard title="CYBER REGULAR" shape="regular" :hoverable="true">
+                  <p style="color:var(--cp-text-secondary);font-size:13px">规则矩形 + 发光</p>
+                </CyberCard>
               </div>
-              <CyberCard title="CYBER" shape="regular" :hoverable="true" style="max-width:200px">
-                <p style="color:var(--cp-text-secondary);font-size:13px">规则矩形 + 发光</p>
-              </CyberCard>
-              <template #code><DemoCode :code="codes.card" /></template>
+            </DemoBlock>
+            <DemoBlock title="SterileCyber">
+              <SterileCyberCard title="SC CARD" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">直角 + 克制发光</p>
+              </SterileCyberCard>
+            </DemoBlock>
+            <DemoBlock title="Sterile">
+              <SterileCard title="STERILE CARD" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">直角 + 无发光</p>
+              </SterileCard>
+            </DemoBlock>
+            <DemoBlock title="Blueprint">
+              <BlueprintCard title="BLUEPRINT CARD" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">虚线边框 + 斜纹填充</p>
+              </BlueprintCard>
+            </DemoBlock>
+            <DemoBlock title="Brutal">
+              <BrutalCard title="BRUTAL CARD" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">网点纹理 + 粗边框</p>
+              </BrutalCard>
+            </DemoBlock>
+            <DemoBlock title="Noir">
+              <NoirCard title="霓虹黑卡片" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">切角 + 柔光晕</p>
+              </NoirCard>
+            </DemoBlock>
+            <DemoBlock title="Modern">
+              <ModernCard title="Modern Card" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">圆角 + 微妙阴影</p>
+              </ModernCard>
+            </DemoBlock>
+            <DemoBlock title="CyberModern">
+              <CyberModernCard title="CyberModern Card" :hoverable="true" style="max-width:300px">
+                <p style="color:var(--cp-text-secondary);font-size:13px">全息投影质感</p>
+              </CyberModernCard>
             </DemoBlock>
           </template>
 
@@ -761,8 +986,8 @@
 
           <!-- ChatBubble -->
           <template v-if="activeItem === 'chat-bubble'">
-            <DocsTitle title="ChatBubble 聊天气泡" desc="对话气泡。Cyber 左上角有斜切。" />
-            <DemoBlock title="六风格对比">
+            <DocsTitle title="ChatBubble 聊天气泡" desc="对话气泡，覆盖九大主题风格。" />
+            <DemoBlock title="九风格对比">
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
                 <div>
                   <div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div>
@@ -806,6 +1031,20 @@
                     <NoirChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</NoirChatBubble>
                   </div>
                 </div>
+                <div>
+                  <div style="font-size:10px;color:#3b82f6;margin-bottom:6px">Modern</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <ModernChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</ModernChatBubble>
+                    <ModernChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</ModernChatBubble>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">CyberModern</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <CyberModernChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</CyberModernChatBubble>
+                    <CyberModernChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</CyberModernChatBubble>
+                  </div>
+                </div>
               </div>
               <template #code><DemoCode :code="codes.chat" /></template>
             </DemoBlock>
@@ -813,8 +1052,8 @@
 
           <!-- Panel -->
           <template v-if="activeItem === 'panel'">
-            <DocsTitle title="Panel 面板" desc="带标题的内容容器。Cyber irregular 蜂窝四角斜切。" />
-            <DemoBlock title="六风格对比">
+            <DocsTitle title="Panel 面板" desc="带标题的内容容器，覆盖九大主题风格。" />
+            <DemoBlock title="九风格对比">
               <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
                 <CyberPanel title="SYSTEM" label="monitor" shape="irregular">
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
@@ -834,6 +1073,12 @@
                 <NoirPanel title="NOIR" label="monitor">
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
                 </NoirPanel>
+                <ModernPanel title="Modern" label="monitor">
+                  <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                </ModernPanel>
+                <CyberModernPanel title="CyberModern" label="monitor">
+                  <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                </CyberModernPanel>
               </div>
               <template #code><DemoCode :code="codes.panel" /></template>
             </DemoBlock>
@@ -843,8 +1088,8 @@
 
           <!-- Pagination -->
           <template v-if="activeItem === 'pagination'">
-            <DocsTitle title="Pagination 分页" desc="数据翻页。Cyber 提供规则 / 不规则两种形状。" />
-            <DemoBlock title="六风格对比">
+            <DocsTitle title="Pagination 分页" desc="数据翻页，覆盖九大主题风格。" />
+            <DemoBlock title="九风格对比">
               <div style="display:flex;flex-direction:column;gap:20px">
                 <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
@@ -852,6 +1097,8 @@
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <div><div style="font-size:10px;color:#3b82f6;margin-bottom:6px">Modern</div><ModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
+                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">CyberModern</div><CyberModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
               </div>
               <template #code><DemoCode :code="codes.paginationSC" /></template>
             </DemoBlock>
@@ -859,8 +1106,8 @@
 
           <!-- CategoryTabs -->
           <template v-if="activeItem === 'category-tabs'">
-            <DocsTitle title="CategoryTabs 分类标签" desc="分类选择器。Cyber 提供规则 / 不规则两种形状。" />
-            <DemoBlock title="六风格对比">
+            <DocsTitle title="CategoryTabs 分类标签" desc="分类选择器，覆盖九大主题风格。" />
+            <DemoBlock title="九风格对比">
               <div style="display:flex;flex-direction:column;gap:20px">
                 <div><div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div><CyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:var(--cp-color-secondary);margin-bottom:6px">SterileCyber</div><SterileCyberCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
@@ -868,6 +1115,8 @@
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <div><div style="font-size:10px;color:#3b82f6;margin-bottom:6px">Modern</div><ModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
+                <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">CyberModern</div><CyberModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
               </div>
               <template #code><DemoCode :code="codes.catTabsSC" /></template>
             </DemoBlock>
@@ -877,8 +1126,8 @@
 
           <!-- Modal -->
           <template v-if="activeItem === 'modal'">
-            <DocsTitle title="Modal 弹窗" desc="对话框。Cyber 有大斜边 + 角落装饰。" />
-            <DemoBlock title="六风格对比">
+            <DocsTitle title="Modal 弹窗" desc="对话框，覆盖九大主题风格。" />
+            <DemoBlock title="九风格对比">
               <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
                 <CyberButton variant="primary" @click="showCyberModal = true">Cyber Modal</CyberButton>
                 <SterileCyberButton variant="primary" @click="showSCModal = true">SC Modal</SterileCyberButton>
@@ -886,6 +1135,8 @@
                 <BlueprintButton variant="primary" @click="showBlueprintModal = true">Blueprint Modal</BlueprintButton>
                 <BrutalButton variant="primary" @click="showBrutalModal = true">Brutal Modal</BrutalButton>
                 <NoirButton variant="primary" @click="showNoirModal = true">Noir Modal</NoirButton>
+                <ModernButton variant="primary" @click="showModernModal = true">Modern Modal</ModernButton>
+                <CyberModernButton variant="primary" @click="showCyberModernModal = true">CyberModern Modal</CyberModernButton>
               </div>
               <CyberModal v-model="showCyberModal" size="md">
                 <h3 style="color:var(--cp-color-primary);font-family:var(--cp-font-mono);margin-bottom:12px">CYBER.MODAL</h3>
@@ -919,15 +1170,25 @@
                 <p style="color:var(--cp-text-secondary)">霓虹黑风格 + 发光边框。</p>
                 <div style="margin-top:16px"><NoirButton variant="primary" size="sm" @click="showNoirModal = false">CONFIRM</NoirButton></div>
               </NoirModal>
+              <ModernModal v-model="showModernModal" size="md">
+                <h3 style="color:#3b82f6;font-family:var(--cp-font-sans);margin-bottom:12px">Modern Modal</h3>
+                <p style="color:var(--cp-text-secondary)">圆角 + 柔和阴影 + 毛玻璃背景。</p>
+                <div style="margin-top:16px"><ModernButton variant="primary" size="sm" @click="showModernModal = false">CONFIRM</ModernButton></div>
+              </ModernModal>
+              <CyberModernModal v-model="showCyberModernModal" size="md">
+                <h3 style="color:#00f0ff;font-family:var(--cp-font-mono);margin-bottom:12px">CYBERMODERN.MODAL</h3>
+                <p style="color:var(--cp-text-secondary)">全息投影质感 + 霓虹青边框。</p>
+                <div style="margin-top:16px"><CyberModernButton variant="primary" size="sm" @click="showCyberModernModal = false">CONFIRM</CyberModernButton></div>
+              </CyberModernModal>
               <template #code><DemoCode :code="codes.modal" /></template>
             </DemoBlock>
           </template>
 
           <!-- ProgressBar -->
           <template v-if="activeItem === 'progress'">
-            <DocsTitle title="ProgressBar 进度条" desc="进度指示。Cyber 轨道为左右斜切。" />
-            <DemoBlock title="三风格对比">
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <DocsTitle title="ProgressBar 进度条" desc="进度指示，覆盖九大主题风格。" />
+            <DemoBlock title="九风格对比">
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
                 <div>
                   <div style="font-size:10px;color:var(--cp-color-primary);margin-bottom:6px">Cyber</div>
                   <div style="display:flex;flex-direction:column;gap:8px">
@@ -950,6 +1211,41 @@
                     <SterileProgressBar :value="72" :height="4" />
                     <SterileProgressBar :value="45" variant="primary" :animated="true" :height="6" />
                     <SterileProgressBar :value="23" variant="danger" :height="4" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <BlueprintProgressBar :value="72" :height="4" />
+                    <BlueprintProgressBar :value="45" :height="6" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#ff6b35;margin-bottom:6px">Brutal</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <BrutalProgressBar :value="72" :height="4" />
+                    <BrutalProgressBar :value="45" :height="6" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <NoirProgressBar :value="72" :height="4" />
+                    <NoirProgressBar :value="45" :height="6" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#3b82f6;margin-bottom:6px">Modern</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <ModernProgressBar :value="72" :height="4" />
+                    <ModernProgressBar :value="45" :height="6" />
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">CyberModern</div>
+                  <div style="display:flex;flex-direction:column;gap:8px">
+                    <CyberModernProgressBar :value="72" :height="4" />
+                    <CyberModernProgressBar :value="45" :height="6" />
                   </div>
                 </div>
               </div>
@@ -2294,6 +2590,8 @@ const showSterileModal = ref(false)
 const showBlueprintModal = ref(false)
 const showBrutalModal = ref(false)
 const showNoirModal = ref(false)
+const showModernModal = ref(false)
+const showCyberModernModal = ref(false)
 const currentPage = ref(3)
 const activeCat = ref('all')
 const activeNav = ref(0)
