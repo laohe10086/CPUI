@@ -31,7 +31,7 @@ export default defineComponent({
 .demo-code {
   position: relative;
   margin-top: 12px;
-  border: 1px solid var(--cp-border-dim);
+  border: 1px solid var(--cp-border-base);
   background: rgba(0, 0, 0, 0.3);
 }
 .demo-code__copy {

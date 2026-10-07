@@ -23,7 +23,7 @@ export default defineComponent({
 <style scoped>
 .demo-block {
   margin-bottom: 32px;
-  border: 1px solid var(--cp-border-dim);
+  border: 1px solid var(--cp-border-base);
   background: var(--cp-bg-panel);
 }
 .demo-block__title {
@@ -42,8 +42,8 @@ export default defineComponent({
 }
 .demo-block__preview {
   padding: 20px 16px;
-  border-top: 1px solid var(--cp-border-dim);
-  border-bottom: 1px solid var(--cp-border-dim);
+  border-top: 1px solid var(--cp-border-base);
+  border-bottom: 1px solid var(--cp-border-base);
   background: transparent;
 }
 </style>
