@@ -74,7 +74,7 @@ defineEmits<{
     font-size: 11px;
   }
   &--md {
-    padding: 3px 10px;
+    padding: 4px 12px;
     font-size: 12px;
   }
 

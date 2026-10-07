@@ -69,7 +69,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
   position: relative;
   background: var(--cp-bg-panel);
   border: 2px solid var(--cp-color-primary);
-  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
   box-shadow: 
     0 0 40px var(--cp-glow-primary),
     0 0 80px rgba(0, 240, 255, 0.2);

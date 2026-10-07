@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
 .cyber-background {
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;

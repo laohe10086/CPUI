@@ -500,7 +500,7 @@
             </DemoBlock>
             <DemoBlock title="Noir 霓虹黑" description="宽字距大写 + 柔光晕 + 切角">
               <CpThemeProvider theme="neon-noir">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                     <NoirButton variant="primary">PRIMARY</NoirButton>
                     <NoirButton variant="secondary">SECONDARY</NoirButton>
@@ -518,7 +518,7 @@
             </DemoBlock>
             <DemoBlock title="Modern 现代科技" description="圆角 pill + 微妙阴影 + 流畅动画">
               <CpThemeProvider theme="modern">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                     <ModernButton variant="primary">PRIMARY</ModernButton>
                     <ModernButton variant="secondary">SECONDARY</ModernButton>
@@ -536,7 +536,7 @@
             </DemoBlock>
             <DemoBlock title="CyberModern 赛博现代" description="霓虹青 + 品红 + 柔和辉光">
               <CpThemeProvider theme="cyber-modern">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                     <CyberModernButton variant="primary">PRIMARY</CyberModernButton>
                     <CyberModernButton variant="secondary">SECONDARY</CyberModernButton>
@@ -607,7 +607,7 @@
 
             <DemoBlock title="Noir 霓虹黑" description="Cormorant 衬线 · 优雅字距 · 电影感">
               <CpThemeProvider theme="neon-noir">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <div style="display:flex;flex-direction:column;gap:16px">
                     <NoirHeading level="h1">霓虹黑标题 H1</NoirHeading>
                     <NoirHeading level="h2">Noir Elegance</NoirHeading>
@@ -621,7 +621,7 @@
 
             <DemoBlock title="Modern 现代科技" description="Inter 负字距 · 层级清晰 · 专业感">
               <CpThemeProvider theme="modern">
-                <div style="display:flex;flex-direction:column;gap:14px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;flex-direction:column;gap:14px;">
                   <ModernHeading level="h1">Modern Typography H1</ModernHeading>
                   <ModernHeading level="h2">Clean Hierarchy H2</ModernHeading>
                   <ModernHeading level="h3">Professional Tone H3</ModernHeading>
@@ -633,7 +633,7 @@
 
             <DemoBlock title="CyberModern 赛博现代" description="渐变底线 · 柔和辉光 · 未来感">
               <CpThemeProvider theme="cyber-modern">
-                <div style="display:flex;flex-direction:column;gap:16px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;flex-direction:column;gap:16px;">
                   <CyberModernHeading level="h1">CyberModern Future H1</CyberModernHeading>
                   <CyberModernHeading level="h2">Gradient Glow H2</CyberModernHeading>
                   <CyberModernHeading level="h3">Soft Luminance H3</CyberModernHeading>
@@ -690,7 +690,7 @@
             </DemoBlock>
             <DemoBlock title="Noir">
               <CpThemeProvider theme="neon-noir">
-                <div style="display:flex;gap:6px;flex-wrap:wrap;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
                   <NoirTag variant="primary">PRIMARY</NoirTag>
                   <NoirTag variant="secondary">SECONDARY</NoirTag>
                   <NoirTag variant="danger">DANGER</NoirTag>
@@ -700,7 +700,7 @@
             </DemoBlock>
             <DemoBlock title="Modern">
               <CpThemeProvider theme="modern">
-                <div style="display:flex;gap:6px;flex-wrap:wrap;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
                   <ModernTag variant="primary">PRIMARY</ModernTag>
                   <ModernTag variant="secondary">SECONDARY</ModernTag>
                   <ModernTag variant="danger">DANGER</ModernTag>
@@ -710,7 +710,7 @@
             </DemoBlock>
             <DemoBlock title="CyberModern">
               <CpThemeProvider theme="cyber-modern">
-                <div style="display:flex;gap:6px;flex-wrap:wrap;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
                   <CyberModernTag variant="primary">PRIMARY</CyberModernTag>
                   <CyberModernTag variant="secondary">SECONDARY</CyberModernTag>
                   <CyberModernTag variant="danger">DANGER</CyberModernTag>
@@ -758,7 +758,7 @@
             </DemoBlock>
             <DemoBlock title="Noir">
               <CpThemeProvider theme="neon-noir">
-                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                   <NoirBadge variant="primary">ONLINE</NoirBadge>
                   <NoirBadge variant="danger">DOWN</NoirBadge>
                 </div>
@@ -767,7 +767,7 @@
             </DemoBlock>
             <DemoBlock title="Modern">
               <CpThemeProvider theme="modern">
-                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                   <ModernBadge variant="primary">LIVE</ModernBadge>
                   <ModernBadge variant="secondary">BETA</ModernBadge>
                   <ModernBadge variant="success">OK</ModernBadge>
@@ -779,7 +779,7 @@
             </DemoBlock>
             <DemoBlock title="CyberModern">
               <CpThemeProvider theme="cyber-modern">
-                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                   <CyberModernBadge variant="primary">ACTIVE</CyberModernBadge>
                   <CyberModernBadge variant="secondary">SYNC</CyberModernBadge>
                   <CyberModernBadge variant="success">READY</CyberModernBadge>
@@ -831,7 +831,7 @@
             </DemoBlock>
             <DemoBlock title="Noir">
               <CpThemeProvider theme="neon-noir">
-                <div style="display:flex;gap:8px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:8px;">
                   <NoirBracketLabel text="DEFAULT" />
                   <NoirBracketLabel text="ACCENT" variant="accent" />
                 </div>
@@ -840,7 +840,7 @@
             </DemoBlock>
             <DemoBlock title="Modern">
               <CpThemeProvider theme="modern">
-                <div style="display:flex;gap:8px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:8px;">
                   <ModernBracketLabel text="DEFAULT" />
                   <ModernBracketLabel text="ACCENT" variant="accent" />
                 </div>
@@ -849,7 +849,7 @@
             </DemoBlock>
             <DemoBlock title="CyberModern">
               <CpThemeProvider theme="cyber-modern">
-                <div style="display:flex;gap:8px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;gap:8px;">
                   <CyberModernBracketLabel text="DEFAULT" />
                   <CyberModernBracketLabel text="ACCENT" variant="accent" />
                 </div>
@@ -899,7 +899,7 @@
             </DemoBlock>
             <DemoBlock title="Noir">
               <CpThemeProvider theme="neon-noir">
-                <div style="display:flex;flex-direction:column;gap:12px;max-width:360px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
                   <NoirInput v-model="inputVal" placeholder="霓虹黑输入..." />
                 </div>
               </CpThemeProvider>
@@ -907,7 +907,7 @@
             </DemoBlock>
             <DemoBlock title="Modern">
               <CpThemeProvider theme="modern">
-                <div style="display:flex;flex-direction:column;gap:12px;max-width:360px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
                   <ModernInput v-model="inputVal" placeholder="现代风格输入..." />
                 </div>
               </CpThemeProvider>
@@ -915,7 +915,7 @@
             </DemoBlock>
             <DemoBlock title="CyberModern">
               <CpThemeProvider theme="cyber-modern">
-                <div style="display:flex;flex-direction:column;gap:12px;max-width:360px;padding:16px;background:var(--cp-background)">
+                <div style="display:flex;flex-direction:column;gap:12px;max-width:360px">
                   <CyberModernInput v-model="inputVal" placeholder="赛博现代输入..." />
                 </div>
               </CpThemeProvider>
@@ -963,7 +963,7 @@
             </DemoBlock>
             <DemoBlock title="Noir">
               <CpThemeProvider theme="neon-noir">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <NoirCard title="霓虹黑卡片" :hoverable="true" style="max-width:300px">
                     <p style="color:var(--cp-text-secondary);font-size:13px">切角 + 柔光晕</p>
                   </NoirCard>
@@ -973,7 +973,7 @@
             </DemoBlock>
             <DemoBlock title="Modern">
               <CpThemeProvider theme="modern">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <ModernCard title="Modern Card" :hoverable="true" style="max-width:300px">
                     <p style="color:var(--cp-text-secondary);font-size:13px;margin:0">圆角 + 微妙阴影</p>
                   </ModernCard>
@@ -983,7 +983,7 @@
             </DemoBlock>
             <DemoBlock title="CyberModern">
               <CpThemeProvider theme="cyber-modern">
-                <div style="padding:16px;background:var(--cp-background)">
+                <div style="">
                   <CyberModernCard title="CyberModern Card" :hoverable="true" style="max-width:300px">
                     <p style="color:var(--cp-text-secondary);font-size:13px;margin:0">霓虹辉光质感</p>
                   </CyberModernCard>
@@ -1158,7 +1158,7 @@
                 <div>
                   <div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div>
                   <CpThemeProvider theme="modern">
-                    <div style="display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--cp-background)">
+                    <div style="display:flex;flex-direction:column;gap:8px;">
                       <ModernChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</ModernChatBubble>
                       <ModernChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</ModernChatBubble>
                     </div>
@@ -1167,7 +1167,7 @@
                 <div>
                   <div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div>
                   <CpThemeProvider theme="cyber-modern">
-                    <div style="display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--cp-background)">
+                    <div style="display:flex;flex-direction:column;gap:8px;">
                       <CyberModernChatBubble direction="left" variant="system" header="SYSTEM" tag="AUTO" timestamp="14:32:07">Neural link established.</CyberModernChatBubble>
                       <CyberModernChatBubble direction="right" header="USER" timestamp="14:32:10">Component scan.</CyberModernChatBubble>
                     </div>
@@ -1202,18 +1202,14 @@
                   <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
                 </NoirPanel>
                 <CpThemeProvider theme="modern">
-                  <div style="background:var(--cp-background)">
-                    <ModernPanel title="Modern" label="monitor">
-                      <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
-                    </ModernPanel>
-                  </div>
+                  <ModernPanel title="Modern" label="monitor">
+                    <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                  </ModernPanel>
                 </CpThemeProvider>
                 <CpThemeProvider theme="cyber-modern">
-                  <div style="background:var(--cp-background)">
-                    <CyberModernPanel title="CyberModern" label="monitor">
-                      <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
-                    </CyberModernPanel>
-                  </div>
+                  <CyberModernPanel title="CyberModern" label="monitor">
+                    <div style="display:flex;gap:8px"><CpStatusLed status="online" :pulse="true" /><span style="color:var(--cp-text-secondary);font-size:12px">API ONLINE</span></div>
+                  </CyberModernPanel>
                 </CpThemeProvider>
               </div>
               <template #code><DemoCode :code="codes.panel" /></template>
@@ -1233,8 +1229,8 @@
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
                 <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div>
-                <div><div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div><CpThemeProvider theme="modern"><div style="padding:12px;background:var(--cp-background)"><ModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div></CpThemeProvider></div>
-                <div><div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div><CpThemeProvider theme="cyber-modern"><div style="padding:12px;background:var(--cp-background)"><CyberModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div></CpThemeProvider></div>
+                <div><div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div><CpThemeProvider theme="modern"><div style=""><ModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div></CpThemeProvider></div>
+                <div><div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div><CpThemeProvider theme="cyber-modern"><div style=""><CyberModernPagination :current-page="currentPage" :total-pages="12" @update:current-page="currentPage = $event" /></div></CpThemeProvider></div>
               </div>
               <template #code><DemoCode :code="codes.paginationSC" /></template>
             </DemoBlock>
@@ -1251,8 +1247,8 @@
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Blueprint</div><BlueprintCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:#6366f1;margin-bottom:6px">Brutal</div><BrutalCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
                 <div><div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div><NoirCategoryTabs :tabs="catTabs" v-model="activeCat" /></div>
-                <div><div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div><CpThemeProvider theme="modern"><div style="padding:12px;background:var(--cp-background)"><ModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div></CpThemeProvider></div>
-                <div><div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div><CpThemeProvider theme="cyber-modern"><div style="padding:12px;background:var(--cp-background)"><CyberModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div></CpThemeProvider></div>
+                <div><div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div><CpThemeProvider theme="modern"><div style=""><ModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div></CpThemeProvider></div>
+                <div><div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div><CpThemeProvider theme="cyber-modern"><div style=""><CyberModernCategoryTabs :tabs="catTabs" v-model="activeCat" /></div></CpThemeProvider></div>
               </div>
               <template #code><DemoCode :code="codes.catTabsSC" /></template>
             </DemoBlock>
@@ -1378,7 +1374,7 @@
                 <div>
                   <div style="font-size:10px;color:#00f0ff;margin-bottom:6px">Noir</div>
                   <CpThemeProvider theme="neon-noir">
-                    <div style="display:flex;flex-direction:column;gap:8px;padding:8px;background:var(--cp-background)">
+                    <div style="display:flex;flex-direction:column;gap:8px">
                       <NoirProgressBar :value="72" :height="4" />
                       <NoirProgressBar :value="45" :height="6" />
                     </div>
@@ -1387,7 +1383,7 @@
                 <div>
                   <div style="font-size:10px;color:#5e6ad2;margin-bottom:6px">Modern</div>
                   <CpThemeProvider theme="modern">
-                    <div style="display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--cp-background)">
+                    <div style="display:flex;flex-direction:column;gap:8px;">
                       <ModernProgressBar :value="72" :height="4" />
                       <ModernProgressBar :value="45" :height="6" />
                     </div>
@@ -1396,7 +1392,7 @@
                 <div>
                   <div style="font-size:10px;color:#00d9ff;margin-bottom:6px">CyberModern</div>
                   <CpThemeProvider theme="cyber-modern">
-                    <div style="display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--cp-background)">
+                    <div style="display:flex;flex-direction:column;gap:8px;">
                       <CyberModernProgressBar :value="72" :height="4" />
                       <CyberModernProgressBar :value="45" :height="6" />
                     </div>

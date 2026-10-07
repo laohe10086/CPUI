@@ -44,5 +44,6 @@ export default defineComponent({
   padding: 20px 16px;
   border-top: 1px solid var(--cp-border-dim);
   border-bottom: 1px solid var(--cp-border-dim);
+  background: transparent;
 }
 </style>

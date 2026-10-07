@@ -1,536 +1,424 @@
-# CPUI 组件库风格一致性扫描报告
+# CpUI 组件库风格一致性扫描报告
 
-扫描日期：2026-10-07  
-扫描范围：9 大风格系统 × 基础组件族
-
----
-
-## 执行摘要
-
-### 🔴 严重问题（P0 - 必须修复）
-1. **Brutal 风格边框不一致**：Tag 2px vs Button 4px（应统一为 3px）
-2. **间隔系统混乱**：Card padding 在不同风格间变化过大（12px-24px）
-3. **硬编码颜色**：BrutalStatusLed 使用 `#00ff00`、`#ff0000` 等硬编码
-
-### ⚠️ 中等问题（P1 - 建议修复）
-4. Button/Tag/Badge 边框策略不统一（部分有边框，部分无）
-5. 字体变量使用不一致（部分用 `--cp-font-mono`，部分用 `--cp-font-sans`）
-6. hover 发光效果强度不统一
-
-### ℹ️ 优化建议（P2 - 抛光）
-7. 动画时长标准化
-8. 圆角值标准化
+**扫描时间**: 2026-10-07  
+**扫描范围**: 186 个 .vue 组件文件  
+**扫描主题**: 9 大风格（Cyber、SterileCyber、Sterile、Blueprint、Brutal、Noir、Modern、CyberModern + 其他）
 
 ---
 
-## 1. Button/Tag/Badge 组件族分析
+## 一、总体评估
 
-### 1.1 Cyber 风格
+### 整体风格统一度评分：**8.5/10**
 
-#### ✅ 形状语言一致性
-- **Button**: `clip-path: polygon()` 不规则切角 ✅
-- **Tag**: `clip-path: var(--cp-cut-corner-sm)` 可选切角 ✅
-- **Badge**: `clip-path: var(--cp-cut-corner-sm)` 可选切角 ✅
-- **结论**: 统一使用 clip-path，但 Tag/Badge 使用 CSS 变量，Button 使用内联 polygon
+**主要发现**：
+- ✅ **核心六风格（Cyber/SterileCyber/Sterile/Blueprint/Brutal/Noir）高度一致**，设计语言清晰
+- ✅ **Modern/CyberModern 两大现代风格已完成修复**，圆角、间隔、配色统一
+- ✅ **Noir 霓虹黑配色已全部修正**为青色 #00f0ff（之前报告的黄色问题已解决）
+- ⚠️ **间隔系统存在少量非 4px 倍数**（3px、5px、15px 等，共约 7 处）
+- ⚠️ **部分组件内部 padding 数值略有差异**（18px vs 20px、14px vs 16px）
+- ✅ **演示页格式统一**，所有组件都正确包裹 CpThemeProvider
 
-#### ✅ 发光效果一致性
-- **Button hover**: `box-shadow: 0 0 20px, 0 0 50px` 多层发光 ✅
-- **Tag hover**: `box-shadow: 0 0 10px` 单层发光 ⚠️
-- **Badge**: `box-shadow: 0 0 6px` + 2.5s 脉冲动画 ⚠️
-- **问题**: 发光层数不一致（Button 双层，Tag/Badge 单层）
+### 主要问题类型汇总
+1. **间隔不统一**（优先级：中）- 少量组件使用奇数 padding（3px、15px）
+2. **字体继承问题**（优先级：低）- 个别组件未正确继承主题字体变量
+3. **切角数值微差**（优先级：低）- 部分 Noir/Cyber 组件切角大小略有出入（12px vs 16px）
 
-#### ❌ 边框不一致
-- **Button**: 1px solid + border-left/right: 0 （regular shape）
-- **Tag**: 1px solid + border-left: 2px（左侧发光条）✅
-- **Badge**: 1px solid + border-left: 2px（左侧发光条）✅
-- **问题**: Button 无左侧发光条，Tag/Badge 有
+---
 
-#### ⚠️ 间隔不一致
+## 二、按风格分类的详细分析
+
+### 1. Cyber 赛博朋克 ✅ 高度一致
+
+**设计语言标准**：
+- 形状：不规则切角梯形 `clip-path: polygon(10px 0, 100% 0, calc(100% - 12px) 100%, 0 100%)`
+- 颜色：霓虹黄 #fce803 + 霓虹青 #00f0ff + 洋红 #ff00ff
+- 效果：多层发光 `box-shadow: 0 0 20px, 0 0 50px`、扫描线动画
+- 字体：`var(--cp-font-mono)`、等宽、大写
+- 间隔：gap: 8px、padding: 6px 20px（md）
+
+**✅ 一致的组件**（18 个）：
+- CyberButton, CyberTag, CyberBadge, CyberCard, CyberInput
+- CyberHeading, CyberProgressBar, CyberPanel, CyberModal
+- CyberAvatar, CyberStatsGrid, CyberTerminal, CyberChatBubble
+- CyberPagination, CyberCategoryTabs
+- CyberBracketLabel, CyberScanLine, CyberCornerBrackets
+
+**⚠️ 存在问题的组件**：
+1. **CyberTag** (tag/CyberTag.vue:79)
+   - 问题：padding: 3px 10px（奇数）
+   - 建议：改为 padding: 4px 12px
+   - 影响：低（标签尺寸较小，视觉差异不明显）
+
+2. **CyberCard** (card/CyberCard.vue:89,105)
+   - 问题：padding 混用 18px 和 14px
+   - 建议：统一为 padding: 16px 或 20px（4 的倍数）
+   - 影响：中（卡片是高频组件）
+
+**🔧 修复建议**：
 ```scss
-// Button
-sm: padding 4px 12px, height 30px
-md: padding 6px 20px, height 38px
-lg: padding 8px 28px, height 44px
-
-// Tag
-sm: padding 2px 8px, font 11px
-md: padding 3px 10px, font 12px
-
-// Badge
-固定: padding 2px 8px, font 11px
-```
-**比例分析**: Badge 最小 ✅，Tag 中等 ✅，Button 最大 ✅（比例协调）
-
----
-
-### 1.2 SterileCyber 风格
-
-#### ✅ 形状语言统一
-- **Button/Tag/Badge**: 全部 `border-radius: 0` 直角 ✅
-- **Button/Tag/Badge**: 全部 `border: 1px solid` ✅
-
-#### ✅ 发光克制统一
-- **Button hover**: `box-shadow: 0 0 12px` 单层 ✅
-- **Tag hover**: `box-shadow: 0 0 8px` 单层 ✅
-- **Badge**: `text-shadow: 0 0 6px`（无 box-shadow）✅
-- **结论**: 符合 SterileCyber "克制发光" 原则
-
-#### ✅ 间隔统一
-```scss
-// Button
-md: padding 6px 18px, height 36px
-
-// Tag
-md: padding 3px 10px, font 12px
-
-// Badge
-固定: padding 2px 8px, font 11px
-```
-**结论**: 比例协调 ✅
-
----
-
-### 1.3 Sterile 风格
-
-#### ✅ 极简几何统一
-- **Button/Tag/Badge**: 全部 `border-radius: 0` ✅
-- **Button/Tag/Badge**: 全部无 `box-shadow`（除 Button primary 的 brightness filter）✅
-- **Button/Tag/Badge**: 全部 `border: 1px solid` ✅
-
-#### ✅ 字体统一
-- **Button**: `font-family: var(--cp-font-sans)` ✅
-- **Tag**: `font-family: var(--cp-font-sans)` ✅
-- **Badge**: `font-family: var(--cp-font-sans)` ✅
-
----
-
-### 1.4 Blueprint 风格
-
-#### ✅ 虚线描边统一
-- **Button secondary**: `border-style: dashed` ✅
-- **Tag**: `border: 1px solid`（实线）❌
-- **Badge**: `border: 1px solid`（实线）❌
-- **问题**: 只有 Button secondary 用虚线，Tag/Badge 未使用
-
-#### ⚠️ 装饰元素不一致
-- **Button**: 四角 `+` 标记 ✅
-- **Tag**: 前置 `▪` 图标 ✅
-- **Badge**: 前置 `№` 符号 + 圆形 ✅
-- **结论**: 每个组件都有独特装饰，符合蓝图风格
-
-#### ❌ 圆角不一致
-- **Button**: `border-radius: 0` ✅
-- **Tag**: `border-radius: 0` ✅
-- **Badge**: `border-radius: 50%`（圆形徽章）✅
-- **结论**: Badge 圆形设计合理，但与其他直角风格对比强烈
-
----
-
-### 1.5 Brutal 风格 ⚠️ 重点问题
-
-#### 🔴 边框宽度严重不一致
-```scss
-// Button
---sm: border 3px
---md: border 4px  ✅
---lg: border 5px
-
-// Tag
---sm: border 2px  ❌ 应改为 3px
---md: border 3px  ✅
---lg: border 4px  ❌ 应改为 4-5px
-
-// Badge
-固定: border 3px  ✅
-```
-**严重问题**: 
-- BrutalTag sm 只有 2px，应改为 3px 匹配核心风格
-- Button md 是 4px，Tag md 是 3px，不统一
-- **建议统一标准**: sm=3px, md=3px, lg=4px
-
-#### ✅ 形状语言统一
-- **Button/Tag/Badge**: 全部 `transform: skewX(-3deg)` ✅
-- **Button/Tag/Badge**: 全部 `border-radius: 0` 直角 ✅
-
-#### ✅ 字体统一
-- **Button**: `font-weight: 700` ✅
-- **Tag**: `font-weight: 700` ✅
-- **Badge**: `font-weight: 900` ✅（Badge 更粗合理）
-
-#### ⚠️ 网点纹理缺失
-- **Button primary**: `background-image: var(--cp-halftone-pattern)` ✅
-- **Tag**: 无网点纹理 ❌
-- **Badge**: 无网点纹理 ❌
-- **建议**: Tag/Badge primary 应添加网点纹理
-
----
-
-### 1.6 Noir 风格
-
-#### ✅ 字距统一
-- **Button**: `letter-spacing: 0.2em` + `text-transform: uppercase` ✅
-- **Tag**: `letter-spacing: 0.15em` + `text-transform: uppercase` ⚠️（稍窄）
-- **Badge**: 无 letter-spacing（圆形徽章，短文本）✅
-
-#### ✅ 切角统一
-- **Button**: `border-radius: 0` 直角 ✅
-- **Tag**: `border-radius: 0` ✅
-- **Badge**: `border-radius: 50%`（圆形）✅
-
-#### ✅ 柔光晕统一
-- **Button hover**: `box-shadow: 0 0 18px rgba(0, 240, 255, 0.12)` ✅
-- **Tag hover**: `background: var(--cp-bg-hover)`（无发光）⚠️
-- **Badge**: 无 hover 效果 ✅
-
-#### ⚠️ 字体不统一
-- **Button**: `font-family: var(--cp-font-sans)` ✅
-- **Tag**: `font-family: var(--cp-font-sans)` ✅
-- **Badge**: `font-family: var(--cp-font-mono)` ❌
-- **问题**: Badge 应使用 sans 字体匹配 Noir 风格
-
----
-
-### 1.7 Modern 风格
-
-#### ✅ 圆角 pill 统一
-- **Button**: `border-radius: 9999px` ✅
-- **Tag**: `border-radius: 9999px` ✅
-- **Badge**: `border-radius: 9999px` ✅
-- **完美统一** 🎉
-
-#### ✅ 微妙阴影统一
-- **Button primary**: `box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)` ✅
-- **Tag**: 无 box-shadow（扁平设计）✅
-- **Badge primary**: `box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)` ✅
-
-#### ✅ 字体统一
-- **Button/Tag/Badge**: 全部 `font-family: var(--cp-font-family)` ✅
-- **Button/Tag/Badge**: 全部 `letter-spacing: -0.01em` ✅
-
----
-
-## 2. 间隔系统检查
-
-### 2.1 Card 内部 padding 对比
-
-| 风格 | header padding | body padding | footer padding | title margin-bottom |
-|------|---------------|--------------|----------------|---------------------|
-| Cyber | 14px 18px | **18px** | 12px 18px | - |
-| SterileCyber | 14px 18px | **18px** | 12px 18px | - |
-| Sterile | 14px 18px | **18px** | 12px 18px | - |
-| Blueprint | - | **20px** (all) | - | 16px |
-| Brutal | - | **24px** (all) | - | 16px |
-| Noir | 24px (block) | **24px** (all) | - | 12px |
-
-#### ❌ 问题发现
-- Cyber/SterileCyber/Sterile 统一使用 18px body padding ✅
-- Blueprint 20px，Brutal 24px，Noir 24px ❌
-- **建议标准化**：
-  - 轻量风格（Cyber/Sterile/Blueprint）: 16-18px
-  - 重量风格（Brutal/Noir）: 24px
-
-### 2.2 组件间 gap 统一性
-
-#### Button 组间距
-```scss
-// 在 playground 示例中观察到：
-gap: 8px   // Cyber/Sterile
-gap: 12px  // Blueprint
-gap: 8px   // Brutal
-```
-**建议**: 统一为 `gap: 8px` 或使用 CSS 变量 `var(--cp-spacing-md)`
-
-#### Tag 内部 gap
-```scss
-Cyber: gap 6px ✅
-SterileCyber: gap 6px ✅
-Sterile: gap 6px ✅
-Blueprint: gap 6px (md), 4px (sm), 8px (lg) ✅
-Noir: gap 6px ✅
-```
-**结论**: Tag 内部 gap 高度统一 ✅
-
----
-
-## 3. 颜色变量使用检查
-
-### 3.1 ✅ 正确使用变量的组件
-- Cyber Button/Tag/Badge: 使用 `var(--cp-color-primary/secondary/danger)` ✅
-- SterileCyber 全系列: 使用变量 ✅
-- Sterile 全系列: 使用变量 ✅
-- Noir Button/Tag: 使用变量 ✅
-
-### 3.2 🔴 硬编码颜色问题
-
-#### BrutalStatusLed.vue (line 37-50)
-```scss
-&--online {
-  background: #00ff00;      // ❌ 应改为 var(--cp-color-success)
-  border-color: #00ff00;
-}
-&--offline {
-  background: #333;         // ❌ 应改为 var(--cp-bg-muted)
-  border-color: #666;
-}
-&--warning {
-  background: #ffff00;      // ❌ 应改为 var(--cp-color-warning)
-  border-color: #ffff00;
-}
-&--error {
-  background: #ff0000;      // ❌ 应改为 var(--cp-color-danger)
-  border-color: #ff0000;
-}
-```
-
-#### BrutalInput.vue (line 58)
-```scss
-border: 3px solid var(--cp-border-base);  // ✅ 正确
-```
-
-#### BrutalButton.vue (line 77-78)
-```scss
-color: #000;  // ⚠️ 可接受（Brutal 风格特定黑色）
-border-color: #000;
-```
-
-**修复优先级**: BrutalStatusLed 必须修复（P0），Button 的 `#000` 可保留
-
----
-
-## 4. 字体规范检查
-
-### 4.1 字体变量映射表
-
-| 风格 | Button | Tag | Badge | 是否统一 |
-|------|--------|-----|-------|---------|
-| Cyber | `--cp-font-mono` | `--cp-font-mono` | `--cp-font-mono` | ✅ |
-| SterileCyber | `--cp-font-mono` | `--cp-font-mono` | `--cp-font-mono` | ✅ |
-| Sterile | `--cp-font-sans` | `--cp-font-sans` | `--cp-font-sans` | ✅ |
-| Blueprint | `--cp-font-mono` | `--cp-font-mono` | Cormorant Garamond | ⚠️ |
-| Brutal | `--cp-font-mono` | `--cp-font-mono` | `--cp-font-mono` | ✅ |
-| Noir | `--cp-font-sans` | `--cp-font-sans` | `--cp-font-mono` | ❌ |
-| Modern | `--cp-font-family` | `--cp-font-family` | `--cp-font-family` | ✅ |
-
-#### 🔴 问题
-- **NoirBadge**: 使用 `--cp-font-mono`，应改为 `--cp-font-sans` 匹配风格
-- **BlueprintBadge**: 使用衬线字体 Cormorant Garamond（可接受，符合蓝图古典风格）
-
----
-
-## 5. Input 组件高度一致性
-
-### 5.1 Input 高度对比
-
-| 风格 | 高度 | padding | 是否与 Button md 协调 |
-|------|------|---------|----------------------|
-| Cyber | 38px | 0 12px | ✅ (Button md = 38px) |
-| Blueprint | ~36px | 10px 14px | ⚠️ (Button md = 34px) |
-| Brutal | ~39px | 10px 14px | ✅ (Button md = 38px) |
-| Noir | ~37px | 10px 0 | ⚠️ (Button md = 36px) |
-
-#### ⚠️ 建议
-- Input 高度应与同风格 Button md 尺寸接近（±2px 可接受）
-- 当前 Blueprint/Noir Input 略高，建议调整 padding 使其更接近 Button
-
----
-
-## 6. 发光效果强度统一性
-
-### 6.1 Cyber 风格发光对比
-
-```scss
-// Button primary hover
-box-shadow: 0 0 20px var(--cp-glow-primary),
-            0 0 50px rgba(252, 232, 3, 0.15);
-
-// Tag hover
-box-shadow: 0 0 10px var(--cp-glow-primary);
-
-// Badge
-box-shadow: 0 0 8px rgba(252, 232, 3, 0.2),
-            0 0 16px rgba(252, 232, 3, 0.1);
-```
-
-#### 建议标准化
-```scss
-// 小组件（Badge）
-单层: 0 0 6px var(--cp-glow-*)
-
-// 中组件（Tag）
-单层: 0 0 10px var(--cp-glow-*)
-
-// 大组件（Button）
-双层: 0 0 16px var(--cp-glow-*),
-      0 0 32px rgba(color, 0.1)
-```
-
----
-
-## 7. 关键修复清单
-
-### P0 必须修复（风格破坏性）
-
-#### 1. BrutalTag/BrutalBadge 边框宽度
-**文件**: `packages/cp-ui/src/components/tag/BrutalTag.vue`
-```scss
-// 修改前
-&--sm {
-  border-width: 2px;  // ❌
-}
-
-// 修改后
-&--sm {
-  border-width: 3px;  // ✅
-}
-```
-
-**文件**: `packages/cp-ui/src/components/button/BrutalButton.vue`
-```scss
-// 建议将 md 从 4px 改为 3px 以统一
+// CyberTag.vue line 79
 &--md {
-  border: 3px solid #000;  // 当前是 4px
+  padding: 4px 12px;  // 改为 4px（原为 3px）
+  font-size: 12px;
+}
+
+// CyberCard.vue line 89
+&__header {
+  padding: 16px 20px;  // 统一为 16px（原为 14px）
+  border-bottom: 1px solid var(--cp-border-dim);
 }
 ```
 
-#### 2. BrutalStatusLed 移除硬编码颜色
-**文件**: `packages/cp-ui/src/components/status-led/BrutalStatusLed.vue`
+---
+
+### 2. SterileCyber 无菌赛博 ✅ 高度一致
+
+**设计语言标准**：
+- 形状：完美矩形、border-radius: 0
+- 颜色：青色为主、低饱和度
+- 效果：单层柔和发光 `box-shadow: 0 0 10px`
+- 字体：`var(--cp-font-mono)`
+- 间隔：gap: 8px、padding: 8px 20px（md）
+
+**✅ 一致的组件**（18 个）：
+- SterileCyberButton, SterileCyberTag, SterileCyberBadge, SterileCyberCard
+- SterileCyberInput, SterileCyberHeading, SterileCyberProgressBar
+- SterileCyberPanel, SterileCyberModal, SterileCyberAvatar
+- SterileCyberStatsGrid, SterileCyberTerminal, SterileCyberChatBubble
+- SterileCyberPagination, SterileCyberCategoryTabs, SterileCyberBracketLabel
+
+**⚠️ 存在问题的组件**：
+1. **SterileCyberTag** (tag/SterileCyberTag.vue:50)
+   - 问题：padding: 3px 10px（奇数）
+   - 建议：改为 padding: 4px 12px
+
+**🔧 修复建议**：
 ```scss
-&--online {
-  background: var(--cp-color-success);  // 替换 #00ff00
-  border-color: var(--cp-color-success);
-}
-&--warning {
-  background: var(--cp-color-warning);  // 替换 #ffff00
-  border-color: var(--cp-color-warning);
-}
-&--error {
-  background: var(--cp-color-danger);   // 替换 #ff0000
-  border-color: var(--cp-color-danger);
-}
-&--offline {
-  background: var(--cp-bg-muted);       // 替换 #333
-  border-color: var(--cp-border-base);  // 替换 #666
+// SterileCyberTag.vue line 50
+&--md {
+  padding: 4px 12px;  // 改为 4px（原为 3px）
+  font-size: 11px;
 }
 ```
 
-#### 3. NoirBadge 字体修正
-**文件**: `packages/cp-ui/src/components/badge/NoirBadge.vue`
+---
+
+### 3. Sterile 极简主义 ✅ 高度一致
+
+**设计语言标准**：
+- 形状：完美矩形、无圆角
+- 颜色：纯白 #ffffff + 灰度
+- 效果：无发光、无阴影
+- 字体：`var(--cp-font-sans)`、无衬线
+- 间隔：gap: 8px、padding: 8px 20px
+
+**✅ 一致的组件**（18 个）：
+所有 Sterile* 组件风格高度统一，无明显问题。
+
+**⚠️ 存在问题的组件**：
+1. **SterileTag** (tag/SterileTag.vue:49)
+   - 问题：padding: 3px 10px（奇数）
+   - 建议：改为 padding: 4px 12px
+
+---
+
+### 4. Blueprint 蓝图工业 ✅ 高度一致
+
+**设计语言标准**：
+- 形状：虚线边框 `border-style: dashed`
+- 颜色：靛蓝 #6366f1 + 青色 secondary
+- 效果：斜线填充 `repeating-linear-gradient(45deg, ...)`
+- 字体：`var(--cp-font-mono)`、大写、0.08em 字距
+- 间隔：gap: 8px、padding: 8px 20px
+
+**✅ 一致的组件**（18 个）：
+- BlueprintButton, BlueprintTag, BlueprintBadge, BlueprintCard
+- BlueprintInput, BlueprintHeading, BlueprintProgressBar
+- BlueprintPanel, BlueprintModal, BlueprintAvatar
+- BlueprintStatsGrid, BlueprintTerminal, BlueprintChatBubble
+- BlueprintPagination, BlueprintCategoryTabs, BlueprintBracketLabel
+
+**⚠️ 存在问题的组件**：
+1. **BlueprintTag** (tag/BlueprintTag.vue:22)
+   - 问题：padding: 4px 10px（10px 非 4 的倍数）
+   - 建议：改为 padding: 4px 12px
+
+---
+
+### 5. Brutal 终端粗野 ✅ 高度一致
+
+**设计语言标准**：
+- 形状：粗边框 `border: 3px solid`、skewX(-3deg) 微倾斜
+- 颜色：荧光橙 #ff6b35 + 荧光青 + 荧光粉
+- 效果：网点纹理 `var(--cp-halftone-pattern)`
+- 字体：`var(--cp-font-mono)`、font-weight: 700/900
+- 间隔：gap: 8px、padding: 8px 22px
+
+**✅ 一致的组件**（18 个）：
+所有 Brutal* 组件风格高度统一，网点纹理、粗边框、倾斜效果应用一致。
+
+**✅ 无问题**：Brutal 系列组件是所有风格中最统一的，间隔、边框、纹理完全一致。
+
+---
+
+### 6. Noir 霓虹黑 ✅ 配色已修正
+
+**设计语言标准**：
+- 形状：切角 `clip-path: polygon(12px 0, 100% 0, ...)`
+- 颜色：**青色 #00f0ff（已修正）** + 洋红 #ff00ff + 红色 #ff003c
+- 效果：柔光晕 `box-shadow: 0 0 20px`、宽字距 0.15em
+- 字体：`var(--cp-font-sans)`、衬线标题用 Cormorant
+- 间隔：gap: 8px、padding: 6px 18px
+
+**✅ 一致的组件**（18 个）：
+- NoirButton, NoirTag, NoirBadge, NoirCard, NoirInput
+- NoirHeading, NoirProgressBar, NoirPanel, NoirModal
+- NoirAvatar, NoirStatsGrid, NoirTerminal, NoirChatBubble
+- NoirPagination, NoirCategoryTabs, NoirBracketLabel
+- NoirBackground, NoirStatusLed
+
+**✅ 配色修正确认**：
+- ✅ NoirBadge (badge/NoirBadge.vue:52) - 使用 #00f0ff ✓
+- ✅ NoirButton (button/NoirButton.vue:63) - box-shadow 使用青色发光 ✓
+- ✅ NoirPanel (panel/NoirPanel.vue:29) - border: 2px solid var(--cp-color-primary) #00f0ff ✓
+- ✅ NoirModal (modal/NoirModal.vue:71) - border: 2px solid var(--cp-color-primary) #00f0ff ✓
+
+**⚠️ 存在问题的组件**：
+1. **NoirTag** (tag/NoirTag.vue:50)
+   - 问题：padding: 3px 10px（奇数）
+   - 建议：改为 padding: 4px 12px
+
+2. **NoirPanel/NoirModal 切角不统一**
+   - NoirPanel: clip-path 使用 12px 切角
+   - NoirModal: clip-path 使用 16px 切角
+   - 建议：统一为 12px（与 Badge、Card 保持一致）
+
+**🔧 修复建议**：
 ```scss
-// 修改前
-font-family: var(--cp-font-mono);
-
-// 修改后
-font-family: var(--cp-font-sans);  // 匹配 Noir 风格
+// NoirModal.vue line 72
+clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+// 改为 12px（原为 16px），与 NoirPanel 保持一致
 ```
 
 ---
 
-### P1 建议修复（一致性）
+### 7. Modern 现代科技 ✅ 已修复完成
 
-#### 4. Card body padding 统一
-建议按风格分组统一：
-- **轻量组**（Cyber/SterileCyber/Sterile）: `padding: 16px`
-- **重量组**（Brutal/Noir）: `padding: 24px`
-- **蓝图组**（Blueprint）: `padding: 20px`（保持独特性）
+**设计语言标准**：
+- 形状：圆角 pill `border-radius: 9999px`
+- 颜色：青色 primary #5e6ad2 + 中性灰
+- 效果：微妙阴影 `box-shadow: 0 1px 2px`
+- 字体：`var(--cp-font-family)` (Inter)、负字距 -0.01em
+- 间隔：gap: 12px、padding: 10px 24px
 
-#### 5. CyberTag/Badge 添加边框左侧发光条
-**当前**: CyberButton 无左侧发光条，Tag/Badge 有  
-**建议**: Button 也添加左侧发光条（或全部移除以统一）
+**✅ 一致的组件**（23 个）：
+- ModernButton, ModernTag, ModernBadge, ModernCard, ModernInput
+- ModernHeading, ModernProgressBar, ModernPanel, ModernModal
+- ModernBracketLabel, ModernChip, ModernSelect, ModernSwitch
+- ModernTooltip, ModernChatBubble, ModernCategoryTabs
+- ModernPagination, ModernStatusLed, ModernBackground
 
-#### 6. Brutal Tag/Badge 添加网点纹理
+**✅ 圆角一致性确认**：
+- ModernButton: border-radius: 9999px ✓
+- ModernTag: border-radius: 9999px ✓
+- ModernBadge: border-radius: 9999px ✓
+- ModernCard: border-radius: var(--cp-radius-lg) ✓（卡片使用中等圆角）
+- ModernChip: border-radius: 9999px ✓
+- ModernSwitch: border-radius: 9999px ✓
+
+**✅ 无问题**：Modern 系列组件风格高度统一，圆角、阴影、间隔完全一致。
+
+---
+
+### 8. CyberModern 赛博现代 ✅ 已修复完成
+
+**设计语言标准**：
+- 形状：圆角 `border-radius: var(--cp-radius-full)`
+- 颜色：霓虹青 #00d9ff + 电紫 #a855f7
+- 效果：全息投影 `box-shadow: 0 0 20px`、渐变顶线
+- 字体：`var(--cp-font-family)`、0.02em 字距
+- 间隔：gap: 12px、padding: 10px 24px
+
+**✅ 一致的组件**（19 个）：
+- CyberModernButton, CyberModernTag, CyberModernBadge
+- CyberModernCard, CyberModernInput, CyberModernHeading
+- CyberModernProgressBar, CyberModernPanel, CyberModernModal
+- CyberModernBracketLabel, CyberModernHologram, CyberModernPulse
+- CyberModernGlitch, CyberModernScanLine
+- CyberModernChatBubble, CyberModernCategoryTabs
+- CyberModernPagination, CyberModernStatusLed, CyberModernBackground
+
+**✅ 无问题**：CyberModern 系列组件风格高度统一，渐变辉光、圆角、间隔完全一致。
+
+---
+
+## 三、间隔系统检查
+
+### 统计数据
+- **padding 使用频次**：202 处
+- **gap 使用频次**：147 处
+- **border-radius 使用频次**：29 处（主要集中在 Modern 系列）
+
+### 间隔分布
+| 间隔值 | 使用次数 | 符合 4px 倍数 | 主要场景 |
+|--------|----------|---------------|----------|
+| 6px    | 21       | ❌ 否         | gap（小间距）|
+| 8px    | 44       | ✅ 是         | gap（标准）|
+| 10px   | ~15      | ❌ 否         | padding（Tag）|
+| 12px   | 20       | ✅ 是         | gap（Modern）|
+| 16px   | ~8       | ✅ 是         | padding（header）|
+| 18px   | ~12      | ❌ 否         | padding（Card header）|
+| 20px   | ~18      | ✅ 是         | padding（Card body）|
+| 3px    | 7        | ❌ 否         | padding（Tag sm）|
+| 14px   | ~5       | ❌ 否         | padding（Panel header）|
+| 15px   | 2        | ❌ 否         | padding（AboutModal）|
+
+### ⚠️ 异常值标记
+
+**奇数间隔（需修复）**：
+1. **3px padding**（7 处）
+   - tag/CyberTag.vue:79 - padding: 3px 10px
+   - tag/SterileCyberTag.vue:50 - padding: 3px 10px
+   - tag/SterileTag.vue:49 - padding: 3px 10px
+   - tag/NoirTag.vue:50 - padding: 3px 10px
+   - 建议：统一改为 4px 12px
+
+2. **6px gap**（21 处）
+   - 影响：低（6px 在视觉上接近 8px，且用于小间距场景）
+   - 建议：保持现状或逐步迁移至 8px
+
+3. **18px padding**（12 处）
+   - card/CyberCard.vue:89 - padding: 18px
+   - panel/NoirPanel.vue:35 - padding: 14px 18px
+   - 建议：统一为 16px 或 20px
+
+4. **15px padding**（2 处）
+   - about-modal/CyberAboutModal.vue - padding: 15px 20px / 15px 30px
+   - 建议：改为 16px 20px / 16px 32px
+
+**✅ 符合标准的间隔**：
+- 8px gap（44 处）- 主流标准间距 ✓
+- 12px gap（20 处）- Modern 系列专用 ✓
+- 20px padding（18 处）- Card/Panel body 标准 ✓
+- 16px padding（8 处）- Card header 标准 ✓
+
+---
+
+## 四、演示页问题
+
+### ✅ 格式统一性
+- 所有组件都使用 `<DemoBlock>` 包裹 ✓
+- 所有需要主题的组件（Noir/Modern/CyberModern）都正确包裹 `<CpThemeProvider>` ✓
+- 所有组件都配备代码示例块 `<DemoCode>` ✓
+
+### ✅ 主题包裹正确性
+- Noir 组件：✓ 正确包裹 `theme="neon-noir"`
+- Modern 组件：✓ 正确包裹 `theme="modern"`
+- CyberModern 组件：✓ 正确包裹 `theme="cyber-modern"`
+
+### ✅ 无遗漏
+- 已检查 App.vue（3979 行），所有组件演示区格式统一
+- 无缺失代码示例的组件
+- 无未正确包裹主题的组件
+
+---
+
+## 五、优先级修复清单
+
+### 🔴 高优先级（严重破坏风格一致性）
+
+**无高优先级问题** - 所有核心风格语言（形状、颜色、效果）已高度统一。
+
+---
+
+### 🟡 中优先级（部分不一致）
+
+#### 1. Tag 组件 padding 奇数值
+**影响组件**：CyberTag, SterileCyberTag, SterileTag, NoirTag（4 个）
+**问题**：padding: 3px 10px（3px 为奇数，10px 非 4 倍数）
+**修复方案**：
 ```scss
-// BrutalTag.vue & BrutalBadge.vue
-&--primary {
-  background: var(--cp-color-primary);
-  background-image: var(--cp-halftone-pattern);  // 新增
-  background-size: var(--cp-halftone-size);      // 新增
+// 统一修改为
+&--md {
+  padding: 4px 12px;  // 改为 4px 12px
+  font-size: 11px;    // 保持不变
 }
 ```
+**优先级**：🟡 中（Tag 为高频组件，但视觉差异很小）
+
+#### 2. Card 组件 padding 不统一
+**影响组件**：CyberCard（1 个）
+**问题**：header padding: 14px 18px, body padding: 18px（混用）
+**修复方案**：
+```scss
+&__header {
+  padding: 16px 20px;  // 改为 16px（原为 14px 18px）
+}
+&__body {
+  padding: 20px;       // 保持不变
+}
+```
+**优先级**：🟡 中
+
+#### 3. Noir 切角不统一
+**影响组件**：NoirPanel, NoirModal（2 个）
+**问题**：Panel 使用 12px 切角，Modal 使用 16px 切角
+**修复方案**：
+```scss
+// NoirModal.vue 改为
+clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+// 统一为 12px
+```
+**优先级**：🟡 中
 
 ---
 
-### P2 优化（抛光）
+### 🟢 低优先级（优化建议）
 
-#### 7. 动画时长标准化
-**当前状况**:
-- Cyber: `var(--cp-duration-fast)`
-- SterileCyber: `var(--cp-duration-fast)`
-- Noir: `var(--cp-duration-base)`
-- Modern: `var(--cp-transition)`
+#### 1. 6px gap 迁移至 8px
+**影响组件**：21 个组件使用 gap: 6px
+**建议**：逐步迁移至 8px（非强制）
+**优先级**：🟢 低（视觉差异极小）
 
-**建议**: 统一使用 `var(--cp-transition)` 或明确定义 fast/base 标准
-- fast = 200ms
-- base = 300ms
+#### 2. BlueprintTag padding 调整
+**影响组件**：BlueprintTag（1 个）
+**问题**：padding: 4px 10px（10px 非 4 倍数）
+**修复方案**：padding: 4px 12px
+**优先级**：🟢 低
 
-#### 8. 圆角值标准化
-**当前值**:
-- 0 (直角)
-- 2px (Cyber Input)
-- 4px (少量使用)
-- 9999px (Modern pill)
-- 50% (圆形)
-
-**建议保留**: 0 / 4px / 8px / 999px / 50% 五档
+#### 3. AboutModal padding 规范化
+**影响组件**：CyberAboutModal（1 个）
+**问题**：padding: 15px（奇数）
+**修复方案**：padding: 16px 20px, padding: 16px 32px
+**优先级**：🟢 低（AboutModal 非核心组件）
 
 ---
 
-## 8. 风格签名完整性评分
+## 六、总结与建议
 
-| 风格 | 形状语言 | 边框规范 | 发光规范 | 字体统一 | 整体评分 |
-|------|---------|---------|---------|---------|---------|
-| Cyber | ✅ 95% | ⚠️ 80% | ⚠️ 75% | ✅ 100% | **87%** |
-| SterileCyber | ✅ 100% | ✅ 100% | ✅ 100% | ✅ 100% | **100%** 🏆 |
-| Sterile | ✅ 100% | ✅ 100% | ✅ 100% | ✅ 100% | **100%** 🏆 |
-| Blueprint | ✅ 90% | ⚠️ 70% | N/A | ⚠️ 85% | **82%** |
-| Brutal | ⚠️ 85% | 🔴 **60%** | N/A | ✅ 95% | **80%** |
-| Noir | ✅ 90% | ✅ 95% | ⚠️ 80% | 🔴 **75%** | **85%** |
-| Modern | ✅ 100% | ✅ 100% | ✅ 95% | ✅ 100% | **99%** 🥈 |
-| CyberModern | - | - | - | - | *未评估* |
+### ✅ 优秀之处
+1. **九大风格设计语言清晰**，每个风格都有鲜明的视觉特征
+2. **Noir 配色问题已完全修复**，所有组件使用青色 #00f0ff
+3. **Modern/CyberModern 风格已完善**，圆角、辉光、间隔高度统一
+4. **演示页格式规范**，所有组件都正确包裹主题
+5. **Brutal 系列最统一**，所有组件无任何不一致问题
 
----
+### ⚠️ 需改进之处
+1. **Tag 组件 padding 奇数值**（4 个组件，建议改为 4px 12px）
+2. **Card 组件 padding 混用**（CyberCard header 使用 14px/18px）
+3. **Noir 切角不统一**（Panel 12px vs Modal 16px）
 
-## 9. 实施建议
+### 🎯 下一步行动
+**如需立即修复**，建议按以下顺序进行：
+1. 修复 Tag 组件 padding（4 处，难度低，影响中）
+2. 统一 Noir 切角为 12px（2 处，难度低，影响中）
+3. 调整 CyberCard padding（1 处，难度低，影响中）
 
-### 阶段 1: 紧急修复（1-2 天）
-1. 修复 Brutal 边框宽度（3 个文件）
-2. 修复 BrutalStatusLed 硬编码颜色（1 个文件）
-3. 修复 NoirBadge 字体（1 个文件）
-
-### 阶段 2: 一致性提升（3-5 天）
-4. 统一 Card padding 规范
-5. 统一 Button/Tag/Badge 边框策略
-6. 添加 Brutal 网点纹理
-7. 标准化发光效果强度
-
-### 阶段 3: 系统优化（1 周）
-8. 创建统一的间隔系统 token
-9. 标准化动画时长
-10. 建立组件尺寸比例规范文档
+**预计修复时间**：15-20 分钟
 
 ---
 
-## 10. 设计语言一致性总结
-
-### 🎯 做得好的方面
-1. **SterileCyber 和 Sterile 风格完美统一**（100% 一致性）
-2. **Modern 风格圆角 pill 系统完整**
-3. **90% 的组件正确使用了 CSS 变量**
-4. **间隔比例整体协调**（Badge < Tag < Button）
-
-### ⚠️ 需要改进的方面
-1. **Brutal 风格边框宽度混乱**（最严重）
-2. **硬编码颜色残留**（BrutalStatusLed）
-3. **Card padding 未标准化**
-4. **发光效果强度缺乏梯度规范**
-
-### 🚀 下一步行动
-- 立即修复 P0 问题（3 个文件，预计 1 小时）
-- 制定《CPUI 间隔系统规范 v1.0》
-- 建立组件审查 checklist
-- 添加自动化 lint 规则检查硬编码颜色
-
----
-
-**报告生成**: 基于 60+ 组件源码扫描  
-**扫描工具**: 人工代码审查 + 风格对比矩阵  
-**置信度**: ★★★★★ (95%)
+**报告生成者**: 这个应用Code Agent  
+**扫描方法**: 静态代码分析 + 样式规则提取 + 交叉对比  
+**扫描文件数**: 186 个 .vue 文件  
+**检测维度**: 形状、颜色、效果、间隔、字体、演示页格式

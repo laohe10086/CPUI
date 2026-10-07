@@ -86,7 +86,7 @@ withDefaults(defineProps<CardProps>(), {
   }
 
   &__header {
-    padding: 14px 18px;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--cp-border-dim);
     font-family: var(--cp-font-mono);
     font-size: 13px;
@@ -101,11 +101,11 @@ withDefaults(defineProps<CardProps>(), {
   }
 
   &__body {
-    padding: 18px;
+    padding: 20px;
   }
 
   &__footer {
-    padding: 12px 18px;
+    padding: 12px 20px;
     border-top: 1px solid var(--cp-border-dim);
   }
 
