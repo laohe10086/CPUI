@@ -17,48 +17,36 @@ withDefaults(defineProps<BadgeProps>(), {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 14px;
+  padding: 4px 10px;
   font-family: var(--cp-font-mono);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 900;
-  border: 4px solid currentColor;
-  background: currentColor;
-  color: #000;
-  min-width: 48px;
-  height: 36px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
-  position: relative;
+  border: 3px solid currentColor;
+  background: transparent;
+  min-width: 32px;
+  height: 32px;
+  transform: skewX(-3deg);
 
   &--default {
-    background: #888;
-    border-color: #888;
-    color: #000;
+    color: var(--cp-text-secondary);
+    border-color: var(--cp-text-secondary);
   }
 
   &--primary {
-    background: #fce803;
-    border-color: #fce803;
+    color: var(--cp-color-primary);
+    border-color: var(--cp-color-primary);
+    background: var(--cp-color-primary);
     color: #000;
   }
 
   &--secondary {
-    background: #ff6b35;
-    border-color: #ff6b35;
-    color: #000;
+    color: var(--cp-color-secondary);
+    border-color: var(--cp-color-secondary);
   }
 
   &--danger {
-    background: #ff003c;
-    border-color: #ff003c;
-    color: #fff;
-  }
-  
-  &--success {
-    background: #00ff41;
-    border-color: #00ff41;
-    color: #000;
+    color: var(--cp-color-danger);
+    border-color: var(--cp-color-danger);
   }
 }
 </style>

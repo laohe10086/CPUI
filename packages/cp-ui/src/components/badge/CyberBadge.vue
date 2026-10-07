@@ -20,99 +20,101 @@ withDefaults(defineProps<BadgeProps>(), {
   align-items: center;
   font-family: var(--cp-font-mono);
   font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 500;
+  padding: 2px 8px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--cp-border-base);
+  border-left: 2px solid transparent;
   position: relative;
-  clip-path: polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px);
-  
+
   &::before {
     content: '';
     position: absolute;
-    inset: 0;
-    opacity: 0.6;
-    z-index: -1;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: -2px;
+    top: 4px;
+    bottom: 4px;
     width: 2px;
-    background: currentColor;
-    box-shadow: 0 0 8px currentColor;
   }
 
   &--default {
-    background: rgba(100, 100, 120, 0.2);
-    border: 1px solid rgba(160, 160, 180, 0.4);
-    color: #a0a0b4;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--cp-text-secondary);
+    &::before { background: var(--cp-text-muted); }
   }
-  
   &--primary {
-    background: linear-gradient(135deg, rgba(252, 232, 3, 0.25), rgba(252, 232, 3, 0.15));
-    border: 1px solid rgba(252, 232, 3, 0.5);
-    color: #fce803;
-    text-shadow: 0 0 8px rgba(252, 232, 3, 0.8), 0 0 4px rgba(252, 232, 3, 0.6);
-    box-shadow: 0 0 12px rgba(252, 232, 3, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: cyber-badge-glitch 3s ease-in-out infinite;
-    &::before {
-      background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
-      animation: cyber-badge-scan 2s linear infinite;
-    }
+    background: rgba(252, 232, 3, 0.15);
+    color: var(--cp-color-primary);
+    border-color: rgba(252, 232, 3, 0.3);
+    border-left-color: transparent;
+    text-shadow: 0 0 6px var(--cp-glow-primary);
+    animation: cp-badge-pulse-primary 2.5s ease-in-out infinite;
+    &::before { background: var(--cp-color-primary); box-shadow: 0 0 6px var(--cp-glow-primary); }
   }
-  
   &--secondary {
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(0, 240, 255, 0.15));
-    border: 1px solid rgba(0, 240, 255, 0.5);
-    color: #00f0ff;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 4px rgba(0, 240, 255, 0.6);
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: rgba(0, 240, 255, 0.15);
+    color: var(--cp-color-secondary);
+    border-color: rgba(0, 240, 255, 0.3);
+    border-left-color: transparent;
+    text-shadow: 0 0 6px var(--cp-glow-secondary);
+    animation: cp-badge-pulse-secondary 2.5s ease-in-out infinite;
+    &::before { background: var(--cp-color-secondary); box-shadow: 0 0 6px var(--cp-glow-secondary); }
   }
-  
   &--danger {
-    background: linear-gradient(135deg, rgba(255, 0, 60, 0.3), rgba(255, 0, 60, 0.2));
-    border: 1px solid rgba(255, 0, 60, 0.6);
-    color: #ff003c;
-    text-shadow: 0 0 10px rgba(255, 0, 60, 0.9), 0 0 5px rgba(255, 0, 60, 0.7);
-    box-shadow: 0 0 16px rgba(255, 0, 60, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: cyber-badge-pulse 1.5s ease-in-out infinite;
+    background: rgba(255, 0, 60, 0.15);
+    color: var(--cp-color-danger);
+    border-color: rgba(255, 0, 60, 0.3);
+    border-left-color: transparent;
+    text-shadow: 0 0 6px var(--cp-glow-danger);
+    animation: cp-badge-pulse-danger 2.5s ease-in-out infinite;
+    &::before { background: var(--cp-color-danger); box-shadow: 0 0 6px var(--cp-glow-danger); }
   }
-  
   &--success {
-    background: linear-gradient(135deg, rgba(0, 255, 65, 0.25), rgba(0, 255, 65, 0.15));
-    border: 1px solid rgba(0, 255, 65, 0.5);
-    color: #00ff41;
-    text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
-    box-shadow: 0 0 12px rgba(0, 255, 65, 0.3);
+    background: rgba(0, 255, 65, 0.15);
+    color: var(--cp-color-success);
+    border-color: rgba(0, 255, 65, 0.3);
+    border-left-color: transparent;
+    &::before { background: var(--cp-color-success); box-shadow: 0 0 6px rgba(0, 255, 65, 0.4); }
   }
 
   &--cut {
-    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    clip-path: var(--cp-cut-corner-sm);
+  }
+  &--irregular,
+  &--regular {
+    /* 保持原样，无额外形状 */
   }
 }
 
-@keyframes cyber-badge-glitch {
-  0%, 90%, 100% { transform: translate(0, 0); }
-  92% { transform: translate(-1px, 0); }
-  94% { transform: translate(1px, 0); }
-  96% { transform: translate(0, 0); }
-}
-
-@keyframes cyber-badge-scan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
-@keyframes cyber-badge-pulse {
+@keyframes cp-badge-pulse-primary {
   0%, 100% {
-    box-shadow: 0 0 12px rgba(255, 0, 60, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 4px var(--cp-glow-primary);
+    box-shadow: 0 0 4px rgba(252, 232, 3, 0.1);
   }
   50% {
-    box-shadow: 0 0 24px rgba(255, 0, 60, 0.6), 0 0 36px rgba(255, 0, 60, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 12px var(--cp-glow-primary), 0 0 20px rgba(252, 232, 3, 0.3);
+    box-shadow: 0 0 8px rgba(252, 232, 3, 0.2), 0 0 16px rgba(252, 232, 3, 0.1);
+  }
+}
+
+@keyframes cp-badge-pulse-secondary {
+  0%, 100% {
+    text-shadow: 0 0 4px var(--cp-glow-secondary);
+    box-shadow: 0 0 4px rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 12px var(--cp-glow-secondary), 0 0 20px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2), 0 0 16px rgba(0, 240, 255, 0.1);
+  }
+}
+
+@keyframes cp-badge-pulse-danger {
+  0%, 100% {
+    text-shadow: 0 0 4px var(--cp-glow-danger);
+    box-shadow: 0 0 4px rgba(255, 0, 60, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 12px var(--cp-glow-danger), 0 0 20px rgba(255, 0, 60, 0.3);
+    box-shadow: 0 0 8px rgba(255, 0, 60, 0.2), 0 0 16px rgba(255, 0, 60, 0.1);
   }
 }
 </style>
