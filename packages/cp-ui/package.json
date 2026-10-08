@@ -1,6 +1,6 @@
 {
   "name": "@yuanfangmao/cp-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "main": "./dist/cp-ui.cjs",
   "module": "./dist/cp-ui.mjs",
