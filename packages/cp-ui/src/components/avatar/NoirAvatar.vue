@@ -1,15 +1,23 @@
 <template>
   <div class="noir-avatar" :class="[`noir-avatar--${size}`, { 'noir-avatar--loading': loading }]">
     <div class="noir-avatar__frame">
-      <img
-        v-if="src && !hasError"
-        :src="src"
-        :alt="alt"
-        class="noir-avatar__img"
-        @error="hasError = true"
-      />
-      <span v-else class="noir-avatar__fallback">{{ fallbackIcon }}</span>
-      <div class="noir-avatar__glow" />
+      <div class="noir-avatar__inner">
+        <img
+          v-if="src && !hasError"
+          :src="src"
+          :alt="alt"
+          class="noir-avatar__img"
+          @error="hasError = true"
+        />
+        <span v-else class="noir-avatar__fallback">
+          <svg v-if="!fallbackIcon" class="noir-avatar__fallback-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="8.5" r="3.5" />
+            <path d="M12 14.5c-3.9 0-7 2.1-7 4.8v.7h14v-.7c0-2.7-3.1-4.8-7-4.8z" />
+          </svg>
+          <template v-else>{{ fallbackIcon }}</template>
+        </span>
+        <div class="noir-avatar__glow" />
+      </div>
     </div>
     <span v-if="id" class="noir-avatar__id">{{ id }}</span>
     <CpStatusLed
@@ -36,7 +44,7 @@ withDefaults(defineProps<AvatarProps>(), {
   id: '',
   status: undefined,
   statusPulse: false,
-  fallbackIcon: '◆',
+  fallbackIcon: '',
   shape: 'cut',
 })
 
@@ -61,21 +69,25 @@ const hasError = ref(false)
   width: 48px;
   height: 48px;
   clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-  background: var(--cp-bg-elevated);
-  border: 2px solid var(--cp-color-primary);
-  overflow: hidden;
-  transition: all var(--cp-duration-fast) var(--cp-easing);
+  background: var(--cp-color-primary);
+  transition: background var(--cp-duration-fast) var(--cp-easing), filter var(--cp-duration-fast) var(--cp-easing);
 
   .noir-avatar--loading & {
     animation: noir-avatar-glow 1.5s ease-in-out infinite;
   }
 
   &:hover {
-    border-color: var(--cp-color-secondary);
-    box-shadow: 
-      0 0 20px var(--cp-glow-primary),
-      inset 0 0 20px rgba(0, 240, 255, 0.1);
+    background: var(--cp-color-secondary);
+    filter: drop-shadow(0 0 10px var(--cp-glow-primary));
   }
+}
+
+.noir-avatar__inner {
+  position: absolute;
+  inset: 2px;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  overflow: hidden;
+  background: var(--cp-bg-elevated);
 }
 
 .noir-avatar__img {
@@ -90,22 +102,24 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
-    var(--cp-bg-base);
+  background: var(--cp-bg-base);
   color: var(--cp-color-primary);
   font-family: var(--cp-font-display);
   font-size: 1.4em;
-  font-weight: 600;
+}
+
+.noir-avatar__fallback-icon {
+  width: 55%;
+  height: 55%;
+  opacity: 0.75;
 }
 
 .noir-avatar__glow {
   position: absolute;
-  inset: -2px;
+  inset: 0;
   background: radial-gradient(circle at 50% 0%, var(--cp-color-primary) 0%, transparent 60%);
   opacity: 0;
-  transition: opacity var(--cp-duration-normal) var(--cp-easing);
+  transition: opacity var(--cp-duration-base) var(--cp-easing);
   pointer-events: none;
 
   .noir-avatar__frame:hover & {
@@ -116,12 +130,9 @@ const hasError = ref(false)
 .noir-avatar__id {
   font-family: var(--cp-font-mono);
   font-size: 0.65em;
-  color: var(--cp-color-secondary);
-  letter-spacing: 1px;
+  color: var(--cp-text-muted);
+  letter-spacing: 2px;
   text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-color: var(--cp-color-secondary);
-  text-underline-offset: 2px;
 }
 
 .noir-avatar__status {
@@ -131,13 +142,13 @@ const hasError = ref(false)
 }
 
 @keyframes noir-avatar-glow {
-  0%, 100% { 
-    border-color: var(--cp-color-primary);
-    box-shadow: 0 0 10px var(--cp-glow-primary);
+  0%, 100% {
+    background: var(--cp-color-primary);
+    filter: drop-shadow(0 0 4px var(--cp-glow-primary));
   }
-  50% { 
-    border-color: var(--cp-color-secondary);
-    box-shadow: 0 0 20px var(--cp-glow-secondary);
+  50% {
+    background: var(--cp-color-secondary);
+    filter: drop-shadow(0 0 10px var(--cp-glow-secondary));
   }
 }
 </style>

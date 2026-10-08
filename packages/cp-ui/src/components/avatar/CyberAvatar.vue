@@ -1,15 +1,17 @@
 <template>
   <div class="cyber-avatar" :class="[`cyber-avatar--${size}`, { 'cyber-avatar--loading': loading, 'cyber-avatar--cut': shape === 'cut', 'cyber-avatar--irregular': shape === 'irregular', 'cyber-avatar--regular': shape === 'regular' }]">
     <div class="cyber-avatar__frame">
-      <img
-        v-if="src && !hasError"
-        :src="src"
-        :alt="alt"
-        class="cyber-avatar__img"
-        @error="hasError = true"
-      />
-      <span v-else class="cyber-avatar__fallback">{{ fallbackIcon }}</span>
-      <div v-if="scanline" class="cyber-avatar__scanline" />
+      <div class="cyber-avatar__inner">
+        <img
+          v-if="src && !hasError"
+          :src="src"
+          :alt="alt"
+          class="cyber-avatar__img"
+          @error="hasError = true"
+        />
+        <span v-else-if="fallbackIcon" class="cyber-avatar__fallback">{{ fallbackIcon }}</span>
+        <div v-if="scanline" class="cyber-avatar__scanline" />
+      </div>
     </div>
     <span v-if="id" class="cyber-avatar__id">{{ id }}</span>
     <CpStatusLed
@@ -36,8 +38,8 @@ withDefaults(defineProps<AvatarProps>(), {
   id: '',
   status: undefined,
   statusPulse: false,
-  fallbackIcon: '?',
-  shape: 'irregular',
+  fallbackIcon: '',
+  shape: 'regular',
 })
 
 const hasError = ref(false)
@@ -55,14 +57,17 @@ const hasError = ref(false)
   &--md .cyber-avatar__frame { width: 48px; height: 48px; }
   &--lg .cyber-avatar__frame { width: 64px; height: 64px; }
 
-  &--cut .cyber-avatar__frame {
-    clip-path: var(--cp-cut-corner-sm);
+  &--cut {
+    .cyber-avatar__frame,
+    .cyber-avatar__inner {
+      clip-path: var(--cp-cut-corner-sm);
+    }
   }
-  &--irregular .cyber-avatar__frame {
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-  }
-  &--regular .cyber-avatar__frame {
-    /* 保持矩形 */
+  &--irregular {
+    .cyber-avatar__frame,
+    .cyber-avatar__inner {
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    }
   }
 }
 
@@ -70,21 +75,25 @@ const hasError = ref(false)
   position: relative;
   width: 48px;
   height: 48px;
-  border: 2px solid var(--cp-color-secondary);
-  overflow: hidden;
-  transition: all var(--cp-duration-fast) var(--cp-easing);
+  background: var(--cp-color-secondary);
+  transition: filter var(--cp-duration-fast) var(--cp-easing), transform var(--cp-duration-fast) var(--cp-easing), background var(--cp-duration-fast) var(--cp-easing);
 
   .cyber-avatar--loading & {
-    border-color: var(--cp-text-muted);
+    background: var(--cp-text-muted);
     animation: cyber-avatar-load 1s linear infinite;
   }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow:
-      0 0 15px var(--cp-glow-secondary),
-      0 0 30px rgba(0, 240, 255, 0.1);
+    filter: drop-shadow(0 0 8px var(--cp-glow-secondary));
   }
+}
+
+.cyber-avatar__inner {
+  position: absolute;
+  inset: 2px;
+  overflow: hidden;
+  background: var(--cp-bg-elevated);
 }
 
 .cyber-avatar__img {
@@ -99,11 +108,12 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(252, 232, 3, 0.1) 0%, rgba(0, 240, 255, 0.05) 100%);
+  background: var(--cp-bg-elevated);
   color: var(--cp-color-primary);
   font-family: var(--cp-font-mono);
   font-size: 1.2em;
   font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .cyber-avatar__scanline {

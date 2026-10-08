@@ -56,6 +56,7 @@ withDefaults(defineProps<PanelProps>(), {
   }
 
   &__label {
+    margin-right: 10px;
     font-family: var(--cp-font-mono);
     text-transform: uppercase;
     letter-spacing: 0.1em;

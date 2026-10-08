@@ -8,7 +8,13 @@
         class="sc-avatar__img"
         @error="hasError = true"
       />
-      <span v-else class="sc-avatar__fallback">{{ fallbackIcon }}</span>
+      <span v-else class="sc-avatar__fallback">
+        <svg v-if="!fallbackIcon" class="sc-avatar__fallback-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="8.5" r="3.5" />
+          <path d="M12 14.5c-3.9 0-7 2.1-7 4.8v.7h14v-.7c0-2.7-3.1-4.8-7-4.8z" />
+        </svg>
+        <template v-else>{{ fallbackIcon }}</template>
+      </span>
     </div>
     <span v-if="id" class="sc-avatar__id">{{ id }}</span>
     <CpStatusLed
@@ -35,7 +41,7 @@ withDefaults(defineProps<AvatarProps>(), {
   id: '',
   status: undefined,
   statusPulse: false,
-  fallbackIcon: '?',
+  fallbackIcon: '',
 })
 
 const hasError = ref(false)
@@ -90,6 +96,13 @@ const hasError = ref(false)
   color: var(--cp-text-muted);
   font-family: var(--cp-font-mono);
   font-size: 1.2em;
+}
+
+.sc-avatar__fallback-icon {
+  width: 55%;
+  height: 55%;
+  color: var(--cp-color-secondary);
+  opacity: 0.5;
 }
 
 .sc-avatar__id {

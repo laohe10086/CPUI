@@ -36,6 +36,7 @@ withDefaults(defineProps<PanelProps>(), {
   }
 
   &__label {
+    margin-right: 10px;
     font-size: 11px;
     color: var(--cp-text-dim);
   }

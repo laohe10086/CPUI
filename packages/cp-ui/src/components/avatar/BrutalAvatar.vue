@@ -8,7 +8,13 @@
         class="brutal-avatar__img"
         @error="hasError = true"
       />
-      <span v-else class="brutal-avatar__fallback">{{ fallbackIcon }}</span>
+      <span v-else class="brutal-avatar__fallback">
+        <svg v-if="!fallbackIcon" class="brutal-avatar__fallback-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="8.5" r="3.5" />
+          <path d="M12 14.5c-3.9 0-7 2.1-7 4.8v.7h14v-.7c0-2.7-3.1-4.8-7-4.8z" />
+        </svg>
+        <template v-else>{{ fallbackIcon }}</template>
+      </span>
     </div>
     <span v-if="id" class="brutal-avatar__id">[ {{ id }} ]</span>
     <CpStatusLed
@@ -35,7 +41,7 @@ withDefaults(defineProps<AvatarProps>(), {
   id: '',
   status: undefined,
   statusPulse: false,
-  fallbackIcon: 'X',
+  fallbackIcon: '',
   shape: 'regular',
 })
 
@@ -60,6 +66,7 @@ const hasError = ref(false)
   width: 48px;
   height: 48px;
   border: 2px solid var(--cp-color-primary);
+  box-shadow: 3px 3px 0 0 var(--cp-color-primary);
   overflow: hidden;
   transition: all var(--cp-duration-fast) var(--cp-easing);
 
@@ -70,7 +77,7 @@ const hasError = ref(false)
   &:hover {
     background: var(--cp-color-primary);
     border-color: var(--cp-bg-base);
-    
+
     .brutal-avatar__img {
       filter: invert(1);
     }
@@ -93,17 +100,18 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle, var(--cp-color-primary) 1px, transparent 1px),
-    var(--cp-bg-base);
-  background-size: 4px 4px;
-  background-position: 0 0, 2px 2px;
-  color: var(--cp-color-primary);
+  background: var(--cp-bg-base);
+  color: var(--cp-text-primary);
   font-family: var(--cp-font-mono);
-  font-size: 1.4em;
-  font-weight: 900;
+  font-size: 1.2em;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 2px;
+}
+
+.brutal-avatar__fallback-icon {
+  width: 55%;
+  height: 55%;
 }
 
 .brutal-avatar__id {

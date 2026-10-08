@@ -64,12 +64,12 @@ withDefaults(defineProps<{
   }
 
   &--secondary {
-    background: transparent;
+    background: var(--cp-surface-2);
     color: var(--cp-text-primary);
     border: 1px solid var(--cp-border);
 
     &:hover:not(.modern-button--disabled) {
-      background: var(--cp-surface-1);
+      background: var(--cp-surface-3);
       border-color: var(--cp-primary);
     }
   }

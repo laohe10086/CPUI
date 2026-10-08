@@ -12,7 +12,13 @@
         class="blueprint-avatar__img"
         @error="hasError = true"
       />
-      <span v-else class="blueprint-avatar__fallback">{{ fallbackIcon }}</span>
+      <span v-else class="blueprint-avatar__fallback">
+        <svg v-if="!fallbackIcon" class="blueprint-avatar__fallback-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="8.5" r="3.5" />
+          <path d="M12 14.5c-3.9 0-7 2.1-7 4.8v.7h14v-.7c0-2.7-3.1-4.8-7-4.8z" />
+        </svg>
+        <template v-else>{{ fallbackIcon }}</template>
+      </span>
     </div>
     <span v-if="id" class="blueprint-avatar__id">FIG.{{ id }}</span>
     <CpStatusLed
@@ -39,7 +45,7 @@ withDefaults(defineProps<AvatarProps>(), {
   id: '',
   status: undefined,
   statusPulse: false,
-  fallbackIcon: '?',
+  fallbackIcon: '',
   shape: 'regular',
 })
 
@@ -102,27 +108,18 @@ const hasError = ref(false)
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(99, 102, 241, 0.03) 2px,
-      rgba(99, 102, 241, 0.03) 4px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2px,
-      rgba(99, 102, 241, 0.03) 2px,
-      rgba(99, 102, 241, 0.03) 4px
-    ),
-    var(--cp-bg-base);
-  color: var(--cp-color-primary);
+  background: var(--cp-bg-base);
+  color: var(--cp-text-muted);
   font-family: var(--cp-font-mono);
   font-size: 1.2em;
-  font-weight: 600;
   text-transform: uppercase;
+}
+
+.blueprint-avatar__fallback-icon {
+  width: 55%;
+  height: 55%;
+  color: var(--cp-color-primary);
+  opacity: 0.6;
 }
 
 .blueprint-avatar__id {

@@ -30,8 +30,8 @@
   --cp-glow-danger: transparent;
   --cp-glow-intensity: 0;
   
-  --cp-halftone-pattern: radial-gradient(circle, currentColor 1px, transparent 1px);
-  --cp-halftone-size: 4px 4px;
+  --cp-halftone-pattern: radial-gradient(circle, rgba(0, 0, 0, 0.28) 1px, transparent 1.4px);
+  --cp-halftone-size: 5px 5px;
 
   --cp-grid-line: rgba(255, 255, 255, 0.08);
   --cp-grid-dot: rgba(255, 255, 255, 0.3);
